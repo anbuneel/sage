@@ -1,0 +1,69 @@
+# SAGE — Smart Agentic Guide Engine
+
+> **"Policy intelligence that works for you."**
+
+SAGE is an AI-powered solution that transforms mortgage guidelines from static documents into an intelligent system that:
+
+- **Monitors** policy changes across Fannie Mae and Freddie Mac
+- **Reasons** about loan scenarios and eligibility
+- **Compares** GSE products side-by-side
+- **Suggests** actionable fixes when loans fail eligibility
+- **Generates** code updates for compliance
+
+## The Problem
+
+The Fannie Mae Selling Guide and Freddie Mac Seller/Servicer Guide are massive (1,200+ pages each) and change frequently. Lenders struggle to keep up with policy changes, understand eligibility, and maintain compliance.
+
+## How SAGE Goes Beyond AskPoli
+
+| AskPoli | SAGE |
+|---------|------|
+| Reactive search/Q&A | **Proactive** change monitoring |
+| Text responses | **Generates code** showing rule updates |
+| Finds the rule | **Reasons** about your specific loan scenario |
+| Fannie Mae only | **Fannie + Freddie** comparison |
+
+## Features
+
+### Four Tabs
+
+1. **Ask the Guide** — RAG-powered Q&A with citations
+2. **What Changed** — Timeline of detected policy updates
+3. **Generated Updates** — Code diffs for rule engine updates
+4. **Check My Loan** — Scenario analyzer with fix suggestions
+
+### Four Agentic Layers
+
+| Agent | Function |
+|-------|----------|
+| Change Detection | Monitors for new Lender Letters and Bulletins |
+| Impact Analyst | Compares old vs new policy semantically |
+| Code Generator | Drafts rule engine updates |
+| Scenario Reasoner | Analyzes loans, explains failures, suggests fixes |
+
+## Tech Stack
+
+- **Frontend:** Next.js + Tailwind
+- **Backend:** FastAPI (Python)
+- **Vector DB:** Pinecone
+- **LLM:** Claude 3.5 Sonnet
+- **Agentic Framework:** LangGraph
+- **Database:** PostgreSQL (Supabase)
+- **Deployment:** Vercel + Railway
+
+## MVP Scope
+
+- **Products:** HomeReady (Fannie Mae) + Home Possible (Freddie Mac)
+- **Comparison:** Side-by-side eligibility analysis across GSEs
+
+## Documentation
+
+- [Project Specification](./PROJECT_SPEC.md) — Detailed architecture, data model, and implementation plan
+
+## Status
+
+🚧 **In Development**
+
+---
+
+Built to showcase AI/GenAI/Agentic capabilities for mortgage industry applications.
