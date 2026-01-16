@@ -6,16 +6,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 SAGE (Smart Agentic Guide Engine) is an AI-powered mortgage policy intelligence system that transforms Fannie Mae and Freddie Mac guidelines into an actionable platform. It monitors policy changes, reasons about loan scenarios, compares GSE products, and generates code updates for compliance.
 
-**Status:** Phase 1 Complete - Core UI and eligibility rules engine implemented. Design system complete.
+**Status:** Phase 2 Infrastructure Complete - RAG chat and policy updates backend ready. Requires API keys to activate.
 
 ## Tech Stack
 
 - **Frontend:** Next.js 16 + Tailwind CSS 4
 - **Backend:** FastAPI (Python 3.11+)
-- **Vector DB:** Pinecone (Phase 2)
-- **LLM:** Claude 3.5 Sonnet via LangGraph for agentic workflows (Phase 2)
-- **Database:** PostgreSQL (Phase 2)
-- **Embeddings:** OpenAI text-embedding-3-small (Phase 2)
+- **Vector DB:** Pinecone (implemented, needs API key)
+- **LLM:** Claude 3.5 Sonnet via Anthropic SDK (implemented, needs API key)
+- **Database:** PostgreSQL via SQLAlchemy async (implemented, falls back to SQLite)
+- **Embeddings:** OpenAI text-embedding-3-small (implemented, needs API key)
 
 ## Hosting (Fly.io)
 
@@ -43,29 +43,39 @@ sage/
 │   │   ├── ChangeTimeline.tsx   # Policy updates timeline
 │   │   └── CodeDiff.tsx         # Code diff viewer
 │   └── lib/                     # Utilities
-│       ├── api.ts               # API client with mock functions
+│       ├── api.ts               # API client
 │       └── types.ts             # TypeScript interfaces
 ├── backend/                     # FastAPI application
 │   └── app/
-│       ├── main.py              # Application entry point
+│       ├── main.py              # Application entry point with DB lifecycle
 │       ├── config.py            # Settings and configuration
 │       ├── routers/             # API endpoints
 │       │   ├── eligibility.py   # POST /api/check-loan
-│       │   ├── chat.py          # POST /api/chat
-│       │   └── changes.py       # GET /api/changes
+│       │   ├── chat.py          # POST /api/chat (RAG-enabled)
+│       │   └── changes.py       # GET /api/changes (DB-enabled)
 │       ├── models/              # Pydantic models
 │       │   ├── loan.py          # LoanScenario, EligibilityResult
 │       │   ├── chat.py          # ChatMessage, ChatResponse
 │       │   └── policy.py        # PolicyUpdate, CodeDiffResponse
 │       ├── services/            # Business logic
-│       │   └── rules_engine.py  # 880-line eligibility rules engine
-│       └── db/                  # Database (Phase 2)
+│       │   ├── rules_engine.py  # 880-line eligibility rules engine
+│       │   ├── pinecone_service.py   # Vector DB operations
+│       │   ├── embedding_service.py  # Text embeddings
+│       │   ├── rag_service.py        # RAG pipeline
+│       │   └── scrapers/             # Policy update scrapers
+│       │       ├── base_scraper.py
+│       │       ├── fannie_mae_scraper.py
+│       │       └── freddie_mac_scraper.py
+│       └── db/                  # Database layer
+│           ├── database.py      # Async SQLAlchemy connection
+│           └── models.py        # ORM models (PolicyUpdate, etc.)
 ├── contracts/                   # API contracts
 │   └── api_contracts.md         # Shared interfaces between frontend/backend
 ├── data/                        # Scraped guide content
 │   └── scraped_guides/          # 17 guide files (~490K characters)
 └── scripts/
-    └── scrape_guides.py         # Guide scraping script
+    ├── scrape_guides.py         # Guide scraping script
+    └── ingest_guides.py         # Embed guides into Pinecone
 ```
 
 ## Commands
@@ -88,10 +98,20 @@ pytest tests/test_file.py -k "test_name"  # Run single test
 
 ### Data Ingestion (from `scripts/`)
 ```bash
-python ingest_fannie_guide.py     # Ingest Fannie Mae Selling Guide
-python ingest_freddie_guide.py    # Ingest Freddie Mac Guide
-python seed_eligibility_rules.py  # Seed eligibility rules for HomeReady/Home Possible
-python check_for_updates.py       # Check for new Lender Letters/Bulletins
+python scrape_guides.py           # Scrape guide content from GSE websites
+python ingest_guides.py           # Embed guides into Pinecone (requires OPENAI_API_KEY, PINECONE_API_KEY)
+```
+
+### Environment Setup
+```bash
+# Copy example env file
+cp backend/.env.example backend/.env
+
+# Required API keys for Phase 2 features:
+# - PINECONE_API_KEY: Vector storage for RAG
+# - ANTHROPIC_API_KEY: Claude for chat responses
+# - OPENAI_API_KEY: Text embeddings
+# - DATABASE_URL: PostgreSQL connection (optional, uses SQLite by default)
 ```
 
 ## Architecture
@@ -115,36 +135,46 @@ python check_for_updates.py       # Check for new Lender Letters/Bulletins
 - **Products:** HomeReady (Fannie Mae) and Home Possible (Freddie Mac)
 - **Key eligibility rules:** Max DTI (50%), Max LTV (97%), Min Credit (620/660), Income Limit (80% AMI), Occupancy, Property Types, Homeownership Education
 
-## Phase 2 Notes (from Gemini Review)
+## Phase 2 Implementation Status
 
-### Code Generation Tab
-- Output **JSON Logic** or **YAML** rules instead of just Python
-- Makes it look enterprise-ready (compatible with BRE like Drools, IBM ODM)
+### Completed ✅
 
-### Data Model Enhancement
-- Add `affected_rule_ids` (Array of UUIDs) to `POLICY_UPDATES` table
-- Links policy changes to specific rows in `ELIGIBILITY_RULES`
-- Enables "which rules are now obsolete" flagging
+**RAG Chat Infrastructure:**
+- Pinecone vector DB service (`services/pinecone_service.py`)
+- OpenAI embedding service (`services/embedding_service.py`)
+- RAG pipeline with Claude (`services/rag_service.py`)
+- Guide ingestion script (`scripts/ingest_guides.py`)
+- Chat router with RAG support (`routers/chat.py`)
 
-### Fix Finder Agent (ReAct Loop Pattern)
-```
-1. Evaluate  → Check loan against rule set
-2. Identify  → "DTI is 52%, limit is 50%"
-3. Reason    → "Need to lower DTI by 2%"
-4. Tool Use  → Calculator: solve for required debt reduction
-5. Verify    → Re-run new numbers against rules
-6. Output    → Present the fix with confidence
-```
+**Policy Updates Infrastructure:**
+- PostgreSQL database models (`db/models.py`)
+- Async SQLAlchemy connection (`db/database.py`)
+- Fannie Mae Lender Letters scraper
+- Freddie Mac Bulletins scraper
+- Changes router with DB queries (`routers/changes.py`)
+- Background refresh endpoint (`POST /api/changes/refresh`)
 
-### AMI Income Limits
-- Skip geocoding/Census Tract lookups for MVP demo
-- Hardcode specific "High Cost" and "Low Cost" areas if needed
-- Full AMI lookup is a rabbit hole that can break demos
+**Code Generation Tab:**
+- Output **JSON**, **YAML**, **TypeScript**, and Python formats ✅
+- Makes it enterprise-ready (compatible with BRE like Drools, IBM ODM)
 
-### Already Addressed ✅
-- Fix suggestions use Python math (not LLM) in `rules_engine.py`
-- Fannie vs Freddie side-by-side comparison
-- Focus on DTI/LTV/Credit Score rules
+**Data Model:**
+- `affected_rule_ids` array in `POLICY_UPDATES` table ✅
+- Links policy changes to `ELIGIBILITY_RULES` table ✅
+
+### Remaining Work
+
+**To Activate Features:**
+1. Set up Pinecone index and add API key
+2. Add Anthropic API key for Claude
+3. Add OpenAI API key for embeddings
+4. Run `python scripts/ingest_guides.py` to embed guide content
+5. Optionally configure PostgreSQL (uses SQLite by default)
+
+**Future Enhancements:**
+- Fix Finder Agent (ReAct loop pattern for loan fix suggestions)
+- AMI Income Limits lookup (currently hardcoded for demo)
+- LangGraph agent orchestration
 
 ## Deployment (Fly.io)
 
