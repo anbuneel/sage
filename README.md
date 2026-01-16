@@ -79,7 +79,21 @@ The Fannie Mae Selling Guide and Freddie Mac Seller/Servicer Guide are massive (
 - Improved spacing and visual hierarchy across all pages
 - Ledger-style patterns, textures, and interactive states
 
-🚧 **Phase 2 In Progress** - RAG chat, Pinecone vector DB, LangGraph agents
+✅ **Phase 2 Infrastructure Complete** - RAG chat and policy updates backend ready
+
+- Pinecone vector DB service for semantic search
+- OpenAI embeddings for guide content vectorization
+- Claude integration for RAG chat responses with citations
+- PostgreSQL database models (PolicyUpdate, EligibilityRule, Conversation)
+- Fannie Mae Lender Letters scraper
+- Freddie Mac Bulletins scraper
+- Graceful fallback to mock data when API keys not configured
+
+🔧 **To Activate Phase 2** - Add API keys to `.env`:
+- `PINECONE_API_KEY` - Vector storage
+- `ANTHROPIC_API_KEY` - Claude for chat
+- `OPENAI_API_KEY` - Text embeddings
+- Run `python scripts/ingest_guides.py` to embed guide content
 
 ---
 
