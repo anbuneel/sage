@@ -1,8 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import type { PolicyUpdate, GSE } from '@/lib/types';
-import { mockPolicyUpdates } from '@/lib/api';
+import { getChanges } from '@/lib/api';
 import {
   Calendar,
   Envelope,
@@ -10,6 +10,7 @@ import {
   BookOpen,
   Warning,
   FileText,
+  CircleNotch,
 } from '@phosphor-icons/react';
 
 interface ChangeTimelineProps {
@@ -139,12 +140,29 @@ function TimelineItem({
 
 export default function ChangeTimeline({ onSelectUpdate }: ChangeTimelineProps) {
   const [filter, setFilter] = useState<GSE | 'all'>('all');
-  const [updates] = useState<PolicyUpdate[]>(mockPolicyUpdates);
+  const [updates, setUpdates] = useState<PolicyUpdate[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  const filteredUpdates =
-    filter === 'all'
-      ? updates
-      : updates.filter((u) => u.gse === filter);
+  useEffect(() => {
+    async function fetchUpdates() {
+      setLoading(true);
+      setError(null);
+      try {
+        const params = filter === 'all' ? {} : { gse: filter };
+        const response = await getChanges(params);
+        setUpdates(response.updates);
+      } catch (err) {
+        console.error('Error fetching policy updates:', err);
+        setError('Failed to load policy updates. Please try again.');
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchUpdates();
+  }, [filter]);
+
+  const filteredUpdates = updates;
 
   return (
     <div>
@@ -188,7 +206,16 @@ export default function ChangeTimeline({ onSelectUpdate }: ChangeTimelineProps) 
       </div>
 
       {/* Timeline */}
-      {filteredUpdates.length > 0 ? (
+      {loading ? (
+        <div className="flex items-center justify-center py-16">
+          <CircleNotch size={32} weight="thin" className="animate-spin text-sage-600" />
+        </div>
+      ) : error ? (
+        <div className="text-center py-12 bg-error/5 border border-error/20">
+          <Warning size={48} weight="thin" className="text-error mx-auto mb-4" />
+          <p className="text-ink-700">{error}</p>
+        </div>
+      ) : filteredUpdates.length > 0 ? (
         <div className="space-y-0">
           {filteredUpdates.map((update) => (
             <TimelineItem
@@ -204,20 +231,6 @@ export default function ChangeTimeline({ onSelectUpdate }: ChangeTimelineProps) 
           <p className="text-ink-500">No policy updates found.</p>
         </div>
       )}
-
-      {/* Placeholder notice */}
-      <div className="mt-8 p-4 bg-gold-500/5 border border-gold-500/20">
-        <div className="flex gap-3">
-          <Warning size={20} weight="thin" className="text-gold-600 mt-0.5 flex-shrink-0" />
-          <div>
-            <p className="font-medium text-ink-900 text-sm">Placeholder Data</p>
-            <p className="text-sm text-ink-500 mt-1">
-              This timeline is showing mock data. Real policy updates will be loaded
-              from the backend when the scraping system is connected.
-            </p>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }

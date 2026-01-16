@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import type { ChatMessage, Citation } from '@/lib/types';
+import { sendChatMessage } from '@/lib/api';
 import { PaperPlaneTilt, CircleNotch, BookOpen } from '@phosphor-icons/react';
 
 interface ChatInterfaceProps {
@@ -74,6 +75,7 @@ export default function ChatInterface({
   const [messages, setMessages] = useState<ChatMessage[]>(initialMessages);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [conversationId, setConversationId] = useState<string | undefined>();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -85,26 +87,30 @@ export default function ChatInterface({
     };
 
     setMessages((prev) => [...prev, userMessage]);
+    const messageText = input.trim();
     setInput('');
     setIsLoading(true);
 
-    // Simulate API response (mock for now)
-    setTimeout(() => {
-      const mockResponse: ChatMessage = {
-        role: 'assistant',
-        content:
-          'This is a placeholder response. The RAG chat functionality will be implemented when the backend is ready. The system will search through Fannie Mae and Freddie Mac guidelines to provide accurate, cited answers to your questions.',
-        citations: [
-          {
-            text: 'Example citation',
-            source: 'Fannie Mae Selling Guide B5-6-01',
-            url: 'https://example.com',
-          },
-        ],
-      };
-      setMessages((prev) => [...prev, mockResponse]);
+    try {
+      const response = await sendChatMessage({
+        message: messageText,
+        conversation_id: conversationId,
+      });
+
+      setConversationId(response.conversation_id);
+      setMessages((prev) => [...prev, response.message]);
+    } catch (err) {
+      console.error('Error sending message:', err);
+      setMessages((prev) => [
+        ...prev,
+        {
+          role: 'assistant',
+          content: 'Sorry, I encountered an error. Please try again.',
+        },
+      ]);
+    } finally {
       setIsLoading(false);
-    }, 1000);
+    }
   };
 
   return (
