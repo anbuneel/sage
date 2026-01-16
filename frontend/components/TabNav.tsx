@@ -19,6 +19,11 @@ interface Tab {
 
 const tabs: Tab[] = [
   {
+    name: 'Check My Loan',
+    href: '/check',
+    icon: <CheckCircle size={20} weight="thin" />,
+  },
+  {
     name: 'Ask the Guide',
     href: '/ask',
     icon: <ChatText size={20} weight="thin" />,
@@ -32,11 +37,6 @@ const tabs: Tab[] = [
     name: 'Code Updates',
     href: '/code',
     icon: <Code size={20} weight="thin" />,
-  },
-  {
-    name: 'Check My Loan',
-    href: '/check',
-    icon: <CheckCircle size={20} weight="thin" />,
   },
 ];
 
