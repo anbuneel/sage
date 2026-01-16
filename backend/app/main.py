@@ -4,6 +4,7 @@ SAGE Backend - Main Application
 FastAPI application entry point for the SAGE (Smart Affordable-lending Guide Engine) API.
 """
 
+import logging
 from contextlib import asynccontextmanager
 from typing import AsyncGenerator
 
@@ -12,6 +13,14 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from .config import get_settings
 from .routers import eligibility_router, chat_router, changes_router
+from .db import init_db, close_db
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+)
+logger = logging.getLogger(__name__)
 
 
 @asynccontextmanager
@@ -19,17 +28,40 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
     """
     Application lifespan handler.
 
-    Handles startup and shutdown events.
+    Handles startup and shutdown events including database initialization.
     """
     # Startup
     settings = get_settings()
-    print(f"Starting {settings.app_name} v{settings.app_version}")
-    print(f"Debug mode: {settings.debug}")
+    logger.info(f"Starting {settings.app_name} v{settings.app_version}")
+    logger.info(f"Debug mode: {settings.debug}")
+
+    # Initialize database if configured
+    if settings.database_url:
+        logger.info("Initializing database connection...")
+        try:
+            await init_db()
+            logger.info("Database initialized successfully")
+        except Exception as e:
+            logger.error(f"Failed to initialize database: {e}")
+            logger.warning("Continuing without database - using mock data")
+    else:
+        logger.info("No database URL configured - using mock data")
+
+    # Log RAG configuration status
+    if settings.anthropic_api_key and settings.pinecone_api_key:
+        logger.info("RAG chat enabled (Anthropic + Pinecone configured)")
+    else:
+        logger.info("RAG chat disabled - using mock responses")
 
     yield
 
     # Shutdown
-    print(f"Shutting down {settings.app_name}")
+    logger.info(f"Shutting down {settings.app_name}")
+
+    # Close database connections
+    if settings.database_url:
+        await close_db()
+        logger.info("Database connections closed")
 
 
 def create_app() -> FastAPI:
