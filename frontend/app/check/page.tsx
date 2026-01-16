@@ -5,7 +5,7 @@ import TabNav from '@/components/TabNav';
 import LoanForm from '@/components/LoanForm';
 import EligibilityResult from '@/components/EligibilityResult';
 import type { LoanScenario, EligibilityResult as EligibilityResultType } from '@/lib/types';
-import { mockCheckLoanEligibility } from '@/lib/api';
+import { checkLoanEligibility } from '@/lib/api';
 
 export default function CheckMyLoanPage() {
   const [result, setResult] = useState<EligibilityResultType | null>(null);
@@ -17,10 +17,7 @@ export default function CheckMyLoanPage() {
     setError(null);
 
     try {
-      // Use mock API for now (backend not ready yet)
-      // TODO: Replace with real API call when backend is ready
-      // const result = await checkLoanEligibility(scenario);
-      const eligibilityResult = await mockCheckLoanEligibility(scenario);
+      const eligibilityResult = await checkLoanEligibility(scenario);
       setResult(eligibilityResult);
     } catch (err) {
       console.error('Error checking eligibility:', err);

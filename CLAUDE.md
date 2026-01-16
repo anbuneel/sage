@@ -146,6 +146,36 @@ python check_for_updates.py       # Check for new Lender Letters/Bulletins
 - Fannie vs Freddie side-by-side comparison
 - Focus on DTI/LTV/Credit Score rules
 
+## Deployment (Fly.io)
+
+### First-time setup
+```bash
+# Install Fly CLI
+# Windows: iwr https://fly.io/install.ps1 -useb | iex
+# Mac/Linux: curl -L https://fly.io/install.sh | sh
+
+# Login
+fly auth login
+
+# Create apps (one-time)
+cd backend && fly apps create sage-api
+cd ../frontend && fly apps create sage-app
+```
+
+### Deploy
+```bash
+# Backend
+cd backend && fly deploy
+
+# Frontend (set API URL)
+cd frontend && fly deploy --build-arg NEXT_PUBLIC_API_URL=https://sage-api.fly.dev/api
+```
+
+### URLs after deployment
+- Frontend: https://sage-app.fly.dev
+- Backend API: https://sage-api.fly.dev/api
+- API Docs: https://sage-api.fly.dev/api/docs
+
 ## Development Notes
 
 - This is a Windows development environment
