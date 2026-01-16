@@ -4,6 +4,7 @@ RAG (Retrieval Augmented Generation) Service
 Combines Pinecone retrieval with Claude generation for chat responses.
 """
 
+import asyncio
 import logging
 from typing import Any
 from functools import lru_cache
@@ -147,8 +148,9 @@ Please provide a clear, accurate answer with citations to the relevant source se
 
         messages.append({"role": "user", "content": user_message})
 
-        # Generate response
-        response = client.messages.create(
+        # Generate response (run blocking call in thread pool)
+        response = await asyncio.to_thread(
+            client.messages.create,
             model=self._model,
             max_tokens=2048,
             system=system_prompt,

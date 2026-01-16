@@ -4,6 +4,7 @@ Pinecone Vector Store Service
 Handles vector storage and retrieval for RAG chat.
 """
 
+import asyncio
 import logging
 from typing import Any
 from functools import lru_cache
@@ -79,7 +80,10 @@ class PineconeService:
 
         for i in range(0, len(vectors), batch_size):
             batch = vectors[i : i + batch_size]
-            result = index.upsert(vectors=batch, namespace=namespace)
+            # Run blocking call in thread pool
+            result = await asyncio.to_thread(
+                index.upsert, vectors=batch, namespace=namespace
+            )
             results.append(result)
             logger.info(f"Upserted batch {i // batch_size + 1}, count: {len(batch)}")
 
@@ -108,7 +112,9 @@ class PineconeService:
         """
         index = self._ensure_index()
 
-        response = index.query(
+        # Run blocking call in thread pool
+        response = await asyncio.to_thread(
+            index.query,
             vector=vector,
             top_k=top_k,
             namespace=namespace,
@@ -131,7 +137,8 @@ class PineconeService:
     async def delete_namespace(self, namespace: str = "guides") -> None:
         """Delete all vectors in a namespace."""
         index = self._ensure_index()
-        index.delete(delete_all=True, namespace=namespace)
+        # Run blocking call in thread pool
+        await asyncio.to_thread(index.delete, delete_all=True, namespace=namespace)
         logger.info(f"Deleted all vectors in namespace: {namespace}")
 
     def get_stats(self) -> dict[str, Any]:

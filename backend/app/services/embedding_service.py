@@ -4,6 +4,7 @@ Embedding Service
 Handles text embedding generation using OpenAI.
 """
 
+import asyncio
 import logging
 import hashlib
 from typing import Any
@@ -58,7 +59,9 @@ class EmbeddingService:
         """
         client = self._ensure_client()
 
-        response = client.embeddings.create(
+        # Run blocking call in thread pool
+        response = await asyncio.to_thread(
+            client.embeddings.create,
             model=self._model,
             input=text,
         )
@@ -86,7 +89,9 @@ class EmbeddingService:
 
         for i in range(0, len(texts), batch_size):
             batch = texts[i : i + batch_size]
-            response = client.embeddings.create(
+            # Run blocking call in thread pool
+            response = await asyncio.to_thread(
+                client.embeddings.create,
                 model=self._model,
                 input=batch,
             )
@@ -128,7 +133,7 @@ class EmbeddingService:
             start_char = len(tokenizer.decode(tokens[:start]))
             end_char = start_char + len(chunk_text)
 
-            chunk_id = hashlib.md5(chunk_text.encode()).hexdigest()[:12]
+            chunk_id = hashlib.sha256(chunk_text.encode()).hexdigest()[:12]
 
             chunks.append(
                 {

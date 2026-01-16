@@ -15,11 +15,12 @@ from sqlalchemy import (
     Enum,
     ForeignKey,
     Integer,
+    JSON,
     String,
     Text,
     func,
 )
-from sqlalchemy.dialects.postgresql import ARRAY, UUID
+from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 
 
@@ -44,8 +45,8 @@ class PolicyUpdate(Base):
     summary: Mapped[str] = mapped_column(Text, nullable=False)
     full_text: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
     source_url: Mapped[Optional[str]] = mapped_column(String(1000), nullable=True)
-    affected_sections: Mapped[list[str]] = mapped_column(ARRAY(String), default=list)
-    affected_rule_ids: Mapped[list[str]] = mapped_column(ARRAY(UUID(as_uuid=False)), default=list)
+    affected_sections: Mapped[list[str]] = mapped_column(JSON, default=list)
+    affected_rule_ids: Mapped[list[str]] = mapped_column(JSON, default=list)
     impact_analysis: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
     code_update: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
     is_processed: Mapped[bool] = mapped_column(Boolean, default=False)

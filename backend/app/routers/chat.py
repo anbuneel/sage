@@ -7,6 +7,7 @@ Handles RAG chat endpoints for querying GSE guidelines.
 import json
 import logging
 import uuid
+from collections import OrderedDict
 from typing import Optional
 
 from fastapi import APIRouter, HTTPException, status
@@ -20,9 +21,35 @@ from ..services import get_rag_service
 router = APIRouter(prefix="/chat", tags=["chat"])
 logger = logging.getLogger(__name__)
 
+# Maximum message length (characters)
+MAX_MESSAGE_LENGTH = 10000
 
-# In-memory conversation storage (fallback when DB not configured)
-_conversations: dict[str, list[ChatMessage]] = {}
+# Maximum conversations to keep in memory (LRU eviction)
+MAX_IN_MEMORY_CONVERSATIONS = 1000
+
+
+class LRUConversationCache(OrderedDict):
+    """LRU cache for in-memory conversation storage with max size limit."""
+
+    def __init__(self, max_size: int = MAX_IN_MEMORY_CONVERSATIONS):
+        super().__init__()
+        self.max_size = max_size
+
+    def __setitem__(self, key, value):
+        if key in self:
+            self.move_to_end(key)
+        super().__setitem__(key, value)
+        if len(self) > self.max_size:
+            oldest = next(iter(self))
+            del self[oldest]
+
+    def __getitem__(self, key):
+        self.move_to_end(key)
+        return super().__getitem__(key)
+
+
+# In-memory conversation storage with LRU eviction (fallback when DB not configured)
+_conversations: LRUConversationCache = LRUConversationCache()
 
 
 async def _get_conversation_history(conversation_id: str) -> list[dict[str, str]]:
@@ -112,10 +139,23 @@ async def chat(request: ChatRequest) -> ChatResponse:
     2. Generate a response using Claude with the retrieved context
     3. Include citations to the source documents
     """
-    try:
-        # Get or create conversation ID
-        conversation_id = request.conversation_id or str(uuid.uuid4())
+    # Input validation
+    if len(request.message) > MAX_MESSAGE_LENGTH:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=f"Message too long. Maximum length is {MAX_MESSAGE_LENGTH} characters.",
+        )
 
+    if not request.message.strip():
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Message cannot be empty.",
+        )
+
+    # Get or create conversation ID
+    conversation_id = request.conversation_id or str(uuid.uuid4())
+
+    try:
         # Check if RAG is enabled and configured
         settings = get_settings()
 
@@ -132,10 +172,11 @@ async def chat(request: ChatRequest) -> ChatResponse:
         logger.warning(f"RAG configuration error: {e}, falling back to mock")
         return await _process_mock_chat(request, conversation_id)
     except Exception as e:
-        logger.error(f"Error processing chat message: {e}")
+        # Log full error but return generic message to client
+        logger.exception("Error processing chat message")
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail=f"Error processing chat message: {str(e)}",
+            detail="An error occurred processing your message. Please try again.",
         )
 
 
