@@ -1,0 +1,698 @@
+# Source: https://guide.freddiemac.com/app/guide/bulletin/2025-9
+# Scraped: 2026-01-15T23:01:40.653865
+# Characters: 12244
+#===============================================================================
+
+Search
+
+The Single-Family Seller Servicer Guide
+
+and Related Resources
+
+Search
+
+Glossary
+
+AllRegs
+
+(opens in new window)
+
+Freddie Mac Income Calculator
+
+(opens in new window)
+
+Featured Resources
+
+Browse Guide
+
+Recent Bulletins
+
+FAQs
+
+Upcoming Changes
+
+Archives
+
+Featured Resources
+
+Browse Guide
+
+Recent Bulletins
+
+FAQs
+
+Upcoming Changes
+
+Archives
+
+Bulletin 2025-9
+
+Selling
+
+Issued 07/02/2025
+
+copy url
+
+Copy Link
+
+print
+
+Print
+
+Download
+
+Bulletin 2025-9 [PDF]
+
+Guide Updates Spreadsheet [XLS]
+
+TO: Freddie Mac Sellers
+
+SUBJECT: SELLING UPDATES
+
+This Guide Bulletin announces:
+
+Condominium and
+
+Cooperative Project
+
+termination or insolvency
+
+Updated
+
+project review requirements
+
+for projects that are terminating or are involved in insolvency proceedings
+
+– September 30, 2025
+
+Manufactured Home
+
+s
+
+Updates allowing
+
+temporary subsidy buydowns
+
+for Mortgages secured by
+
+Manufactured Home
+
+s
+
+Expanded
+
+CHOICEHome
+
+®
+
+property eligibility requirements
+
+Best Efforts Contract
+
+s
+
+An enhancement to the
+
+Best Efforts Contract
+
+execution
+
+– July 28, 2025
+
+Additional Guide updates
+
+Further updates as described in the
+
+Additional Guide updates
+
+section of this Bulletin
+
+EFFECTIVE DATE
+
+All of the changes announced in this Bulletin are effective immediately unless otherwise noted.
+
+CONDOMINIUM AND COOPERATIVE PROJECT TERMINATION OR INSOLVENCY
+
+Effective for Mortgages with
+
+Application Received Date
+
+s on or after September 30, 2025, but Sellers may implement immediately. However, effective immediately with this Bulletin, if the Seller becomes aware that the project does not meet the requirements for projects terminating or involved in insolvency proceedings, then the project is ineligible, and the Seller must not deliver the related loan.
+
+In consultation with FHFA, we have worked together with Fannie Mae to update our project review requirements to include projects that are terminating or involved in insolvency proceedings as an ineligible project type.
+
+These requirements apply to all Mortgages secured by
+
+Condominium Unit
+
+s in
+
+Condominium Project
+
+s and all
+
+Cooperative Share Loan
+
+s secured by
+
+Cooperative Interest
+
+s in a
+
+Cooperative Project
+
+regardless of the project review type. The requirements also apply to loans eligible for delivery under Exempt From Review.
+
+As a reminder, if a Seller or
+
+Related Third Party
+
+becomes aware of information that conflicts with a
+
+Condominium Project
+
+’s PAR findings, then pursuant to the requirements in
+
+Guide Section 5701.10(d)(ii)
+
+, the Seller or
+
+Related Third Party
+
+must notify Freddie Mac at
+
+ProjectInfo@FreddieMac.com
+
+with the supporting documentation within five Business Days of becoming aware of such information.
+
+Guide impacts:
+
+Sections 5701.2
+
+,
+
+5701.3
+
+,
+
+5701.7
+
+,
+
+5701.10
+
+,
+
+5705.3
+
+and
+
+5705.7
+
+MANUFACTURED HOMES
+
+Temporary subsidy buydowns for
+
+Manufactured Home
+
+Mortgages
+
+We have updated the Guide to allow temporary subsidy buydowns for Mortgages secured by
+
+Manufactured Home
+
+s. Temporary subsidy buydowns provide the Borrower with a smoother transition to homeownership by starting with a lower interest rate in the first year that then graduates up over the next 2 to 3 years.
+
+Guide impacts:
+
+Sections 4204.3
+
+,
+
+4501.2
+
+and
+
+5703.5
+
+CHOICEHome
+
+We have updated the CHOICEHome requirements to permit either the Fannie Mae MH Advantage
+
+®
+
+Sticker or the Freddie Mac CHOICEHome label to evidence the property meets the required construction elements for Mortgages secured by CHOICEHomes.
+
+Guide impact:
+
+Section 5703.12
+
+BEST EFFORTS CONTRACTS
+
+Effective July 28, 2025
+
+We are enhancing the
+
+Best Efforts Contract
+
+execution, enabling Sellers to take out a
+
+Best Efforts Contract
+
+without a loan. The loan can be identified and/or created later in the process; there will also be the option to substitute the loan to fulfill contract requirements. The quick loan option (Create New Loan while simultaneously creating a contract) will be retired as part of this redesign.
+
+Guide impact:
+
+Section 6101.4
+
+ADDITIONAL GUIDE UPDATES
+
+Flood insurance premium used for qualifying
+
+After further review, we are rescinding the requirement to use the full risk premium to calculate the housing expense-to-income and debt payment-to-income ratios for Mortgages where a flood insurance policy on the
+
+Mortgaged Premises
+
+shows a full risk premium and a discounted premium. The requirement was announced in
+
+Bulletin 2024-7
+
+with subsequent postponements of the effective date announced in
+
+Bulletins 2024-12
+
+and
+
+2025-4
+
+.
+
+Asset and income modeler (AIM)
+
+We have updated the representation and warranty relief eligibility result for all asset and income modeler (AIM) offerings from “Unable to Assess” to “Unavailable” to align with the Loan Product Advisor
+
+®
+
+Specification and results on the
+
+Feedback Certificate
+
+.
+
+Guide impacts:
+
+Sections 5302.6
+
+,
+
+5303.4
+
+,
+
+5303.5
+
+,
+
+5304.2
+
+,
+
+5305.2
+
+and
+
+5501.8
+
+Freddie Mac Systems
+
+We have made the following updates related to Freddie Mac Systems (as defined in
+
+Section 2401.1(b)
+
+):
+
+Updated
+
+Section 2402.2
+
+in connection with the upcoming rollout of the new Freddie Mac System, Gable℠
+
+Amended language in
+
+Guide Form 478,
+
+Secondary Market Advisor
+
+Selling Agent
+
+Agreement
+
+, to speak generally to applicable Freddie Mac Systems used by
+
+Secondary Market Advisor
+
+s, which will obviate the need to amend the Guide each time a new System is added to Freddie Mac Gateway℠
+
+Guide impacts:
+
+Section 2402.2
+
+and
+
+Form 478
+
+Securities
+
+We have clarified in
+
+Guide Exhibit 102,
+
+Securities Trading Customer Agreement
+
+, that, when Freddie Mac may establish and amend credit limits on Securities, it reserves the right to do so with immediate effect. We have also clarified that all trades are subject to counterparty credit limits.
+
+Guide impact:
+
+Exhibit 102
+
+Cash Window reference
+
+We have updated
+
+Section 6103.1
+
+to change a reference to the Cash Window Trading Desk to the Cash Window.
+
+Guide impact:
+
+Section 6103.1
+
+Related Third Party
+
+agreement
+
+We have updated links to the
+
+Related Third Party
+
+agreement in
+
+Form 478
+
+and
+
+Form 990SF,
+
+Agreement and Certificate of Incumbency:
+
+Warehouse Lender
+
+.
+
+Guide impacts:
+
+Forms 478
+
+and
+
+990SF
+
+Uniform Instruments
+
+We have updated
+
+Exhibit 4A,
+
+Single-Family
+
+Uniform Instruments
+
+, to reflect revisions to the Maryland Deed of Trust (Form 3021 07/2021). The revised Maryland Deed of Trust tagline now shows a version date of (Form 3021 07/2021 (rev. 06/25)). Loan originators may begin using the revised versions immediately and must use them for loans with Note Dates on or after October 1, 2025.
+
+Guide impact:
+
+Exhibit 4A
+
+Additional resources
+
+The updated
+
+Security Instrument
+
+s are available on our
+
+2021
+
+Uniform Instruments
+
+webpage
+
+(opens in new window)
+
+.
+
+Guide refactoring
+
+Guide chapter refactoring
+
+To improve the ease of use of our Guide for Sellers,
+
+Chapters 4401
+
+,
+
+5103
+
+,
+
+5302
+
+and
+
+5307
+
+have been refactored. No requirements were changed as a result of this new formatting, although cross-references to
+
+Chapters 4401
+
+,
+
+5103
+
+and
+
+5307
+
+have been updated.
+
+Guide impacts
+
+For a full list of Guide impacts related to Guide refactoring, see the
+
+Guide Updates Spreadsheet
+
+section below.
+
+Additional resources
+
+In conjunction with the ongoing refactoring of the Guide, FAQs have been updated and are now located on
+
+Guide.FreddieMac.com
+
+or
+
+SF.FreddieMac.com
+
+(opens in new window)
+
+, depending on the specific content of the FAQ. FAQs are not part of, or a substitute for, the Guide or other
+
+Purchase Documents
+
+.
+
+Addition of
+
+Credit Fee
+
+s language to Chapter 4501
+
+With the refactoring of
+
+Chapter 4501
+
+announced in
+
+Bulletin 2024-12
+
+, we inadvertently removed certain references to
+
+Credit Fee
+
+s related to Home Possible
+
+®
+
+Mortgages. With this Bulletin, we have added references to
+
+Credit Fee
+
+s back in new
+
+Section 4501.10
+
+. There are no changes to
+
+Credit Fee
+
+s related to
+
+Home Possible Mortgage
+
+s or the Home Possible
+
+Credit Fee
+
+Cap with this update.
+
+Guide impact:
+
+Section 4501.10
+
+Updates to Glossary
+
+We have updated Guide section cross-references in our
+
+Glossary
+
+definitions of “
+
+Employer Assisted Homeownership (EAH) Benefit
+
+” and “
+
+Primary Residence
+
+” to align with the refactorings of
+
+Chapters 4201
+
+and
+
+5501
+
+announced in
+
+Bulletins 2025-4
+
+and
+
+2025-6
+
+, respectively.
+
+Guide impact:
+
+Glossary
+
+GUIDE UPDATES SPREADSHEET
+
+For a detailed list of the Guide updates associated with this Bulletin and the topics with which they correspond, access the Bulletin 2025-9 (Selling) Guide Updates Spreadsheet via the Download drop-down available at
+
+https://guide.freddiemac.com/app/guide/bulletin/2025-9
+
+.
+
+CONCLUSION
+
+If you have any questions about the changes announced in this Bulletin, please contact your Freddie Mac representative or call Customer Service at 800-FREDDIE.
+
+Sincerely,
+
+Kevin Kauffman
+
+Senior Vice President, Single-Family Seller Engagement
+
+[object Object]
+
+[object Object]
+
+[object Object]
+
+top
+
+We use cookies to make it easier for you to navigate our websites and some cookies are essential to make our websites work properly. We also use non-essential cookies to improve user experience, personalize advertisements, and analyze website traffic. For these reasons, we may share your site usage data, including information you enter into the website, with our social media, advertising, and analytics partners. We will continue to use non-essential cookies until you choose to reject them.  See our Privacy Policy to learn more about how we use cookies and how we may collect and use visitor data.
+
+Privacy Policy
+
+Customize Settings
+
+Reject All
+
+Accept All
+
+When you visit any website, it may store or retrieve information on your browser, mostly in the form of cookies. This information might be about you, your preferences or your device and is mostly used to make the site work as you expect it and to help give you a more personalized web experience. Because we respect your right to privacy, you can choose not to allow some types of cookies. Click on the different category headings to find out more and change our default settings. However, blocking some types of cookies may impact your experience on the site and the services we are able to offer. Privacy Notice
+
+Privacy Policy
+
+Manage Consent Preferences
+
+Strictly Necessary Cookies
+
+Always Active
+
+These cookies are necessary for the website to function and cannot be switched off in our systems. They are usually only set in response to actions made by you which amount to a request for services, such as setting your privacy preferences, logging in or filling in forms.    You can set your browser to block or alert you about these cookies, but some parts of the site will not then work. These cookies do not store any personally identifiable information.
+
+Functional Cookies
+
+Always Active
+
+These cookies enable the website to provide enhanced functionality and personalisation. They may be set by us or by third party providers whose services we have added to our pages.    If you do not allow these cookies then some or all of these services may not function properly.
+
+Performance Cookies
+
+Performance Cookies
+
+These cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site. They help us to know which pages are the most and least popular and see how visitors move around the site.    All information these cookies collect is aggregated and therefore anonymous. If you do not allow these cookies we will not know when you have visited our site, and will not be able to monitor its performance.
+
+Targeting Cookies
+
+Targeting Cookies
+
+These cookies may be set through our site by our advertising partners. They may be used by those companies to build a profile of your interests and show you relevant adverts on other sites.    They do not store directly personal information, but are based on uniquely identifying your browser and internet device. If you do not allow these cookies, you will experience less targeted advertising.
+
+Back Button
+
+Cookie List
+
+Search Icon
+
+Filter Icon
+
+Clear
+
+checkbox label
+
+label
+
+Apply
+
+Cancel
+
+Consent
+
+Leg.Interest
+
+checkbox label
+
+label
+
+checkbox label
+
+label
+
+checkbox label
+
+label
+
+Confirm My Choices

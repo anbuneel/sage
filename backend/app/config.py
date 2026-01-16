@@ -1,0 +1,63 @@
+"""
+SAGE Backend Configuration
+
+Uses pydantic-settings for environment variable management.
+"""
+
+from functools import lru_cache
+from pydantic_settings import BaseSettings, SettingsConfigDict
+
+
+class Settings(BaseSettings):
+    """Application settings loaded from environment variables."""
+
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding="utf-8",
+        case_sensitive=False,
+        extra="ignore",
+    )
+
+    # Application
+    app_name: str = "SAGE"
+    app_version: str = "0.1.0"
+    debug: bool = False
+
+    # Server
+    host: str = "0.0.0.0"
+    port: int = 8000
+
+    # CORS
+    cors_origins: list[str] = [
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+    ]
+
+    # Database (Supabase)
+    database_url: str = ""
+    supabase_url: str = ""
+    supabase_anon_key: str = ""
+    supabase_service_key: str = ""
+
+    # Vector Store (Pinecone)
+    pinecone_api_key: str = ""
+    pinecone_environment: str = ""
+    pinecone_index_name: str = "sage-guides"
+
+    # AI (Anthropic)
+    anthropic_api_key: str = ""
+    anthropic_model: str = "claude-3-5-sonnet-20241022"
+
+    # Feature Flags
+    enable_rag_chat: bool = True
+    enable_change_detection: bool = True
+
+
+@lru_cache
+def get_settings() -> Settings:
+    """
+    Get cached settings instance.
+
+    Using lru_cache ensures settings are only loaded once.
+    """
+    return Settings()

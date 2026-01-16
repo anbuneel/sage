@@ -43,13 +43,13 @@ The Fannie Mae Selling Guide and Freddie Mac Seller/Servicer Guide are massive (
 
 ## Tech Stack
 
-- **Frontend:** Next.js + Tailwind
-- **Backend:** FastAPI (Python)
+- **Frontend:** Next.js 16 + Tailwind CSS 4
+- **Backend:** FastAPI (Python 3.11+)
 - **Vector DB:** Pinecone
 - **LLM:** Claude 3.5 Sonnet
 - **Agentic Framework:** LangGraph
-- **Database:** PostgreSQL (Supabase)
-- **Deployment:** Vercel + Railway
+- **Database:** PostgreSQL (Fly Postgres)
+- **Deployment:** Fly.io
 
 ## MVP Scope
 
@@ -62,7 +62,14 @@ The Fannie Mae Selling Guide and Freddie Mac Seller/Servicer Guide are massive (
 
 ## Status
 
-🚧 **In Development**
+✅ **Phase 1 Complete** - Core UI and eligibility rules engine implemented
+
+- Next.js frontend with 4 functional tabs
+- FastAPI backend with eligibility checking endpoint
+- 880-line rules engine covering HomeReady and Home Possible requirements
+- Scraped 17 guide files from Fannie Mae and Freddie Mac (~490K characters)
+
+🚧 **Phase 2 In Progress** - RAG chat, Pinecone vector DB, LangGraph agents
 
 ---
 

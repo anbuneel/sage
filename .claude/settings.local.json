@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip install:*)",
+      "Bash(python scripts/scrape_guides.py:*)",
+      "Bash(playwright install:*)",
+      "Bash(python:*)",
+      "Bash(findstr:*)"
+    ]
+  }
+}

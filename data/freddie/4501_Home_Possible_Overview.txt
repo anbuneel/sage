@@ -1,0 +1,4512 @@
+# Source: https://guide.freddiemac.com/app/guide/chapter/4501
+# Scraped: 2026-01-15T22:55:11.663710
+# Characters: 66324
+#===============================================================================
+
+Search
+
+The Single-Family Seller Servicer Guide
+
+and Related Resources
+
+Search
+
+Glossary
+
+AllRegs
+
+(opens in new window)
+
+Freddie Mac Income Calculator
+
+(opens in new window)
+
+Featured Resources
+
+Browse Guide
+
+Recent Bulletins
+
+FAQs
+
+Upcoming Changes
+
+Archives
+
+Featured Resources
+
+Browse Guide
+
+Recent Bulletins
+
+FAQs
+
+Upcoming Changes
+
+Archives
+
+Browse Guide
+
+Filter By:
+
+Select a Series
+
+Series 1000: General Contract Terms
+
+Series 2000: Doing Business with Freddie Mac
+
+Series 3000: Risk Management and Remedies
+
+Series 4000: Mortgage Eligibility
+
+Series 5000: Origination and Underwriting
+
+Series 6000: Selling and Delivery
+
+Series 7000: Transfers of Servicing
+
+Series 8000: Servicing All Mortgages
+
+Series 9000: Servicing Default Management
+
+Select a Topic
+
+Topic 4100: Uniform Instruments
+
+Topic 4200: General Mortgage Eligibility
+
+Topic 4300: Loan Purpose
+
+Topic 4400: Special Mortgage Eligibility Requirements
+
+Topic 4500: Affordable Mortgages and Duty to Serve
+
+Topic 4600: Special Freddie Mac Mortgage Products
+
+Topic 4700: Insurance Requirements
+
+Select a Chapter
+
+Chapter 4501: Home Possible
+
+®
+
+Mortgages
+
+Chapter 4502: Affordable Housing Preservation: Shared Equity Programs – Community Land Trusts
+
+Chapter 4503: Affordable Housing Preservation: Shared Equity Programs – Income-based Resale Restrictions
+
+Chapter 4504: HeritageOne
+
+®
+
+Mortgages
+
+CLEAR
+
+Seller/Servicer Relationship
+
+: This segment has content common to both Sellers and Servicers and includes general contract terms (Series 1000 through 3000).
+
+Series 1000
+
+: General Contract Terms
+
+Topic 1100
+
+: The Guide
+
+Chapter 1101
+
+: The Guide
+
+1101.1:
+
+Introduction to the Guide
+
+1101.2:
+
+Legal effect of the Guide and other Purchase Documents
+
+1101.3:
+
+Occurrence of a Claims Event; resulting liability immediately due and owing to Freddie Mac
+
+Topic 1200
+
+: General Freddie Mac Policies
+
+Chapter 1201
+
+: General Freddie Mac Policies
+
+1201.1:
+
+Objective of Freddie Mac’s purchase programs
+
+1201.2:
+
+Overview of Freddie Mac’s purchase programs
+
+1201.3:
+
+Characterization and nature of Mortgage purchase transactions
+
+1201.4:
+
+Limitation on Mortgage purchases and commitments
+
+1201.5:
+
+Servicing in accordance with Purchase Documents
+
+1201.6:
+
+Transfer costs
+
+1201.7:
+
+Sale of Mortgages by Freddie Mac
+
+1201.8:
+
+Receipt and treatment of confidential information
+
+1201.9:
+
+The Mortgage file, Mortgage data and related records
+
+1201.10:
+
+Minority-Owned, Women-Owned and Disabled-Owned Business Enterprises
+
+1201.11:
+
+Audit confirmation requests
+
+Topic 1300
+
+: General Responsibilities of the Seller/Servicer
+
+Chapter 1301
+
+: General Responsibilities of the Seller/Servicer
+
+1301.1:
+
+Submission of data to Freddie Mac
+
+1301.2:
+
+Compliance with applicable law
+
+1301.3:
+
+Inspection of records
+
+1301.4:
+
+Authorization and agreements
+
+1301.5:
+
+Warranties, representations and review
+
+1301.6:
+
+Enforcement of representations and warranties related to underwriting of the Borrower, Mortgaged Premises and project
+
+1301.7:
+
+Non-discrimination
+
+Chapter 1302
+
+: Information Security and Business Continuity Planning
+
+1302.1:
+
+Overview of information security and business continuity planning requirements
+
+1302.2:
+
+Information security
+
+1302.3:
+
+Business continuity planning
+
+1302.4:
+
+Disaster recovery plan
+
+1302.5:
+
+Incident notification and related obligations
+
+1302.6:
+
+Document retention and destruction
+
+1302.7:
+
+Information security and other requirements for Related Third Parties
+
+1302.8:
+
+Use of artificial intelligence and machine learning
+
+Topic 1400
+
+: Electronic Transactions
+
+Chapter 1401
+
+: Electronic Transactions
+
+1401.1:
+
+Overview and defined terms
+
+1401.2:
+
+General requirements and security standards for Eligible Electronic Transactions
+
+1401.3:
+
+Electronic Signatures and Electronic Loan Documents
+
+1401.4:
+
+Representations, warranties and covenants for Eligible Electronic Transactions; indemnification and liability; applicable law
+
+Chapter 1402
+
+: Freddie Mac eMortgage Requirements
+
+1402.1:
+
+Introduction to eMortgages; Seller/Servicer and Product Eligibility
+
+1402.2:
+
+eMortgage Technical and Process Requirements
+
+1402.3:
+
+Delivering eMortgages
+
+1402.4:
+
+eNote custodian requirements
+
+1402.5:
+
+Servicing eMortgages
+
+1402.6:
+
+Warehouse Lender requirements
+
+Topic 1500
+
+: Seller Master Agreements, other Pricing Identifier Terms and Guide Plus Additional Provisions
+
+Chapter 1501
+
+: Seller Master Agreements, other Pricing Identifier Terms and Guide Plus Additional Provisions
+
+1501.1:
+
+Master Agreements, Pricing Identifier Terms, Guide Plus Additional Provisions and other Purchase Documents
+
+1501.2:
+
+Purchase Contract provisions
+
+Series 2000
+
+: Doing Business with Freddie Mac
+
+Topic 2100
+
+: Seller/Servicer Institutional Eligibility
+
+Chapter 2101
+
+: Seller/Servicer Institutional Eligibility
+
+2101.1:
+
+Eligibility criteria
+
+2101.2:
+
+Acceptable Net Worth and other financial requirements
+
+2101.3:
+
+Activity thresholds and no-activity fee
+
+2101.4:
+
+Financial reporting
+
+2101.5:
+
+Mortgage bankers financial reporting
+
+2101.6:
+
+Seller/Servicer insurance requirements
+
+2101.7:
+
+Fidelity insurance coverage
+
+2101.8:
+
+Mortgagee's errors and omissions (E&O) insurance coverage
+
+2101.9:
+
+Seller/Servicer insurance reporting requirements
+
+2101.10:
+
+Annual certification
+
+2101.11:
+
+Annual reporting requirements
+
+2101.12:
+
+Reporting of changes in Seller/Servicer’s organization or status
+
+2101.13:
+
+Transfer of assets to an entity that is not a Freddie Mac-approved Seller/Servicer
+
+2101.14:
+
+Seller/Servicer changes that result in a Transfer of Servicing
+
+2101.15:
+
+Seller/Servicer responsibilities regarding Related Third Parties
+
+Topic 2200
+
+: Additional Requirements for Doing Business with Freddie Mac
+
+Chapter 2201
+
+: Additional Documentation Requirements
+
+2201.1:
+
+Seller/Servicer Certificate of Incumbency requirements
+
+2201.2:
+
+Establishing and maintaining wire transfer instructions for cash proceeds
+
+Chapter 2202
+
+: Document Custodian and Document Custody
+
+2202.1:
+
+Document Custodian eligibility and requirements
+
+2202.2:
+
+Contracting with a Document Custodian
+
+2202.3:
+
+Document Custodian duties and responsibilities
+
+2202.4:
+
+Transfer of custody and terminating Tri-Party Agreements
+
+Chapter 2203
+
+: MERS
+
+®
+
+Membership
+
+2203.1:
+
+MERS
+
+®
+
+membership
+
+Topic 2300
+
+: Disqualification or Suspension of a Seller/Servicer
+
+Chapter 2301
+
+: Disqualification or Suspension of a Seller/Servicer
+
+2301.1:
+
+Disqualification or suspension of Seller’s eligibility to sell
+
+2301.2:
+
+Request for voluntary termination of status as a Freddie Mac Seller or Servicer
+
+2301.3:
+
+Appeals and final decision
+
+Topic 2400
+
+: Access to Freddie Mac Tools and Systems
+
+Chapter 2401
+
+: Master Systems License
+
+2401.1:
+
+Master Systems License
+
+Chapter 2402
+
+: System-Specific Licenses for Selling Tools and Systems
+
+2402.1:
+
+System-Specific License for Specifications
+
+2402.2:
+
+System-Specific Licenses
+
+2402.3:
+
+Other System-Specific Licenses
+
+Chapter 2403
+
+: Selling Mortgages through Loan Selling Advisor
+
+®
+
+2403.1:
+
+Selling Mortgages through Loan Selling Advisor
+
+®
+
+2403.2:
+
+Mortgage Selling Agents and user roles
+
+2403.3:
+
+Termination of eligibility
+
+2403.4:
+
+Consent to conduct Electronic Transactions
+
+Chapter 2404
+
+: System-Specific Licenses for Servicing Tools and Systems
+
+2404.1:
+
+System-Specific License for Specifications
+
+2404.2:
+
+System-Specific License for Servicing Tools
+
+2404.3:
+
+System-Specific License for Resolve
+
+®
+
+Chapter 2405
+
+: Freddie Mac Reimbursement System
+
+2405.1:
+
+Expense reimbursement process
+
+2405.2:
+
+Electronic Transactions and access
+
+Chapter 2406
+
+: Additional Servicing Tools and Systems
+
+2406.1:
+
+BPODirect
+
+®
+
+overview
+
+Chapter 2407
+
+: Third-Party Servicing Tools Made Available Via Freddie Mac Gateway
+
+®
+
+2407.1:
+
+Attorney Data Reporting
+
+Chapter 2408
+
+: Servicing Mortgages Through Freddie Mac Gateway
+
+®
+
+and Other Servicing Tools
+
+2408.1:
+
+Mortgage relation to Chapters 2404, 2405, 2406 and 2407
+
+2408.2:
+
+Usage and integration of Servicing Tools and Excluded Servicing Tools
+
+2408.3:
+
+Compliance and legal framework
+
+2408.4:
+
+Electronic Transactions management
+
+Series 3000
+
+: Risk Management and Remedies
+
+Topic 3100
+
+: Freddie Mac Exclusionary List and FHFA Suspended Counterparty Program
+
+Chapter 3101
+
+: Freddie Mac Exclusionary List and FHFA Suspended Counterparty Program
+
+3101.1:
+
+Freddie Mac Exclusionary List
+
+3101.2:
+
+FHFA Suspended Counterparty Program
+
+Topic 3200
+
+: Fraud Prevention, Detection and Reporting; Reporting Other Suspicious Activity
+
+Chapter 3201
+
+: Fraud Prevention, Detection and Reporting; Reporting Other Suspicious Activity
+
+3201.1:
+
+Fraud prevention and detection measures
+
+3201.2:
+
+Fraud and other Suspicious Activity reporting requirements
+
+3201.3:
+
+Fraud cooperation and additional requirements
+
+3201.4:
+
+Additional requirements
+
+3201.5:
+
+Additional fraud mitigation resources
+
+Topic 3300
+
+: Mortgage File Contents and Retention
+
+Chapter 3301
+
+: Mortgage File Contents
+
+3301.1:
+
+Mortgage file
+
+3301.2:
+
+Legal instruments
+
+3301.3:
+
+Plat of survey
+
+Chapter 3302
+
+: Mortgage File Retention
+
+3302.1:
+
+Mortgage file management
+
+3302.2:
+
+Security and contingency measures
+
+Topic 3400
+
+: Quality Control
+
+Chapter 3401
+
+: Freddie Mac's Postfunding Quality Control Review
+
+3401.1:
+
+Postfunding quality control processes
+
+3401.2:
+
+Documentation and instruments
+
+3401.3:
+
+Credit documentation
+
+3401.4:
+
+Sales contract
+
+3401.5:
+
+Specialty Mortgages and other considerations
+
+Chapter 3402
+
+: Seller's In-House Quality Control Program
+
+3402.1:
+
+Seller's quality control program
+
+3402.2:
+
+Use of third-party quality control services
+
+3402.3:
+
+Transfers of Servicing
+
+3402.4:
+
+Post-closing sample selection
+
+3402.5:
+
+Reverifications made by Seller
+
+3402.6:
+
+Data integrity review
+
+3402.7:
+
+Documentation review
+
+3402.8:
+
+Preclosing quality control reviews
+
+3402.9:
+
+Documenting reviews
+
+3402.10:
+
+Reporting requirements
+
+3402.11:
+
+Retention of Seller's quality control records
+
+Chapter 3403
+
+: Servicer's Quality Control Program
+
+3403.1:
+
+Servicer’s quality control program
+
+Topic 3500
+
+: Freddie Mac Servicer Success Performance and File Reviews
+
+Chapter 3501
+
+: Freddie Mac Servicer Success File Reviews and Performance Criteria
+
+3501.1:
+
+Freddie Mac Servicer Success File Reviews
+
+3501.2:
+
+Servicer performance metrics
+
+Topic 3600
+
+: Remedies (Including Repurchase and Termination of Servicing)
+
+Chapter 3601
+
+: Remedies (Including Repurchase and Termination of Servicing)
+
+3601.1:
+
+Freddie Mac remedies
+
+Chapter 3602
+
+: Repurchases
+
+3602.1:
+
+Defined terms
+
+3602.2:
+
+Repurchase requirements and alternatives
+
+3602.3:
+
+Repurchase pricing and documentation
+
+3602.4:
+
+Appeal and dispute resolution processes
+
+Chapter 3603
+
+: Termination of Servicing
+
+3603.1:
+
+Termination of Servicing Contracts and related Servicing Contract Rights
+
+3603.2:
+
+Servicing transfers and compensation
+
+3603.3:
+
+Documentation and remittance requirements
+
+Selling
+
+: This segment includes requirements applicable to originating, underwriting, and selling eligible Mortgages (Series 4000 through 6000).
+
+Series 4000
+
+: Mortgage Eligibility
+
+Topic 4100
+
+: Uniform Instruments
+
+Chapter 4101
+
+: Uniform Instruments
+
+4101.1:
+
+The Mortgage application
+
+4101.2:
+
+Home Mortgage Uniform Instruments
+
+4101.3:
+
+Master Form and Short Form Security Instruments
+
+4101.4:
+
+Authorized changes to Uniform Instruments
+
+4101.5:
+
+Availability of Uniform Instruments
+
+4101.6:
+
+Signatures required
+
+4101.7:
+
+Seller's duties regarding Uniform Instruments
+
+4101.8:
+
+Execution, acknowledgment and recordation of the Security Instrument
+
+4101.9:
+
+Due-on-sale provisions
+
+4101.10:
+
+Advances
+
+4101.11:
+
+Origination and delivery of Mortgages using a New York Consolidation, Extension and Modification Agreement (the “NY CEMA”)
+
+Topic 4200
+
+: General Mortgage Eligibility
+
+Chapter 4201
+
+: General Mortgage Eligibility
+
+4201.1:
+
+Investment Quality Mortgage
+
+4201.2:
+
+Mortgage valid First Lien; no prior liens; Mortgage not modified
+
+4201.3:
+
+Amortization and term
+
+4201.4:
+
+Closed Mortgages and Settlement Date requirements
+
+4201.5:
+
+Principal amount advanced; no mandatory future advances; outstanding balance
+
+4201.6:
+
+Mortgage not in default
+
+4201.7:
+
+Assumption of Mortgage
+
+4201.8:
+
+Wholesale Home Mortgages
+
+4201.9:
+
+General property insurance requirements
+
+4201.10:
+
+No circumstances adversely affecting value of Mortgage
+
+4201.11:
+
+Mortgages secured by Primary Residences
+
+4201.12:
+
+Second home Mortgages
+
+4201.13:
+
+Investment Property Mortgages
+
+4201.14:
+
+Impact of Contaminated Sites
+
+4201.15:
+
+Escrow accounts
+
+Chapter 4202
+
+: Responsible Lending
+
+4202.1:
+
+Legal compliance and regulation
+
+4202.2:
+
+Specific Mortgage types and regulations
+
+4202.3:
+
+Prohibited practices and restrictions
+
+Chapter 4203
+
+: Maximum Loan Amounts and LTV, TLTV and HTLTV Ratios
+
+4203.1:
+
+Loan-to-value (LTV), total LTV (TLTV) and Home Equity Line of Credit (HELOC) TLTV (HTLTV) ratios and maximum loan amounts
+
+Chapter 4204
+
+: Secondary Financing and Other Financing Arrangements
+
+4204.1:
+
+Mortgages with secondary financing
+
+4204.2:
+
+Affordable Seconds
+
+®
+
+4204.3:
+
+Temporary subsidy buydown plans
+
+4204.4:
+
+Shared equity plans
+
+Chapter 4205
+
+: Government funded, guaranteed or insured Mortgages
+
+4205.1:
+
+Section 502 GRH Mortgages guaranteed by USDA Rural Housing Service (RHS)
+
+4205.2:
+
+Home Possible
+
+®
+
+Mortgages with RHS Leveraged Seconds
+
+4205.3:
+
+Section 184 Indian Housing Loan Guarantee Program Mortgages
+
+4205.4:
+
+FHA and VA Mortgages
+
+4205.5:
+
+Mortgage previously sold to the Government National Mortgage Association (GNMA)
+
+Topic 4300
+
+: Loan Purpose
+
+Chapter 4301
+
+: Refinance Mortgages
+
+4301.1:
+
+Refinance Mortgages
+
+4301.2:
+
+Borrower requirements for refinance Mortgages
+
+4301.3:
+
+Refinance practices
+
+4301.4:
+
+"No cash-out" refinance Mortgages
+
+4301.5:
+
+Cash-out refinance Mortgages
+
+4301.6:
+
+Special purpose cash-out refinance Mortgages
+
+4301.7:
+
+Texas Equity Section 50(a)(6) Mortgages
+
+4301.8:
+
+Refinance of Mortgages secured by properties subject to an energy retrofit loan
+
+Chapter 4302
+
+: Refi Possible
+
+®
+
+Mortgages
+
+4302.1:
+
+Purchase of Refi Possible
+
+®
+
+Mortgages
+
+4302.2:
+
+Acceptable refinance practices
+
+4302.3:
+
+Eligibility requirements for the Mortgage being refinanced
+
+4302.4:
+
+Borrower eligibility
+
+4302.5:
+
+Special eligibility and underwriting requirements for Refi Possible
+
+®
+
+4302.6:
+
+Credit enhancements
+
+4302.7:
+
+Delivery and pooling
+
+4302.8:
+
+Credit Fees
+
+Chapter 4303
+
+: Freddie Mac Relief Refinance Mortgages℠ – Open Access
+
+4303.1:
+
+Freddie Mac Relief Refinance Mortgages℠ — Open Access
+
+4303.2:
+
+Freddie Mac Relief Refinance Mortgages℠ — Open Access: Eligibility requirements, eligible Mortgages and ineligible Mortgages
+
+4303.3:
+
+Requirements for Freddie Mac Relief Refinance Mortgages℠ — Open Access
+
+4303.4:
+
+Delivery and pooling requirements for Freddie Mac Relief Refinance Mortgages℠ — Open Access
+
+4303.5:
+
+Credit Fees in Price and other assessments and credits for Freddie Mac Relief Refinance Mortgages℠ — Open Access
+
+4303.6:
+
+Other Guide provisions related to Freddie Mac Relief Refinance Mortgages℠ — Open Access
+
+Chapter 4304
+
+: Freddie Mac Enhanced Relief Refinance
+
+®
+
+Mortgages
+
+4304.1:
+
+General eligibility requirements for Enhanced Relief Refinance
+
+®
+
+Mortgages
+
+4304.2:
+
+Underwriting Enhanced Relief Refinance
+
+®
+
+Mortgages
+
+4304.3:
+
+Minimum and maximum LTV, TLTV and HTLTV ratios for Enhanced Relief Refinance
+
+®
+
+Mortgages
+
+4304.4:
+
+Borrower eligibility for Enhanced Relief Refinance
+
+®
+
+Mortgages
+
+4304.5:
+
+Additional underwriting requirements for certain Enhanced Relief Refinance
+
+®
+
+Mortgages
+
+4304.6:
+
+Incentives and contributions for Enhanced Relief Refinance
+
+®
+
+Mortgages
+
+4304.7:
+
+Property eligibility and valuation for Enhanced Relief Refinance
+
+®
+
+Mortgages
+
+4304.8:
+
+Mortgage insurance and credit enhancements for Enhanced Relief Refinance
+
+®
+
+Mortgages
+
+4304.9:
+
+Cash adjustor under fixed-rate Cash for Freddie Mac Enhanced Relief Refinance
+
+®
+
+Mortgages
+
+Chapter 4305
+
+: Purchase Transaction Mortgages
+
+4305.1:
+
+General requirements for all purchase transaction Mortgages
+
+Topic 4400
+
+: Special Mortgage Eligibility Requirements
+
+Chapter 4401
+
+: ARMs
+
+4401.1:
+
+General ARM eligibility requirements
+
+4401.2:
+
+Underwriting requirements for ARMs
+
+Chapter 4402
+
+: Seller-Owned Converted and Seller-Owned Modified Mortgages
+
+4402.1:
+
+Common requirements for Seller-Owned Converted Mortgages and Seller-Owned Modified Mortgages
+
+4402.2:
+
+Special requirements for Seller-Owned Converted Mortgages
+
+4402.3:
+
+Uniform Instruments and nonstandard documents for Seller-Owned Converted Mortgages
+
+4402.4:
+
+Special requirements for Seller-Owned Modified Mortgages
+
+4402.5:
+
+Uniform Instruments for Seller-Owned Modified Mortgages
+
+Chapter 4403
+
+: Mortgages with Capitalized Balances
+
+4403.1:
+
+Mortgages with capitalized balances
+
+Chapter 4404
+
+: Land Contract; Contract for Deed
+
+4404.1:
+
+Land contract; contract for deed
+
+Chapter 4405
+
+: Energy Conservation Improvements
+
+4405.1:
+
+Energy conservation improvements
+
+Chapter 4406
+
+: Mortgages Secured by Properties Subject to Resale Restrictions
+
+4406.1:
+
+Eligibility and underwriting requirements for Mortgages secured by properties subject to resale restrictions
+
+4406.2:
+
+Resale restriction requirements for Mortgages secured by properties subject to resale restrictions
+
+4406.3:
+
+Payment of financial obligation requirements for Mortgages secured by properties subject to resale restrictions
+
+4406.4:
+
+Appraisal requirements for Mortgages secured by properties subject to resale restrictions
+
+4406.5:
+
+Determining value to calculate the LTV, TLTV and HTLTV ratios on Mortgages secured by properties subject to resale restrictions
+
+4406.6:
+
+Documentation options and public land records requirements for Mortgages secured by properties subject to resale restrictions
+
+4406.7:
+
+Right of first refusal requirements for Mortgages secured by properties subject to resale restrictions
+
+4406.8:
+
+Mortgages secured by properties subject to income-based resale restrictions
+
+4406.9:
+
+Excess proceeds for Mortgages secured by properties subject to income-based resale restrictions
+
+4406.10:
+
+Requirements for Affordable Seconds
+
+®
+
+, subsidy providers and program administrators for Mortgages secured by properties subject to income-based resale restrictions
+
+4406.11:
+
+Special delivery requirements for Mortgages secured by properties subject to income-based resale restrictions
+
+Chapter 4407
+
+: Properties Impacted by Disasters
+
+4407.1:
+
+Eligibility of properties impacted by a disaster
+
+4407.2:
+
+Representation and warranty relief for automated collateral evaluation (ACE) appraisal waiver or ACE+ PDR offers and Loan Collateral Advisor
+
+®
+
+4407.3:
+
+Age of documentation and Loan Product Advisor
+
+®
+
+submission requirements in Eligible Disaster Areas
+
+Chapter 4408
+
+: Mortgages Made Pursuant to Employee Relocation Programs
+
+4408.1:
+
+Mortgages made pursuant to employee relocation programs
+
+Topic 4500
+
+: Affordable Mortgages and Duty to Serve
+
+Chapter 4501
+
+: Home Possible
+
+®
+
+Mortgages
+
+4501.1:
+
+Eligible and ineligible Home Possible
+
+®
+
+Mortgages
+
+4501.2:
+
+Temporary subsidy buydown plans for Home Possible
+
+®
+
+Mortgages
+
+4501.3:
+
+Eligible property and appraisal requirements for Home Possible
+
+®
+
+Mortgages
+
+4501.4:
+
+Eligible Borrowers for Home Possible
+
+®
+
+Mortgages
+
+4501.5:
+
+Underwriting requirements for Home Possible
+
+®
+
+Mortgages
+
+4501.6:
+
+Borrower income and qualifying ratios for Home Possible
+
+®
+
+Mortgages
+
+4501.7:
+
+Loan-to-value (LTV)/total LTV (TLTV)/Home Equity Line of Credit (HELOC) TLTV (HTLTV) ratios, Borrower contribution, reserves, sources of funds for Home Possible
+
+®
+
+Mortgages
+
+4501.8:
+
+Mortgage insurance for Home Possible
+
+®
+
+Mortgages
+
+4501.9:
+
+Homeownership education and landlord education for Home Possible
+
+®
+
+Mortgages
+
+4501.10:
+
+Credit Fees for Home Possible
+
+®
+
+Mortgages
+
+Chapter 4502
+
+: Affordable Housing Preservation: Shared Equity Programs – Community Land Trusts
+
+4502.1:
+
+Overview for Community Land Trust
+
+4502.2:
+
+Eligible Borrowers for Community Land Trust Mortgages
+
+4502.3:
+
+Eligible and ineligible Community Land Trust Mortgages
+
+4502.4:
+
+Loan purpose, eligible property and occupancy types and underwriting requirements for Community Land Trust Mortgages
+
+4502.5:
+
+Maximum loan-to-value (LTV)/total LTV (TLTV)/Home Equity Line of Credit (HELOC) TLTV (HTLTV) ratios and value for Community Land Trust Mortgages
+
+4502.6:
+
+Appraisal requirements for Community Land Trust Mortgages
+
+4502.7:
+
+Requirements for Community Land Trust Ground Leases and Ground Lease Riders
+
+4502.8:
+
+Security Instruments for Community Land Trust Mortgages
+
+4502.9:
+
+Title insurance requirements for Community Land Trust Mortgages
+
+4502.10:
+
+Other requirements for Community Land Trust Mortgages
+
+4502.11:
+
+Landlord education
+
+Chapter 4503
+
+: Affordable Housing Preservation: Shared Equity Programs – Income-based Resale Restrictions
+
+4503.1:
+
+Shared equity programs – income-based resale restrictions
+
+Chapter 4504
+
+: HeritageOne
+
+®
+
+Mortgages
+
+4504.1:
+
+Purchase of HeritageOne
+
+®
+
+Mortgages
+
+4504.2:
+
+Overview of HeritageOne
+
+®
+
+Mortgages
+
+4504.3:
+
+Eligible Borrowers for HeritageOne
+
+®
+
+Mortgages
+
+4504.4:
+
+Ineligible HeritageOne
+
+®
+
+Mortgages
+
+4504.5:
+
+General eligibility requirements for HeritageOne
+
+®
+
+Mortgages
+
+4504.6:
+
+Underwriting requirements, qualifying ratios and maximum loan-to-value (LTV)/total LTV (TLTV) ratios for HeritageOne
+
+®
+
+Mortgages
+
+4504.7:
+
+Borrower contribution, reserves and sources of funds for HeritageOne
+
+®
+
+Mortgages
+
+4504.8:
+
+HeritageOne
+
+®
+
+Mortgages that are leasehold Mortgages
+
+4504.9:
+
+Appraisal requirements for HeritageOne
+
+®
+
+Mortgages
+
+4504.10:
+
+Mortgage insurance and title insurance requirements for HeritageOne
+
+®
+
+Mortgages
+
+4504.11:
+
+Mortgage file requirements for HeritageOne
+
+®
+
+Mortgages
+
+4504.12:
+
+Credit Fees for HeritageOne
+
+®
+
+Mortgages
+
+Topic 4600
+
+: Special Freddie Mac Mortgage Products
+
+Chapter 4601
+
+: Financed Permanent Buydown Mortgages
+
+4601.1:
+
+Financed Permanent Buydown Mortgages
+
+Chapter 4602
+
+: Construction Conversion and Renovation Mortgages
+
+4602.1:
+
+Replacement of Interim Construction Financing overview
+
+4602.2:
+
+Eligible and ineligible Construction Conversion and Renovation Mortgages
+
+4602.3:
+
+Documentation of Permanent Financing
+
+4602.4:
+
+Mortgage term for Construction Conversion and Renovation Mortgages
+
+4602.5:
+
+Mortgage purpose for Construction Conversion and Renovation Mortgages
+
+4602.6:
+
+Eligible Borrowers for Construction Conversion and Renovation Mortgages
+
+4602.7:
+
+Eligible property for Construction Conversion and Renovation Mortgages
+
+4602.8:
+
+Underwriting the Permanent Financing
+
+4602.9:
+
+Appraisal requirements for Construction Conversion and Renovation Mortgages
+
+4602.10:
+
+Calculation of value for Construction Conversion and Renovation Mortgages
+
+4602.11:
+
+Seller-Owned Modified and Seller-Owned Converted Mortgages
+
+4602.12:
+
+Mortgage file documentation for Construction Conversion and Renovation Mortgages
+
+4602.13:
+
+Residential loan application and uniform underwriting and transmittal summary forms for Construction Conversion and Renovation Mortgages
+
+4602.14:
+
+Delivery requirements for Construction Conversion and Renovation Mortgages
+
+4602.15:
+
+Credit Fees for Construction Conversion and Renovation Mortgages
+
+Chapter 4603
+
+: Super Conforming Mortgages
+
+4603.1:
+
+Definition of super conforming Mortgages
+
+4603.2:
+
+Minimum and maximum original loan amounts for super conforming Mortgages
+
+4603.3:
+
+Eligible and ineligible super conforming Mortgages
+
+4603.4:
+
+Underwriting requirements for super conforming Mortgages
+
+4603.5:
+
+Appraisal requirements for super conforming Mortgages
+
+4603.6:
+
+Delivery and pooling requirements for super conforming Mortgages
+
+4603.7:
+
+Credit Fees for super conforming Mortgages
+
+Chapter 4604
+
+: Affordable Merit Rate
+
+®
+
+Mortgages
+
+4604.1:
+
+Purchase of Affordable Merit Rate
+
+®
+
+Mortgages
+
+4604.2:
+
+Eligible Affordable Merit Rate
+
+®
+
+Mortgages
+
+4604.3:
+
+Special underwriting requirements for Affordable Merit Rate
+
+®
+
+Mortgages
+
+4604.4:
+
+Other requirements for Affordable Merit Rate
+
+®
+
+Mortgages
+
+Chapter 4605
+
+: HomeOne
+
+®
+
+Mortgages
+
+4605.1:
+
+HomeOne
+
+®
+
+Mortgages
+
+Chapter 4606
+
+: GreenCHOICE
+
+®
+
+Mortgages
+
+4606.1:
+
+Eligible Mortgages and improvements, and use of Mortgage proceeds
+
+4606.2:
+
+Determination of value for the loan-to-value (LTV)/total loan-to-value (TLTV)/Home Equity Line of Credit (HELOC) TLTV (HTLTV) ratio, underwriting requirements and qualifying ratios
+
+4606.3:
+
+Mortgage requirements
+
+4606.4:
+
+Energy reports
+
+4606.5:
+
+Transfers of Servicing
+
+4606.6:
+
+Delivery requirements and Credit Fees
+
+Chapter 4607
+
+: CHOICERenovation
+
+®
+
+Mortgages
+
+4607.1:
+
+CHOICERenovation
+
+®
+
+Mortgages
+
+4607.2:
+
+Eligible and ineligible CHOICERenovation
+
+®
+
+Mortgages
+
+4607.3:
+
+Property eligibility and occupancy for CHOICERenovation
+
+®
+
+Mortgages
+
+4607.4:
+
+General eligibility requirements for CHOICERenovation
+
+®
+
+Mortgages
+
+4607.5:
+
+Underwriting CHOICERenovation
+
+®
+
+Mortgages
+
+4607.6:
+
+Eligible renovations for CHOICERenovation
+
+®
+
+Mortgages
+
+4607.7:
+
+Maximum financed renovation costs for CHOICERenovation
+
+®
+
+Mortgages
+
+4607.8:
+
+Appraisal requirements for CHOICERenovation
+
+®
+
+Mortgages
+
+4607.9:
+
+Seller responsibilities for renovation work and process for CHOICERenovation
+
+®
+
+Mortgages
+
+4607.10:
+
+Contractor requirements and advancing the costs of materials for CHOICERenovation
+
+®
+
+Mortgages
+
+4607.11:
+
+Funds for renovations and contingency reserve requirements for CHOICERenovation
+
+®
+
+Mortgages
+
+4607.12:
+
+Custodial Accounts for Renovation Funds for CHOICERenovation
+
+®
+
+Mortgages
+
+4607.13:
+
+Property insurance for CHOICERenovation
+
+®
+
+Mortgages
+
+4607.14:
+
+Recourse for CHOICERenovation
+
+®
+
+Mortgages
+
+4607.15:
+
+Representations and warranties for CHOICERenovation
+
+®
+
+Mortgages
+
+4607.16:
+
+CHOICERenovation
+
+®
+
+Mortgages combined with GreenCHOICE Mortgages
+
+®
+
+and credit for Credit Fees
+
+4607.17:
+
+Transfers of Servicing for CHOICERenovation® Mortgages
+
+Topic 4700
+
+: Insurance Requirements
+
+Chapter 4701
+
+: Mortgage Insurance and Late Charges
+
+4701.1:
+
+Mortgage insurance
+
+4701.2:
+
+Mortgage insurance premiums
+
+4701.3:
+
+Commissions, fees or other compensation on insurance
+
+4701.4:
+
+Late charges
+
+4701.5:
+
+Mortgage insurance for Cooperative Share Loans
+
+Chapter 4702
+
+: Title Insurance
+
+4702.1:
+
+General Freddie Mac title insurance requirements
+
+4702.2:
+
+Title insurance policy requirements
+
+4702.3:
+
+Attorney opinion of title letter
+
+4702.4:
+
+Acceptable exceptions to the title insurance policy or to the attorney’s opinion of title letter
+
+4702.5:
+
+Special title insurance requirements for Texas Equity Section 50(a)(6) Mortgages
+
+4702.6:
+
+Title insurance requirements for Cooperative Projects and Cooperative Share Loans
+
+4702.7:
+
+Title insurance requirements for HeritageOne
+
+®
+
+Mortgages
+
+Chapter 4703
+
+: Property Insurance
+
+4703.1:
+
+General property insurance requirements
+
+4703.2:
+
+Minimum property insurance types and amounts
+
+4703.3:
+
+Flood insurance
+
+4703.4:
+
+Liability insurance for Condominium Projects and Cooperative Projects
+
+4703.5:
+
+Fidelity or employee dishonesty insurance for Condominium Projects and Cooperative Projects
+
+4703.6:
+
+Mortgage clause
+
+4703.7:
+
+Localized perils insurance
+
+Series 5000
+
+: Origination and Underwriting
+
+Topic 5100
+
+: Determining Borrower Eligibility
+
+Chapter 5101
+
+: Using Loan Product Advisor
+
+®
+
+5101.1:
+
+General information for using Loan Product Advisor
+
+®
+
+5101.2:
+
+Loan Product Advisor
+
+®
+
+Risk Class
+
+5101.3:
+
+Resubmission requirements
+
+Chapter 5102
+
+: Underwriting a Mortgage for Sale to Freddie Mac
+
+5102.1:
+
+Underwriting a Mortgage
+
+5102.2:
+
+Methods of underwriting
+
+5102.3:
+
+General requirements for verifying documents
+
+5102.4:
+
+Age of documentation
+
+Chapter 5103
+
+: Special Borrower Eligibility
+
+5103.1:
+
+Mortgages including a non-occupying Borrower
+
+5103.2:
+
+Permanent and nonpermanent resident aliens
+
+5103.3:
+
+Endorser, guarantor and surety
+
+5103.4:
+
+Homeownership education
+
+5103.5:
+
+Living Trust
+
+5103.6:
+
+Land Trust
+
+Topic 5200
+
+: Credit Assessment
+
+Chapter 5201
+
+: Credit Assessment with Loan Product Advisor
+
+®
+
+5201.1:
+
+Credit assessment with Loan Product Advisor
+
+®
+
+Chapter 5202
+
+: Credit Assessment for Manually Underwritten Mortgages
+
+5202.1:
+
+Establishing Borrower credit reputation for Manually Underwritten Mortgages
+
+Chapter 5203
+
+: Credit Reports and Credit Scores
+
+5203.1:
+
+Credit reports
+
+5203.2:
+
+Credit Scores
+
+Topic 5300
+
+: Stable Monthly Income and Asset Qualification Sources
+
+Chapter 5301
+
+: General Requirements for All Stable Monthly Income and Asset Qualification Sources
+
+5301.1:
+
+General requirements for all stable monthly income
+
+5301.2:
+
+General requirements for all stable monthly asset qualification sources
+
+5301.3:
+
+Note Date references
+
+Chapter 5302
+
+: General Requirements for Documentation Used to Verify Employment and Income
+
+5302.1:
+
+Introduction to documentation requirements
+
+5302.2:
+
+Employed income documentation and verification requirements
+
+5302.3:
+
+Third-party verification service providers: employment and income verifications
+
+5302.4:
+
+Tax returns and tax return information: Documentation and verification requirements
+
+5302.5:
+
+IRS Form 4506-C requirements for all income and asset qualification sources
+
+5302.6:
+
+Automated employment assessment with Loan Product Advisor
+
+®
+
+Chapter 5303
+
+: Employed Income
+
+5303.1:
+
+Employed income
+
+5303.2:
+
+Income commencing after the Note Date
+
+5303.3:
+
+Income while on temporary leave
+
+5303.4:
+
+Automated income assessment using employed income data
+
+5303.5:
+
+Automated income assessment with Loan Product Advisor
+
+®
+
+using account data for employed income
+
+Chapter 5304
+
+: Self-Employed Income
+
+5304.1:
+
+Stable monthly income and documentation requirements for self-employed Borrowers
+
+5304.2:
+
+Automated income assessment using tax data
+
+Chapter 5305
+
+: Other Income
+
+5305.1:
+
+Requirements for all other income (non-employment/non-self-employment)
+
+5305.2:
+
+Automated income assessment with Loan Product Advisor
+
+®
+
+using account data for other income
+
+Chapter 5306
+
+: Rental Income
+
+5306.1:
+
+Rental income
+
+5306.2:
+
+Automated income assessment using tax data for rental income
+
+Chapter 5307
+
+: Asset Qualification Sources
+
+5307.1:
+
+Assets as a basis for repayment of obligations
+
+Topic 5400
+
+: Evaluation of Monthly Obligations
+
+Chapter 5401
+
+: Evaluation of Monthly Obligations
+
+5401.1:
+
+Monthly housing expense-to-income ratio
+
+5401.2:
+
+Monthly debt payment-to-income (DTI) ratio
+
+Topic 5500
+
+: Assets
+
+Chapter 5501
+
+: Assets
+
+5501.1:
+
+Funds required for the Mortgage transaction
+
+5501.2:
+
+Reserves
+
+5501.3:
+
+Borrower personal funds
+
+5501.4:
+
+Other sources of funds
+
+5501.5:
+
+Employer Assisted Homeownership (EAH) Benefit
+
+5501.6:
+
+Interested party contributions
+
+5501.7:
+
+Lender contributions
+
+5501.8:
+
+Automated asset assessment with Loan Product Advisor
+
+®
+
+using account data
+
+Topic 5600
+
+: Property Eligibility and Appraisal Requirements
+
+Chapter 5601
+
+: Property Eligibility
+
+5601.1:
+
+Property eligibility requirements
+
+5601.2:
+
+Eligibility of a property with an ADU
+
+5601.3:
+
+Eligibility of a property with incomplete improvements
+
+5601.4:
+
+Eligibility of properties with energy-efficient improvements and properties with solar panels
+
+5601.5:
+
+Eligibility of a property with mixed-use
+
+5601.6:
+
+Eligibility of a property with two or more adjoining parcels
+
+Chapter 5602
+
+: Collateral Representations and Warranties, Loan Collateral Advisor
+
+®
+
+and Automated Collateral Evaluation (ACE and ACE+ PDR)
+
+5602.1:
+
+Collateral representations and warranties
+
+5602.2:
+
+Loan Collateral Advisor
+
+®
+
+5602.3:
+
+Automated collateral evaluation (ACE) – appraisal waiver
+
+5602.4:
+
+ACE+ PDR
+
+Chapter 5603
+
+: Appraiser Independence Requirements, Property Data Collector Independence Requirements, Appraiser Engagement and Qualifications, Information Disclosure, Unacceptable Appraisal Practices and Property Data Collector Engagement, Qualifications and Oversight
+
+5603.1:
+
+Appraiser Independence Requirements, Seller selection of appraisers and appraiser qualifications
+
+5603.2:
+
+Seller verification of subject property owner of record
+
+5603.3:
+
+Information supplied to the appraiser and Borrower
+
+5603.4:
+
+Unacceptable appraisal practices
+
+5603.5:
+
+Property Data Collector Independence Requirements and Seller engagement of property data collectors
+
+5603.6:
+
+Property data collector qualifications and Seller oversight
+
+Chapter 5604
+
+: Appraisal Report Forms, Inspection Types, PDRs, Exhibits, Age of Appraisal Reports and PDRs, Appraisal Updates, Appraisal Re-use and Reconciliation of Multiple Opinions of Market Value
+
+5604.1:
+
+Appraisal report forms, PDRs and inspection types
+
+5604.2:
+
+Exhibits and addenda for appraisal reports and PDRs
+
+5604.3:
+
+Age of appraisal reports, appraisal update requirements, re-use of an appraisal report for a subsequent transaction and age of PDRs
+
+5604.4:
+
+Reviewing appraisal reports, reconsideration of value requested by the Borrower, obtaining subsequent appraisal reports and reconciling multiple opinions of market value
+
+Chapter 5605
+
+: Appraisal Requirements
+
+5605.1:
+
+Appraisal report requirements and appraiser responsibilities
+
+5605.2:
+
+Definition of market value
+
+5605.3:
+
+Subject property, contract and Neighborhood description
+
+5605.4:
+
+Site and location analysis
+
+5605.5:
+
+Improvements analysis
+
+5605.6:
+
+Sales comparison approach
+
+5605.7:
+
+Cost and income approaches and reconciliation of market value
+
+5605.8:
+
+Requirements for verifying completion
+
+5605.9:
+
+Special property appraisal requirements
+
+5605.10:
+
+Special property appraisal requirements
+
+Chapter 5606
+
+: Uniform Appraisal Dataset (UAD), Uniform Collateral Data Portal
+
+®
+
+(UCDP
+
+®
+
+) and Electronic Appraisal Reports
+
+5606.1:
+
+Uniform Appraisal Dataset (UAD)
+
+5606.2:
+
+Uniform Collateral Data Portal
+
+®
+
+(UCDP
+
+®
+
+)
+
+5606.3:
+
+Electronic appraisal reports
+
+Topic 5700
+
+: Property
+
+Chapter 5701
+
+: Condominiums
+
+5701.1:
+
+Seller’s assessment of Condominium Project risks; terms used in this chapter
+
+5701.2:
+
+Condominium Project review and general Condominium Project eligibility requirements
+
+5701.3:
+
+Ineligible projects
+
+5701.4:
+
+Streamlined reviews
+
+5701.5:
+
+Established Condominium Projects
+
+5701.6:
+
+New Condominium Projects
+
+5701.7:
+
+Exempt From Review
+
+5701.8:
+
+Condominium appraisal and underwriting requirements
+
+5701.9:
+
+Reciprocal project reviews
+
+5701.10:
+
+Condo Project Advisor
+
+®
+
+– Project Assessment Request (PAR)
+
+5701.11:
+
+Condo Project Advisor
+
+®
+
+– Project Waiver Request (PWR)
+
+5701.12:
+
+Delivery requirements
+
+5701.13:
+
+Credit Fees
+
+Chapter 5702
+
+: Planned Unit Developments (PUDs)
+
+5702.1:
+
+Requirements for Planned Unit Developments (PUDs)
+
+Chapter 5703
+
+: Manufactured Homes
+
+5703.1:
+
+Mortgages secured by Manufactured Homes
+
+5703.2:
+
+General requirements related to Manufactured Homes
+
+5703.3:
+
+Property eligibility and occupancy requirements for Mortgages secured by Manufactured Homes
+
+5703.4:
+
+Real property, title and lien requirements for Mortgages secured by Manufactured Homes
+
+5703.5:
+
+Eligible and ineligible Mortgages for Mortgages secured by Manufactured Homes
+
+5703.6:
+
+Mortgage purpose and use of proceeds for Mortgages secured by Manufactured Homes
+
+5703.7:
+
+Underwriting requirements for Mortgages secured by Manufactured Homes
+
+5703.8:
+
+Maximum loan-to-value (LTV)/total LTV (TLTV)/Home Equity Line of Credit (HELOC) TLTV (HTLTV) ratios, loan terms and value calculations for Mortgages secured by Manufactured Homes
+
+5703.9:
+
+Appraisal requirements for Manufactured Homes
+
+5703.10:
+
+Mortgage insurance requirements for Mortgages secured by Manufactured Homes
+
+5703.11:
+
+Taxation of Mortgaged Premises for Mortgages secured by Manufactured Homes
+
+5703.12:
+
+Mortgages secured by a CHOICEHome
+
+®
+
+5703.13:
+
+Delivery requirements for Mortgages secured by Manufactured Homes
+
+5703.14:
+
+Credit Fees for Mortgages secured by Manufactured Homes
+
+Chapter 5704
+
+: Leasehold Estates
+
+5704.1:
+
+Purchase of leasehold Mortgages
+
+5704.2:
+
+Appraisal requirements for leasehold Mortgages
+
+5704.3:
+
+Ground lease requirements for leasehold Mortgages
+
+5704.4:
+
+Security Instruments for leasehold Mortgages
+
+Chapter 5705
+
+: Cooperative Projects and Cooperative Share Loans
+
+5705.1:
+
+Cooperative Share Loans
+
+5705.2:
+
+Cooperative Project review and general Cooperative Project eligibility requirements
+
+5705.3:
+
+Ineligible Cooperative Projects
+
+5705.4:
+
+Cooperative Project eligibility
+
+5705.5:
+
+Cooperative Share Loan eligibility
+
+5705.6:
+
+Legal requirements for New Cooperative Projects
+
+5705.7:
+
+Exempt From Review
+
+5705.8:
+
+Appraisal requirements for Cooperative Units
+
+5705.9:
+
+Combined Cooperative Units
+
+5705.10:
+
+Cooperative Project conversions
+
+5705.11:
+
+Documents to be delivered to the Document Custodian and other documents to be maintained by Seller
+
+5705.12:
+
+Pooling and delivery requirements for Cooperative Share Loans
+
+Chapter 5706
+
+: Manufactured Homes on Leasehold Estates
+
+5706.1:
+
+Purchase of Mortgages secured by Manufactured Homes on leasehold estates
+
+5706.2:
+
+Property eligibility for Mortgages secured by Manufactured Homes on leasehold estates
+
+5706.3:
+
+Eligible transaction types for Mortgages secured by Manufactured Homes on leasehold estates
+
+5706.4:
+
+Lease provisions and value of leasehold estates
+
+5706.5:
+
+Underwriting requirements for Mortgages secured by Manufactured Homes on leasehold estates
+
+5706.6:
+
+Title issues and lien requirements relating to Manufactured Homes on leasehold estates
+
+Topic 5800
+
+: The Uniform Closing Dataset
+
+Chapter 5801
+
+: The Uniform Closing Dataset
+
+5801.1:
+
+The Uniform Closing Dataset and Loan Closing Advisor
+
+®
+
+Series 6000
+
+: Selling and Delivery
+
+Topic 6100
+
+: Cash Program
+
+Chapter 6101
+
+: Fixed-Rate Cash
+
+6101.1:
+
+Fixed-rate Cash Eligibility
+
+6101.2:
+
+Fixed-rate Cash Contracts
+
+6101.3:
+
+Purchase and settlement of fixed-rate Cash Contracts
+
+6101.4:
+
+Best Efforts Contracts under fixed-rate Cash
+
+6101.5:
+
+Requirements for fixed-rate Cash Contracts through Cash-Released XChange
+
+®
+
+Chapter 6102
+
+: ARM Cash
+
+6102.1:
+
+ARM Cash Eligibility
+
+6102.2:
+
+ARM Cash Contracts
+
+6102.3:
+
+Purchase and settlement under ARM Cash
+
+6102.4:
+
+Servicing options and remittance cycle for ARM Cash Contracts
+
+Topic 6200
+
+: Guarantor and MultiLender Swap Programs
+
+Chapter 6201
+
+: Guarantor and MultiLender Swap Programs
+
+6201.1:
+
+Guarantor and MultiLender Swap programs eligibility
+
+6201.2:
+
+Guarantor and MultiLender Swap Contracts
+
+6201.3:
+
+Guarantor and MultiLender Swap pricing, purchase and settlement
+
+6201.4:
+
+Guarantor and MultiLender Swap program Servicing options and remittance
+
+6201.5:
+
+UMBS
+
+®
+
+, MBS and ARM PCs and pool factors
+
+6201.6:
+
+Guarantor and MultiLender Swap program disclosure and indemnification
+
+6201.7:
+
+Special representations and warranties under the Guarantor and MultiLender Swap programs and Freddie Mac remedies for Seller breach
+
+Chapter 6202
+
+: Freddie Mac Swap Disclosure and Pooling Requirements
+
+6202.1:
+
+Freddie Mac Swap disclosure and pooling requirements
+
+6202.2:
+
+Freddie Mac UMBS
+
+®
+
+, MBS and WAC ARM PC disclosure
+
+6202.3:
+
+Pooling requirements for UMBS
+
+®
+
+and MBS Pools
+
+6202.4:
+
+Pooling requirements for WAC ARM PC Pools
+
+Chapter 6203
+
+: Sale of Mortgages through Loan Selling Advisor
+
+®
+
+under Fixed-Rate Guarantor Program
+
+6203.1:
+
+Mortgages sold through Loan Selling Advisor
+
+®
+
+under the fixed-rate Guarantor Program
+
+6203.2:
+
+Fixed-Rate Guarantor Contract requirements
+
+6203.3:
+
+Purchase and settlement requirements for Mortgages sold through Loan Selling Advisor
+
+®
+
+under the fixed-rate Guarantor program
+
+6203.4:
+
+Remittance cycle and Servicing Spreads for Mortgages sold through Loan Selling Advisor
+
+®
+
+under the fixed-rate Guarantor program
+
+6203.5:
+
+Loan Purchase Statements and UMBS
+
+®
+
+and MBS disclosure for Mortgages sold through Loan Selling Advisor
+
+®
+
+under the fixed-rate Guarantor program
+
+Chapter 6204
+
+: Sale of Mortgages through Loan Selling Advisor
+
+®
+
+under WAC ARM Guarantor Program
+
+6204.1:
+
+Eligible Sellers for the WAC ARM Guarantor program through Loan Selling Advisor
+
+®
+
+6204.2:
+
+Eligible ARMs sold through Loan Selling Advisor
+
+®
+
+under the WAC ARM Guarantor program
+
+6204.3:
+
+Purchase and settlement requirements for Mortgages sold through Loan Selling Advisor
+
+®
+
+under the WAC ARM Guarantor program
+
+6204.4:
+
+Remittance cycle and Servicing Spreads for Mortgages sold through Loan Selling Advisor
+
+®
+
+under the WAC ARM Guarantor program
+
+6204.5:
+
+Loan Purchase Statements and ARM PC disclosure for Mortgages sold through Loan Selling Advisor
+
+®
+
+under the WAC ARM Guarantor program
+
+Chapter 6205
+
+: Sale of Mortgages through Loan Selling Advisor
+
+®
+
+under MultiLender Swap Program
+
+6205.1:
+
+Eligible Sellers and fixed-rate Mortgages for the MultiLender Swap program through Loan Selling Advisor
+
+®
+
+6205.2:
+
+Offer procedures/amounts/optional delivery/contract cancelation/purchase and sale obligations/Commitment Amounts for MultiLender Swap Contracts
+
+6205.3:
+
+Purchase and pooling requirements and providing data for Mortgages sold through Loan Selling Advisor
+
+®
+
+under the MultiLender Swap program and wire transfer instructions for UMBS
+
+®
+
+and MBS
+
+6205.4:
+
+Remittance cycle, Credit Fee in Yield and Servicing Spread for Mortgages sold through Loan Selling Advisor
+
+®
+
+under the MultiLender Swap program
+
+6205.5:
+
+Loan Purchase Statements and UMBS
+
+®
+
+/MBS disclosure for Mortgages sold through Loan Selling Advisor
+
+®
+
+under the MultiLender Swap program
+
+Topic 6300
+
+: Delivery of All Mortgages
+
+Chapter 6301
+
+: Documentation Delivery
+
+6301.1:
+
+Accuracy and preparation of Mortgage data submitted
+
+6301.2:
+
+Documentation preparation and endorsements
+
+6301.3:
+
+Delivery of Mortgage documentation
+
+6301.4:
+
+Completion and substitution of delivery
+
+6301.5:
+
+Purchase, settlement and postsettlement adjustments procedures
+
+Chapter 6302
+
+: Mortgage Delivery Instructions
+
+6302.1:
+
+Organization of delivery instructions for ULDD Data Points
+
+6302.2:
+
+Cash program delivery instructions
+
+6302.3:
+
+Guarantor program delivery instructions
+
+6302.4:
+
+MultiLender Swap program delivery instructions
+
+6302.5:
+
+Loan data required for all Mortgages
+
+6302.6:
+
+Loan data required for fixed-rate Mortgages
+
+6302.7:
+
+Loan data required for ARMs
+
+6302.8:
+
+Property data required for all Mortgages
+
+6302.9:
+
+Data required for all Borrowers
+
+6302.10:
+
+Loan Product Advisor
+
+®
+
+Mortgage underwriting data delivery requirements
+
+6302.11:
+
+Non-Loan Product Advisor
+
+®
+
+Mortgage data delivery requirements
+
+6302.12:
+
+Special delivery requirements for FHA and VA Mortgages
+
+6302.13:
+
+Special delivery requirements for Section 184 Native American Mortgages
+
+6302.14:
+
+Special delivery requirements for Home Possible
+
+®
+
+Mortgages
+
+6302.15:
+
+Special delivery requirements for Section 502 GRH Mortgages
+
+6302.16:
+
+Special delivery requirements for refinance Mortgages
+
+6302.17:
+
+Special delivery requirements for fixed-rate relocation Mortgages
+
+6302.18:
+
+Special delivery requirements for subsidy buydown Mortgages
+
+6302.19:
+
+Special delivery requirements for Seller-Owned Converted Mortgages
+
+6302.20:
+
+Special delivery requirements for Condominium Unit Mortgages
+
+6302.21:
+
+Special delivery requirements for Mortgages with mortgage insurance
+
+6302.22:
+
+Special delivery requirements for Mortgages with capitalized balances
+
+6302.23:
+
+Special delivery requirements for GreenCHOICE Mortgages
+
+®
+
+6302.24:
+
+Special delivery requirements for Financed Permanent Buydown Mortgages
+
+6302.25:
+
+Special delivery requirements for Mortgages secured by Manufactured Homes
+
+6302.26:
+
+Special delivery requirements for fixed-rate Mortgages sold through Cash-Released XChange
+
+®
+
+6302.27:
+
+Special delivery requirements for Seller-Owned Modified Mortgages
+
+6302.28:
+
+Special delivery requirements for Construction Conversion and Renovation Mortgages
+
+6302.29:
+
+Special delivery requirements for Mortgages with Employer Assisted Homeownership (EAH) Benefits
+
+6302.30:
+
+Special delivery requirements for Mortgages where Borrower uses credit card, cash advance or unsecured line of credit to pay fees
+
+6302.31:
+
+Special delivery requirements for super conforming Mortgages
+
+6302.32:
+
+Special delivery requirements for Mortgages with principal curtailments
+
+6302.33:
+
+Special delivery requirements for Mortgages in which assets are used as a basis for repayment of obligations
+
+6302.34:
+
+Special delivery requirements for Mortgages with secondary financing
+
+6302.35:
+
+Special delivery requirements for Mortgages eligible for sale using the loan-level buyup and buydown program
+
+6302.36:
+
+Special delivery requirements for Affordable Merit Rate
+
+®
+
+Mortgages
+
+6302.37:
+
+Special delivery requirements for Mortgages secured by properties subject to income-based resale restrictions
+
+6302.38:
+
+Special delivery requirements for Pledged Mortgages
+
+6302.39:
+
+Special delivery requirements for Mortgages with special attributes designated for cash specified pools
+
+6302.40:
+
+Special delivery requirements for Freddie Mac Enhanced Relief Refinance
+
+®
+
+Mortgages
+
+6302.41:
+
+Special delivery requirements for HomeOne
+
+®
+
+Mortgages
+
+6302.42:
+
+Special delivery requirements for Community Land Trust Mortgages
+
+6302.43:
+
+Special delivery requirements for CHOICERenovation
+
+®
+
+Mortgages
+
+6302.44:
+
+Special delivery requirements for Mortgages utilizing the age of documentation flexibility in Eligible Disaster Areas
+
+6302.45:
+
+Special delivery requirements for Cooperative Share Loans
+
+6302.46:
+
+Special delivery requirements for Refi Possible
+
+®
+
+Mortgages
+
+6302.47:
+
+Special delivery requirements for Mortgages with title insurance
+
+6302.48:
+
+Special delivery requirements for Mortgages secured by properties located in designated Rural Areas and originated by Small Financial Institutions
+
+6302.49:
+
+Special delivery requirements for Mortgages secured by properties located in designated Rural Areas in High Needs Rural Regions
+
+6302.50:
+
+Special delivery requirements for HeritageOne
+
+®
+
+Mortgages
+
+6302.51:
+
+Special delivery requirements for Mortgages sold for Cash with a related Concurrent Transfer of Servicing
+
+6302.52:
+
+Special delivery requirements for First-Generation Homebuyer Mortgages
+
+6302.53:
+
+Special delivery requirements for Mortgages with a builder forward commitment
+
+Chapter 6303
+
+: Assessment and Payment of Fees
+
+6303.1:
+
+Assessment of fees
+
+6303.2:
+
+Payment of fees
+
+Chapter 6304
+
+: Document Custody
+
+6304.1:
+
+Custody of Notes and assignments
+
+6304.2:
+
+Delivery of Notes and assignments to a Document Custodian
+
+6304.3:
+
+Document Custodian’s functions and duties upon receiving Notes and assignments
+
+Chapter 6305
+
+: Warehouse Financing Arrangements
+
+6305.1:
+
+Warehouse financing arrangements
+
+6305.2:
+
+Delivery and general procedures for Pledged Mortgages
+
+6305.3:
+
+Wire transfer and settlement instructions for Pledged Mortgages
+
+6305.4:
+
+Warehouse Lender and Seller responsibilities
+
+6305.5:
+
+Liability and indemnification
+
+Chapter 6306
+
+: Correspondent XChange
+
+®
+
+6306.1:
+
+Correspondent XChange
+
+®
+
+Chapter 6307
+
+: Co-Issue XChange
+
+®
+
+6307.1:
+
+Co-Issue XChange
+
+®
+
+Topic 6400
+
+: Nondelivery
+
+Chapter 6401
+
+: Nondelivery
+
+6401.1:
+
+Pairoff
+
+6401.2:
+
+Penalty for nondelivery
+
+Servicing
+
+: This segment includes requirements applicable to Servicing Freddie Mac Mortgages (Series 7000 through 9000).
+
+Series 7000
+
+: Transfers of Servicing
+
+Topic 7100
+
+: Transfers of Servicing
+
+Chapter 7101
+
+: Transfers of Servicing and Intra-Servicer Portfolio Moves
+
+7101.1:
+
+Requests for Transfers of Servicing and Intra-Servicer Portfolio Moves
+
+7101.2:
+
+Reviews by Freddie Mac, Transferor Servicer and Transferee Servicer, additional conditions of approval
+
+7101.3:
+
+Transfers of Servicing, reporting requirements and Liabilities of the Transferor and Transferee Servicers
+
+7101.4:
+
+Endorsement of Notes and assignment of Security Instruments, transfer of records and document custody requirements for Transfers of Servicing
+
+7101.5:
+
+Transfer of records
+
+7101.6:
+
+Transfer of funds in Transfers of Servicing
+
+7101.7:
+
+Required notices to Borrowers and Third Parties, Borrower issues and inquiries related to Transfers of Servicing
+
+Chapter 7102
+
+: Voluntary Partial Cancellation of Servicing Contract Rights
+
+7102.1:
+
+Definitions, eligibility and applicability for Voluntary Partial Cancellation (VPC) Transfers of Servicing
+
+Series 8000
+
+: Servicing All Mortgages
+
+Topic 8100
+
+: General Freddie Mac Servicing Policies
+
+Chapter 8101
+
+: General Freddie Mac Servicing Policies
+
+8101.1:
+
+Servicer’s general responsibilities
+
+8101.2:
+
+Servicer’s limited power of attorney, execution of documents
+
+8101.3:
+
+Governing law
+
+8101.4:
+
+Borrower inquiries, Servicing error resolution, audits and access to Mortgage records, Treatment of personal and property information
+
+8101.5:
+
+MERS
+
+®
+
+Chapter 8102
+
+: Servicers and Servicing Agents
+
+8102.1:
+
+Managing Servicing Agents
+
+8102.2:
+
+Obligations upon termination or expiration of Subservicing Agreement
+
+Chapter 8103
+
+: Servicer Accounting and Application of Payments
+
+8103.1:
+
+Servicer fiscal responsibilities
+
+8103.2:
+
+Mortgage accounting records, methods and accounting with respect to delinquency relief
+
+8103.3:
+
+Application of Mortgage payments
+
+Chapter 8104
+
+: Special Servicing
+
+8104.1:
+
+Special Servicing requirements
+
+Chapter 8105
+
+: Servicing Compensation
+
+8105.1:
+
+Compensation for Servicing Mortgages
+
+Chapter 8106
+
+: Servicing Reports to Freddie Mac, Other Third Parties and the Borrower
+
+8106.1:
+
+General requirements for Servicing-related reports to Freddie Mac, third parties and the Borrower
+
+8106.2:
+
+Internal Revenue Service (IRS) Forms 1098, 1099-A, 1099-C and 1099-MISC
+
+Chapter 8107
+
+: Document Custody
+
+8107.1:
+
+Servicer responsibilities related to document custody
+
+8107.2:
+
+Document Custodian's functions and requirements
+
+Topic 8200
+
+: Escrow and Insurance
+
+Chapter 8201
+
+: Escrow
+
+8201.1:
+
+Escrow account management for property taxes, ground rents, assessments or other charges and waiver requirements
+
+Chapter 8202
+
+: Property Insurance
+
+8202.1:
+
+General property insurance requirements
+
+8202.2:
+
+Flood insurance requirements
+
+8202.3:
+
+Liability and fidelity or employee dishonesty insurance for Condominium Projects and Cooperative Projects
+
+8202.4:
+
+Evidence of insurance coverage requirements
+
+8202.5:
+
+Servicer responsibilities to monitor insurance claims and disburse insurance loss proceeds
+
+8202.6:
+
+Lender-Placed Insurance (LPI)
+
+Chapter 8203
+
+: Mortgage Insurance
+
+8203.1:
+
+Mortgage insurance terms, warranties and other requirements
+
+8203.2:
+
+Borrower-requested cancelation of Borrower-paid mortgage insurance on an HPA Mortgage
+
+8203.3:
+
+Borrower-requested cancelation of Borrower-paid mortgage insurance on a Non-HPA Mortgage
+
+8203.4:
+
+Cancelation of Borrower-paid mortgage insurance
+
+8203.5:
+
+FHA insurance, mortgage insurance transfers and cancelations
+
+8203.6:
+
+Directing MI disclosure of Mortgage information to Freddie Mac and reconciliation
+
+Topic 8300
+
+: Servicing Performing Loans – Investor Accounting and Remitting
+
+Chapter 8301
+
+: Basics of Investor Accounting
+
+8301.1:
+
+Servicer’s responsibilities for MBS, participation certificates, investor accounting and reporting performance standards
+
+8301.2:
+
+Accounting and reporting methods, including electronic formats, media, remitting requirements and backup reporting
+
+8301.3:
+
+Calculating Mortgage interest due to Freddie Mac, net yield interest and Servicing fee
+
+8301.4:
+
+Loan-level transaction, accounting cycle, cash float, service bureau liability and change notification, Custodial Accounts and required Servicer advances
+
+Chapter 8302
+
+: Investor Reporting and Remitting Functions
+
+8302.1:
+
+Custodial Account requirements and management
+
+8302.2:
+
+Depository and Custodial Account requirements
+
+8302.3:
+
+Investor reporting and remitting
+
+Chapter 8303
+
+: Reporting and Drafting Requirements
+
+8303.1:
+
+Core concepts and Freddie Mac policies for reporting and drafting
+
+8303.2:
+
+Monthly reporting and remittance requirements for Mortgages
+
+8303.3:
+
+Payoff and liquidation reporting and drafting requirements
+
+8303.4:
+
+Error management and reconciliation in reporting
+
+8303.5:
+
+Noncompliance with reporting standards and compensatory fees
+
+Chapter 8304
+
+: Managing Custodial Accounts
+
+8304.1:
+
+Managing Custodial Accounts and Freddie Mac’s rights
+
+8304.2:
+
+Maintaining Custodial Accounts
+
+8304.3:
+
+Transferring or changing Custodial Accounts
+
+8304.4:
+
+Reconciling Custodial Accounts
+
+Topic 8400
+
+: Property Matters
+
+Chapter 8401
+
+: Changes to the Mortgaged Premises
+
+8401.1:
+
+Release, easement and condominium conversion requirements
+
+Chapter 8402
+
+: Property Seizure
+
+8402.1:
+
+Property seizure and disclosure of pre-seizure information
+
+8402.2:
+
+Government notice of property seizure to the Servicer
+
+Chapter 8403
+
+: Abandoned Properties, Distressed Properties and Properties that Pose a Risk of Property Ownership
+
+8403.1:
+
+Servicing Mortgages on Abandoned Properties, distressed properties and properties that pose a Risk of Property Ownership
+
+Chapter 8404
+
+: Servicing Mortgages Impacted by a Disaster
+
+8404.1:
+
+Servicing Mortgages Impacted by a Disaster
+
+Chapter 8405
+
+: Occupancy Waivers
+
+8405.1:
+
+12-month occupancy waiver request
+
+Chapter 8406
+
+: Transfers of Ownership and Assumptions
+
+8406.1:
+
+General policy and federal regulation on Transfers of Ownership and assumptions
+
+8406.2:
+
+Eligibility and application for approval of Transfers of Ownership, assumptions and releases of liability
+
+8406.3:
+
+File retention, fees and special provisions for Transfers of Ownership and assumptions
+
+Topic 8500
+
+: Servicing for Special Mortgages
+
+Chapter 8501
+
+: Special Requirements for Servicing Step-Rate Mortgages
+
+8501.1:
+
+Servicer staff requirements related to Servicing Step-Rate Mortgages
+
+8501.2:
+
+Communicating upcoming interest rate adjustments
+
+8501.3:
+
+Freddie Mac Flex Modification
+
+®
+
+for Step-Rate Mortgages
+
+Chapter 8502
+
+: Special Servicing and Reporting Requirements for ARMs
+
+8502.1:
+
+ARM Servicing and reporting
+
+8502.2:
+
+Rate changes on ARMs and notification requirements
+
+8502.3:
+
+Negative Amortization
+
+Chapter 8503
+
+: Servicing Requirements for Borrowers who are Servicemembers and their Dependents
+
+8503.1:
+
+Definitions related to Servicing loans, relief and workout options for Servicemembers and their Dependents
+
+8503.2:
+
+Applying and Servicing Servicemembers Civil Relief Act (SCRA)-capped Mortgages
+
+Chapter 8504
+
+: Outreach Requirements for Servicing Mortgages with Deferred Balances and Buydown Plans
+
+8504.1:
+
+Outreach and notification requirements for Mortgages with low interest-bearing UPB and a deferred balance that are approaching the Mortgage maturity date or payoff of the interest-bearing UPB
+
+8504.2:
+
+Outreach requirements for Mortgages with buydown plans
+
+Topic 8600
+
+: Servicing Requirements for Senior Subordinate Mortgages
+
+Chapter 8601
+
+: Servicing Requirements for Senior Subordinate Mortgages
+
+8601.1:
+
+Servicing responsibilities, Borrower interactions and key terms
+
+8601.2:
+
+Limited power of attorney
+
+8601.3:
+
+Regulatory reporting and Internal Revenue Service compliance
+
+8601.4:
+
+Transfer of Servicing, loan assumptions, Borrower notices and required documentation
+
+8601.5:
+
+Default management, foreclosure processes and legal considerations
+
+8601.6:
+
+Property preservation, title management and lien considerations
+
+8601.7:
+
+Servicing high-risk, distressed and abandoned properties
+
+8601.8:
+
+REO – asset management and compliance
+
+Topic 8700
+
+: Servicing Requirements for Community Land Trust Mortgages
+
+Chapter 8701
+
+: Servicing Requirements for Community Land Trust Mortgages
+
+8701.1:
+
+Servicing Community Land Trust Mortgages
+
+8701.2:
+
+Early Delinquency Counseling and Delinquency management for Community Land Trust Mortgages
+
+Topic 8800
+
+: Servicing Requirements for Cooperative Share Loans
+
+Chapter 8801
+
+: Servicing Requirements for Cooperative Share Loans
+
+8801.1:
+
+Servicing Cooperative Share Loans
+
+8801.2:
+
+Transfers of Servicing, financial obligations and insurance considerations
+
+8801.3:
+
+Loss mitigation for Cooperative Share Loans
+
+8801.4:
+
+Delinquency management for Cooperative Share Loans
+
+Topic 8900
+
+: Servicing Requirements for HeritageOne℠ Mortgages
+
+Chapter 8901
+
+: Servicing Requirements for HeritageOne
+
+®
+
+Mortgages
+
+8901.1:
+
+Servicing HeritageOne
+
+®
+
+Mortgages
+
+8901.2:
+
+Delinquency management for HeritageOne
+
+®
+
+Mortgages
+
+Series 9000
+
+: Servicing Default Management
+
+Topic 9100
+
+: Delinquencies
+
+Chapter 9101
+
+: Delinquency Management for Mortgages Secured by Primary Residences
+
+9101.1:
+
+Servicer collection efforts for Mortgages secured by Primary Residences
+
+9101.2:
+
+Evaluation requirements and appeals process in response to the First Complete Borrower Response Package
+
+9101.3:
+
+Foreclosure suspension obligations and additional short sale and deed-in-lieu of foreclosure requirements once the First Complete Borrower Response Package is received
+
+Chapter 9102
+
+: Delinquencies
+
+9102.1:
+
+General requirements for Servicing delinquent Mortgages
+
+9102.2:
+
+Late charges
+
+9102.3:
+
+Establishing Borrower contact during Delinquency
+
+9102.4:
+
+Servicer collection efforts
+
+9102.5:
+
+Borrower solicitation and communication
+
+9102.6:
+
+Monthly Electronic default reporting (EDR)
+
+Topic 9200
+
+: Loss Mitigation
+
+Chapter 9201
+
+: Freddie Mac Loss Mitigation Evaluation Hierarchy and Performance Standards
+
+9201.1:
+
+Rationale for Servicer loss mitigation activities
+
+9201.2:
+
+Freddie Mac loss mitigation evaluation hierarchy
+
+9201.3:
+
+Servicer's responsibilities for loss mitigation activities
+
+9201.4:
+
+Servicer's loss mitigation operations
+
+9201.5:
+
+Servicer default management performance standards
+
+9201.6:
+
+Alternatives to foreclosure
+
+Chapter 9202
+
+: Evaluating the Borrower
+
+9202.1:
+
+Delinquency and Borrower hardship assessment
+
+9202.2:
+
+Mortgage and property risk analysis
+
+9202.3:
+
+Property inspections and abandonment
+
+9202.4:
+
+When to obtain a property value
+
+Chapter 9203
+
+: Reinstatements and Relief Options
+
+9203.1:
+
+Reinstatements and relief options
+
+9203.2:
+
+Repayment plan requirements and reporting
+
+9203.3:
+
+Forbearance plans and requirements
+
+9203.4:
+
+Payment Deferral eligibility, processing, conditions and requirements
+
+Chapter 9204
+
+: Freddie Mac Workout Options
+
+9204.1:
+
+Freddie Mac workout options and Servicer responsibilities
+
+9204.2:
+
+Processing and documentation for workout recommendations
+
+9204.3:
+
+Servicer compensation, fees and Mortgage insurance considerations
+
+Chapter 9205
+
+: Home Affordable Modification Program℠ (HAMP
+
+®
+
+)
+
+9205.1:
+
+Transfers of Servicing and document retention requirements
+
+9205.2:
+
+Special investor reporting requirements and compliance with applicable law for Mortgages modified under Home Affordable Modification Program℠ (HAMP
+
+®
+
+)
+
+9205.3:
+
+Home Affordable Modification Program℠ (HAMP
+
+®
+
+) electronic modification
+
+Chapter 9206
+
+: Modifications
+
+9206.1:
+
+Freddie Mac Flex Modification
+
+®
+
+overview, eligibility and requirements
+
+9206.2:
+
+Modification terms, trial period and conditions of a Freddie Mac Flex Modification
+
+®
+
+9206.3:
+
+Loan modification expenses, capitalization and reimbursement
+
+9206.4:
+
+Settling, reporting and data submission for loan modification
+
+Chapter 9207
+
+: Workout Mortgage Assumption
+
+9207.1:
+
+Workout Mortgage assumption, including overview, eligibility, submission, approval and closing requirements
+
+Chapter 9208
+
+: Freddie Mac Standard Short Sale
+
+9208.1:
+
+Short sale eligibility, Borrower requirements and approval
+
+9208.2:
+
+Property valuation, communications, processing and transaction management for short sales
+
+9208.3:
+
+Closing, reporting and compliance for short sales
+
+Chapter 9209
+
+: Freddie Mac Standard Deed-in-Lieu of Foreclosure
+
+9209.1:
+
+Deed-in-lieu of foreclosure eligibility requirements and Servicer approval authority
+
+9209.2:
+
+Borrower documentation for deeds-in-lieu of foreclosure
+
+9209.3:
+
+Deeds-in-lieu of foreclosure Borrower contributions and relocation assistance
+
+9209.4:
+
+Borrower communication and execution timelines for deeds-in-lieu of foreclosure
+
+9209.5:
+
+Deed-in-lieu of foreclosure transaction and processing requirements
+
+9209.6:
+
+Closing, reporting and remittance requirements for deeds-in-lieu of foreclosure
+
+Chapter 9210
+
+: Charge-off
+
+9210.1:
+
+Charge-off overview and recommendation process
+
+9210.2:
+
+Closing, reporting and remittance requirements for charge-offs
+
+Chapter 9211
+
+: Hardest Hit Fund
+
+9211.1:
+
+Mortgage assistance funds
+
+Topic 9300
+
+: Foreclosure
+
+Chapter 9301
+
+: Foreclosure
+
+9301.1:
+
+Foreclosures overview and Servicer responsibilities
+
+9301.2:
+
+Preforeclosure and referral requirements
+
+9301.3:
+
+Foreclosure process and legal considerations
+
+9301.4:
+
+Reporting requirements: Referral and during the foreclosure proceeding
+
+9301.5:
+
+First legal action and expedited foreclosure
+
+9301.6:
+
+Deficiency rights and property considerations
+
+9301.7:
+
+Complete Borrower Response Packages received after referral to foreclosure and other actions prior to foreclosure sale
+
+9301.8:
+
+Foreclosure sale and bidding requirements
+
+9301.9:
+
+Reporting foreclosure sale results, managing remittance requirements for redemptions and confirmation date changes and third-party sale proceeds and expense reimbursements
+
+9301.10:
+
+Post-foreclosure requirements and title considerations
+
+9301.11:
+
+State foreclosure timelines and performance
+
+Topic 9400
+
+: Bankruptcy and Other Litigation Involving Freddie Mac-Owned or Guaranteed Mortgages
+
+Chapter 9401
+
+: Bankruptcy
+
+9401.1:
+
+Bankruptcy overview, general requirements and Freddie Mac’s rights
+
+9401.2:
+
+Managing bankruptcy filings and delinquency
+
+9401.3:
+
+Servicing bankruptcy counsel and other Servicing requirements
+
+9401.4:
+
+Reimbursement of expenses related to a bankruptcy
+
+Chapter 9402
+
+: Other Litigation Involving Freddie Mac-Owned or Guaranteed Mortgages
+
+9402.1:
+
+Freddie Mac rights and litigation types
+
+9402.2:
+
+Litigation reporting, notification and legal representation
+
+Topic 9500
+
+: Selection, Retention and Management of Law Firms for Freddie Mac Default Legal Matters
+
+Chapter 9501
+
+: Selection, Retention and Management of Law Firms for Freddie Mac Default Legal Matters
+
+9501.1:
+
+Firm management and evaluation
+
+9501.2:
+
+Firm minimum requirements
+
+9501.3:
+
+Firm selection and retention
+
+9501.4:
+
+Firm training requirements, referrals and prohibitions related to Freddie Mac default legal matters
+
+9501.5:
+
+Servicer oversight and reporting
+
+9501.6:
+
+File transfers, termination and suspension of firms
+
+Topic 9600
+
+: Post-Foreclosure/Real Estate Owned
+
+Chapter 9601
+
+: Deficiency Recovery
+
+9601.1:
+
+Deficiency recovery and management
+
+Chapter 9602
+
+: Post-Sale Reporting to Other Entities
+
+9602.1:
+
+Post-foreclosure reporting and compliance
+
+Chapter 9603
+
+: REO
+
+9603.1:
+
+General REO Servicing requirements
+
+9603.2:
+
+Filing FHA/VA/RHS and primary mortgage insurance claims
+
+9603.3:
+
+Financial and legal obligations
+
+Topic 9700
+
+: Reimbursement of Expenses
+
+Chapter 9701
+
+: Reimbursement of Expenses
+
+9701.1:
+
+General expense reimbursement policies
+
+9701.2:
+
+Property-related reimbursements
+
+9701.3:
+
+Legal and foreclosure-related Reimbursements
+
+9701.4:
+
+Non-reimbursable expenses, adjustments and expense offsets
+
+9701.5:
+
+Audit and compliance requirements
+
+top
+
+We use cookies to make it easier for you to navigate our websites and some cookies are essential to make our websites work properly. We also use non-essential cookies to improve user experience, personalize advertisements, and analyze website traffic. For these reasons, we may share your site usage data, including information you enter into the website, with our social media, advertising, and analytics partners. We will continue to use non-essential cookies until you choose to reject them.  See our Privacy Policy to learn more about how we use cookies and how we may collect and use visitor data.
+
+Privacy Policy
+
+Customize Settings
+
+Reject All
+
+Accept All
+
+When you visit any website, it may store or retrieve information on your browser, mostly in the form of cookies. This information might be about you, your preferences or your device and is mostly used to make the site work as you expect it and to help give you a more personalized web experience. Because we respect your right to privacy, you can choose not to allow some types of cookies. Click on the different category headings to find out more and change our default settings. However, blocking some types of cookies may impact your experience on the site and the services we are able to offer. Privacy Notice
+
+Privacy Policy
+
+Manage Consent Preferences
+
+Strictly Necessary Cookies
+
+Always Active
+
+These cookies are necessary for the website to function and cannot be switched off in our systems. They are usually only set in response to actions made by you which amount to a request for services, such as setting your privacy preferences, logging in or filling in forms.    You can set your browser to block or alert you about these cookies, but some parts of the site will not then work. These cookies do not store any personally identifiable information.
+
+Functional Cookies
+
+Always Active
+
+These cookies enable the website to provide enhanced functionality and personalisation. They may be set by us or by third party providers whose services we have added to our pages.    If you do not allow these cookies then some or all of these services may not function properly.
+
+Performance Cookies
+
+Performance Cookies
+
+These cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site. They help us to know which pages are the most and least popular and see how visitors move around the site.    All information these cookies collect is aggregated and therefore anonymous. If you do not allow these cookies we will not know when you have visited our site, and will not be able to monitor its performance.
+
+Targeting Cookies
+
+Targeting Cookies
+
+These cookies may be set through our site by our advertising partners. They may be used by those companies to build a profile of your interests and show you relevant adverts on other sites.    They do not store directly personal information, but are based on uniquely identifying your browser and internet device. If you do not allow these cookies, you will experience less targeted advertising.
+
+Back Button
+
+Cookie List
+
+Search Icon
+
+Filter Icon
+
+Clear
+
+checkbox label
+
+label
+
+Apply
+
+Cancel
+
+Consent
+
+Leg.Interest
+
+checkbox label
+
+label
+
+checkbox label
+
+label
+
+checkbox label
+
+label
+
+Confirm My Choices

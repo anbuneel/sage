@@ -1,0 +1,812 @@
+# Source: https://guide.freddiemac.com/app/guide/bulletin/2025-16
+# Scraped: 2026-01-15T23:01:27.821556
+# Characters: 15371
+#===============================================================================
+
+Search
+
+The Single-Family Seller Servicer Guide
+
+and Related Resources
+
+Search
+
+Glossary
+
+AllRegs
+
+(opens in new window)
+
+Freddie Mac Income Calculator
+
+(opens in new window)
+
+Featured Resources
+
+Browse Guide
+
+Recent Bulletins
+
+FAQs
+
+Upcoming Changes
+
+Archives
+
+Featured Resources
+
+Browse Guide
+
+Recent Bulletins
+
+FAQs
+
+Upcoming Changes
+
+Archives
+
+Bulletin 2025-16
+
+Selling
+
+Issued 12/03/2025
+
+copy url
+
+Copy Link
+
+print
+
+Print
+
+Download
+
+Bulletin 2025-16 [PDF]
+
+Guide Updates Spreadsheet [XLS]
+
+TO: Freddie Mac Sellers
+
+SUBJECT: SELLING UPDATES
+
+This Guide Bulletin announces:
+
+2026 conforming loan limit values
+
+New
+
+conforming loan limit values
+
+for 2026 –
+
+January 1, 2026
+
+Information security
+
+A governance framework for
+
+artificial intelligence and machine learning
+
+systems –
+
+March 3, 2026
+
+Seller/Servicer insurance
+
+Revised
+
+Seller/Servicer insurance coverage
+
+limits, deductibles, documentation, reporting and compliance obligations –
+
+June 8, 2026
+
+Freddie Mac Systems
+
+The introduction of
+
+Quality Control Advisor Plus℠
+
+and updates related to Freddie Mac Gateway
+
+®
+
+–
+
+December 10, 2025
+
+Resale restrictions
+
+Updated requirements for determining the value used for certain Mortgages secured by
+
+properties subject to resale restrictions
+
+–
+
+March 3, 2026
+
+Tax-exempt income
+
+Additional specificity related to calculating
+
+tax-exempt income
+
+Additional Guide updates
+
+Further updates as described in the
+
+Additional Guide updates
+
+section of this Bulletin
+
+EFFECTIVE DATE
+
+All of the changes announced in this Bulletin are effective immediately unless otherwise noted.
+
+2026 CONFORMING LOAN LIMIT VALUES
+
+Effective for Mortgages with
+
+Settlement Date
+
+s on or after January 1, 2026
+
+As announced in our
+
+November 25
+
+(opens in new window)
+
+, 2025 article
+
+, our baseline conforming loan limit values and designated
+
+High-Cost Area
+
+loan limit values will increase, effective January 1, 2026.
+
+The loan limit values, effective for Mortgages with
+
+Settlement Date
+
+s on or after January 1, 2026, are as follows:
+
+Conforming loan limit values
+
+Property type
+
+On or before December 31, 2025
+
+On or after January 1, 2026
+
+Baseline conforming loan limit values
+
+1
+
+High-Cost Area
+
+conforming loan limit values
+
+1,2
+
+Baseline conforming loan limit values
+
+1
+
+High-Cost Area
+
+conforming loan limit values
+
+1,2
+
+Mortgages secured by 1-unit properties
+
+$806,500
+
+$1,209,750
+
+$832,750
+
+$1,249,125
+
+Mortgages secured by 2-unit properties
+
+$1,032,650
+
+$1,548,975
+
+$1,066,250
+
+$1,599,375
+
+Mortgages secured by 3-unit properties
+
+$1,248,150
+
+$1,872,225
+
+$1,288,800
+
+$1,933,200
+
+Mortgages secured by 4-unit properties
+
+$1,551,250
+
+$2,326,875
+
+$1,601,750
+
+$2,402,625
+
+1
+
+Except for Mortgages secured by properties in Alaska, Hawaii, Guam or the U.S. Virgin Islands.
+
+2
+
+Actual conforming loan limit values for specific counties in designated
+
+High-Cost Area
+
+s, as determined by FHFA, may be lower than the loan limits listed above and can be found by visiting the
+
+FHFA conforming loan limit values webpage
+
+(opens in new window)
+
+.
+
+The baseline conforming loan limit values for Mortgages secured by properties in Alaska, Hawaii, Guam or the U.S. Virgin Islands will be 50% higher than the baseline conforming loan limits listed above. Two counties in Hawaii (Maui and Kalawao) will be
+
+High-Cost Area
+
+s in 2026.
+
+For Mortgages secured by properties in designated
+
+High-Cost Area
+
+s, notwithstanding the loan limit values shown in the chart above, Sellers must review the 2026 loan limit values for the specific county in which the property is located. FHFA provides this information on its
+
+website
+
+(opens in new window)
+
+.
+
+High-Cost Area
+
+s applicable to the
+
+First-Time Homebuyer
+
+Credit Fee
+
+Cap, as described in
+
+Guide Exhibit 19A,
+
+Credit Fee
+
+Cap Eligibility Criteria
+
+, are determined based on whether the
+
+Mortgaged Premises
+
+is located in a
+
+High-Cost Area
+
+as of the
+
+Application Received Date
+
+or the Note Date. Loan Selling Advisor
+
+®
+
+will determine whether the
+
+Mortgaged Premises
+
+is located in a
+
+High-Cost Area
+
+.
+
+Loan Product Advisor
+
+®
+
+and Loan Selling Advisor will be updated on December 7, 2025 with the new loan limit values.
+
+Guide impacts:
+
+Sections 4203.1
+
+and
+
+4603.2
+
+ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING
+
+Effective March 3, 2026
+
+We are updating the Guide to establish a comprehensive governance framework for the responsible development, deployment and oversight of artificial intelligence (AI) and machine learning (ML) systems. The updated sections include enhanced requirements and best practices to ensure transparency, accountability and ethical stewardship within AI/ML initiatives. The governance framework outlined in these sections will support organizations in aligning with regulatory standards, mitigating risks and fostering trust in AI-driven solutions.
+
+Guide impacts:
+
+Sections 1302.2
+
+and
+
+1302.8
+
+SELLER/SERVICER INSURANCE
+
+Effective June 8, 2026
+
+We are updating our requirements related to Seller/Servicer insurance coverage limits, deductibles, documentation, reporting and compliance obligations to clarify requirements and better align with market practices.
+
+Guide impacts:
+
+Sections 2101.6 through 2101.9
+
+QUALITY CONTROL ADVISOR PLUS AND FREDDIE MAC GATEWAY
+
+Effective December 10, 2025
+
+We are updating the Guide’s licensing framework to reflect our upcoming rollout of Quality Control Advisor Plus, a new and enhanced version of Quality Control Advisor
+
+®
+
+. The latter System (as defined in
+
+Section 2401.1(b)
+
+) will be available to Seller/Servicers until early 2026.
+
+In addition, the Guide is being further revised to:
+
+Reflect the completed transition from Loan Advisor
+
+®
+
+Portal to Freddie Mac Gateway
+
+Highlight our branded business intelligence System, ECO: Evaluate | Compare | Optimize
+
+®
+
+Include license provisions pertaining to Freddie Mac’s Data Share API
+
+Guide impacts:
+
+Sections 2402.2
+
+,
+
+2402.8
+
+and
+
+2406.2
+
+RESALE RESTRICTIONS
+
+Effective for Mortgages with
+
+Application Received Date
+
+s on or after March 3, 2026, but Sellers are encouraged to implement immediately
+
+Based on Seller feedback, we are updating our Guide requirements for determining the value used for certain Mortgages secured by properties subject to resale restrictions. For Mortgages secured by properties subject to resale restrictions that terminate upon foreclosure (or expiration of any applicable legally required foreclosure redemption period) or recordation of a deed-in-lieu of foreclosure, the value used to determine the LTV/total LTV (TLTV)/
+
+Home Equity Line of Credit (HELOC)
+
+TLTV (HTLTV) ratio will be as follows:
+
+Resale restrictions terminate upon foreclosure (or expiration of any applicable legally required foreclosure redemption period) or recordation of a deed-in-lieu of foreclosure
+
+Transaction type
+
+Value
+
+Resale restrictions that are income-based
+
+Resale restrictions that are not income-based
+
+Purchase
+
+Appraised value
+
+1
+
+Lesser of:
+
+Appraised value
+
+1
+
+, or
+
+Purchase price
+
+Refinance
+
+Appraised value
+
+1
+
+Appraised value
+
+1
+
+1
+
+The appraisal report must reflect the market value of the property without resale restrictions in accordance with
+
+Section 4406.4(c)
+
+.
+
+Guide impacts:
+
+Sections 4203.1
+
+and
+
+4406.5
+
+TAX-EXEMPT INCOME
+
+To provide additional specificity, we have revised Guide language related to calculating tax-exempt income and included examples. No changes to Guide requirements are included in this update.
+
+Guide impact:
+
+Section 5305.1
+
+ADDITIONAL GUIDE UPDATES
+
+Duty to Serve High-Needs Areas update
+
+Effective January 1, 2026
+
+As a result of the updates published in
+
+Bulletin 2025-F
+
+, Freddie Mac is updating
+
+Exhibit 40,
+
+Duty to Serve High-Needs Areas
+
+, to reflect the areas based on FHFA’s updated
+
+Rural Area
+
+s and
+
+High Needs Rural Region
+
+s Data.
+
+Guide impact:
+
+Exhibit 40
+
+Flexibility for CHOICEReno eXPress
+
+®
+
+Mortgages
+
+For CHOICEReno eXPress Mortgages, in accordance with
+
+Section 4607.7
+
+, the maximum financed renovation costs are based on whether the
+
+Mortgaged Premises
+
+is located in a Duty to Serve high-needs area listed in
+
+Exhibit 40
+
+. For CHOICEReno eXPress Mortgages with
+
+Application Received Date
+
+s on or before December 31, 2025 that are impacted by the amended
+
+Rural Area
+
+s and
+
+High Needs Rural Region
+
+s Data with
+
+Settlement Date
+
+s before April 1, 2026, the Seller may determine the maximum financed renovation costs based on whether the
+
+Mortgaged Premises
+
+was located in a designated Duty to Serve high-needs area listed on
+
+Exhibit 40
+
+in effect as of August 13, 2025. For CHOICEReno eXPress Mortgages with
+
+Application Received Date
+
+s on or after January 1, 2026, the Seller must determine the maximum financed renovation costs based on whether the
+
+Mortgaged Premises
+
+is located in a designated Duty to Serve high-needs area listed on
+
+Exhibit 40
+
+in effect as of January 1, 2026.
+
+Fraud identification
+
+Effective December 10, 2025
+
+We are updating our requirements for fraud identification as follows:
+
+Adding property data collectors to the list of third parties that must be approved, evaluated and monitored to be consistent with
+
+Sections 5603.5
+
+and
+
+5603.6
+
+Identifying fraud risk trends to guide selection of discretionary samples to broaden the populations of loans that may be at higher risk for fraud
+
+Updating the frequency of updates to quality control policies and procedures to clarify that periodically means at least annually
+
+Guide impact:
+
+Section 3201.1
+
+Appraisal waivers
+
+Based on industry feedback, we have updated
+
+Section 5602.3
+
+to identify conditions that prevent the Seller from accepting an appraisal waiver offer. No requirements were changed as a result of this update.
+
+Guide impact:
+
+Section 5602.3
+
+Guide as data
+
+Effective December 10, 2025
+
+Based on feedback, we are adding language to
+
+Section 1101.2
+
+that will allow Seller/Servicers to integrate and consume Guide content as data for internal business purposes, including usage within GenAI-enabled tools. This enhancement supports Freddie Mac’s ongoing efforts to make the Guide machine-readable, interoperable and digitally consumable.
+
+Guide impact:
+
+Section 1101.2
+
+Authorized changes for
+
+Security Instrument
+
+s
+
+We have updated
+
+Exhibit 5A,
+
+Authorized Changes to Notes, Riders,
+
+Security Instrument
+
+s and the Uniform Residential Loan Application
+
+, to add an authorized change to permit originators to delete paragraph 30 from the Maryland Deed of Trust (Form 3021 07/2021 rev.06/2025) and the Maryland Short Form (Form 3021-SF 07/2021 rev. 06/2025) if it is not required.
+
+Guide impact:
+
+Exhibit 5A
+
+Retirement of HVE
+
+®
+
+Effective December 10, 2025
+
+HVE has been retired from external commercial availability as of July 31, 2025, and we are removing corresponding references from the Guide.
+
+Guide impacts:
+
+Sections 2402.3
+
+,
+
+2402.7
+
+and
+
+Glossary
+
+Concurrent Transfer of Servicing
+
+contact information
+
+Effective December 10, 2025
+
+We are updating the contact information for submitting agreements for
+
+Concurrent Transfer of Servicing
+
+.
+
+Guide impacts:
+
+Form 960
+
+and
+
+Directory 3
+
+Guide chapter refactoring
+
+To improve the ease of use of our Guide for Sellers,
+
+Chapters 6201
+
+,
+
+6301
+
+,
+
+6304
+
+and
+
+6305
+
+have been refactored. No requirements were changed as a result of this new formatting, although cross-references to refactored
+
+Chapters 6201
+
+,
+
+6301
+
+and
+
+6305
+
+have been updated.
+
+Guide impacts
+
+For a full list of Guide impacts related to Guide refactoring, see the
+
+Guide Updates Spreadsheet
+
+section below.
+
+GUIDE UPDATES SPREADSHEET
+
+For a detailed list of the Guide updates associated with this Bulletin and the topics with which they correspond, access the Bulletin 2025-16 (Selling) Guide Updates Spreadsheet via the Download drop-down available at
+
+https://guide.freddiemac.com/app/guide/bulletin/2025-16
+
+.
+
+CONCLUSION
+
+If you have any questions about the changes announced in this Bulletin, please contact your Freddie Mac representative or call Customer Service at
+
+800-FREDDIE
+
+.
+
+Sincerely,
+
+Kevin Kauffman
+
+Senior Vice President, Single-Family Seller Engagement
+
+[object Object]
+
+[object Object]
+
+[object Object]
+
+top
+
+We use cookies to make it easier for you to navigate our websites and some cookies are essential to make our websites work properly. We also use non-essential cookies to improve user experience, personalize advertisements, and analyze website traffic. For these reasons, we may share your site usage data, including information you enter into the website, with our social media, advertising, and analytics partners. We will continue to use non-essential cookies until you choose to reject them.  See our Privacy Policy to learn more about how we use cookies and how we may collect and use visitor data.
+
+Privacy Policy
+
+Customize Settings
+
+Reject All
+
+Accept All
+
+When you visit any website, it may store or retrieve information on your browser, mostly in the form of cookies. This information might be about you, your preferences or your device and is mostly used to make the site work as you expect it and to help give you a more personalized web experience. Because we respect your right to privacy, you can choose not to allow some types of cookies. Click on the different category headings to find out more and change our default settings. However, blocking some types of cookies may impact your experience on the site and the services we are able to offer. Privacy Notice
+
+Privacy Policy
+
+Manage Consent Preferences
+
+Strictly Necessary Cookies
+
+Always Active
+
+These cookies are necessary for the website to function and cannot be switched off in our systems. They are usually only set in response to actions made by you which amount to a request for services, such as setting your privacy preferences, logging in or filling in forms.    You can set your browser to block or alert you about these cookies, but some parts of the site will not then work. These cookies do not store any personally identifiable information.
+
+Functional Cookies
+
+Always Active
+
+These cookies enable the website to provide enhanced functionality and personalisation. They may be set by us or by third party providers whose services we have added to our pages.    If you do not allow these cookies then some or all of these services may not function properly.
+
+Performance Cookies
+
+Performance Cookies
+
+These cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site. They help us to know which pages are the most and least popular and see how visitors move around the site.    All information these cookies collect is aggregated and therefore anonymous. If you do not allow these cookies we will not know when you have visited our site, and will not be able to monitor its performance.
+
+Targeting Cookies
+
+Targeting Cookies
+
+These cookies may be set through our site by our advertising partners. They may be used by those companies to build a profile of your interests and show you relevant adverts on other sites.    They do not store directly personal information, but are based on uniquely identifying your browser and internet device. If you do not allow these cookies, you will experience less targeted advertising.
+
+Back Button
+
+Cookie List
+
+Search Icon
+
+Filter Icon
+
+Clear
+
+checkbox label
+
+label
+
+Apply
+
+Cancel
+
+Consent
+
+Leg.Interest
+
+checkbox label
+
+label
+
+checkbox label
+
+label
+
+checkbox label
+
+label
+
+Confirm My Choices
