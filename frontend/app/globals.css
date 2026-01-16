@@ -1,26 +1,305 @@
 @import "tailwindcss";
 
+/* Force light mode - disable system dark mode preference */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light only;
 }
+
+html, body {
+  background-color: #F9F8F4 !important;
+  color: #1C1917 !important;
+}
+
+/* ============================================
+   SAGE Design System - "The Modern Ledger"
+   ============================================ */
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Backgrounds - The Canvas */
+  --color-paper: #F9F8F4;
+  --color-paper-dark: #1A1E23;
+  --color-surface: #F0EDE5;
+  --color-surface-dark: #252A31;
+
+  /* Primary - Sage Green */
+  --color-sage-900: #0D1F17;
+  --color-sage-800: #1B4332;
+  --color-sage-700: #2D6A4F;
+  --color-sage-600: #3A6B56;
+  --color-sage-500: #52B788;
+  --color-sage-400: #74C69D;
+
+  /* Ink - Text colors */
+  --color-ink-900: #1C1917;
+  --color-ink-700: #3D3833;
+  --color-ink-500: #6B6560;
+  --color-ink-300: #A8A29E;
+
+  /* Accent - Amber Gold */
+  --color-gold-500: #E0A82E;
+  --color-gold-600: #C4922A;
+  --color-gold-700: #A67B23;
+
+  /* Semantic */
+  --color-success: #3A6B56;
+  --color-warning: #E0A82E;
+  --color-error: #C05640;
+
+  /* Code/Technical */
+  --color-code-bg: #1E1E2E;
+  --color-code-text: #CDD6F4;
+  --color-indigo: #3F47CC;
+
+  /* GSE Brands */
+  --color-fannie: #00447C;
+  --color-freddie: #8B2332;
+
+  /* Border colors */
+  --color-border: #E8E0D0;
+  --color-border-dark: #3D3833;
+
+  /* Typography */
+  --font-display: var(--font-display), Georgia, serif;
+  --font-body: var(--font-body), system-ui, sans-serif;
+  --font-mono: var(--font-mono), 'Consolas', monospace;
+
+  /* Spacing */
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-12: 48px;
+  --spacing-16: 64px;
+
+  /* Border radius */
+  --radius-sm: 2px;
+  --radius-none: 0px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Base styles */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+  background-color: var(--color-paper);
+  color: var(--color-ink-900);
 }
+
+/* Typography utilities */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Heading styles */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* Monospace for all numbers */
+.tabular-nums {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ============================================
+   Component Classes
+   ============================================ */
+
+/* Cards */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-6);
+}
+
+.card:hover {
+  border-color: var(--color-sage-600);
+}
+
+/* Buttons */
+.btn {
+  font-family: var(--font-body);
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: var(--radius-sm);
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--color-sage-600);
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  background: var(--color-sage-700);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-ink-900);
+  border: 1px solid var(--color-border);
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-sage-600);
+  color: var(--color-sage-600);
+}
+
+/* Form inputs */
+.input {
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  width: 100%;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-sage-600);
+  box-shadow: 0 0 0 3px rgba(58, 107, 86, 0.1);
+}
+
+.input-mono {
+  font-family: var(--font-mono);
+}
+
+/* Select dropdown */
+.select {
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.select:focus {
+  outline: none;
+  border-color: var(--color-sage-600);
+  box-shadow: 0 0 0 3px rgba(58, 107, 86, 0.1);
+}
+
+/* The Stamp - Eligibility badge */
+.stamp {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--color-success);
+  border-radius: 0;
+  padding: 16px 24px;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transform: rotate(-1deg);
+  background: var(--color-paper);
+}
+
+.stamp-eligible {
+  border-color: var(--color-success);
+  color: var(--color-success);
+}
+
+.stamp-ineligible {
+  border-color: var(--color-error);
+  color: var(--color-error);
+}
+
+@keyframes stamp-press {
+  0% { transform: scale(1.1) rotate(-2deg); opacity: 0; }
+  50% { transform: scale(0.98) rotate(-1deg); }
+  100% { transform: scale(1) rotate(-1deg); opacity: 1; }
+}
+
+.stamp-animate {
+  animation: stamp-press 0.3s ease-out forwards;
+}
+
+/* Code panels - always dark */
+.code-panel {
+  background: var(--color-code-bg);
+  color: var(--color-code-text);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  padding: var(--spacing-6);
+  border-radius: var(--radius-sm);
+  overflow-x: auto;
+}
+
+/* Transcript message styles */
+.message-user {
+  font-family: var(--font-body);
+  font-weight: 600;
+  padding: 16px 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.message-sage {
+  padding: 16px;
+  padding-left: 20px;
+  border-left: 3px solid var(--color-sage-600);
+  background: var(--color-surface);
+  margin: 8px 0;
+}
+
+/* GSE Badge squares */
+.gse-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.gse-badge-fannie::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--color-fannie);
+  border-radius: 1px;
+}
+
+.gse-badge-freddie::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--color-freddie);
+  border-radius: 1px;
+}
+
+/* Divider */
+.divider {
+  height: 1px;
+  background: var(--color-border);
+  margin: var(--spacing-6) 0;
+}
+
+/* Focus ring */
+.focus-ring:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(58, 107, 86, 0.2);
+}
+

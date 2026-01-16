@@ -1,0 +1,106 @@
+Here is a design concept that breaks away from the "Generic SaaS" (lots of whitespace, gradients, and rounded corners) and the "Traditional Finance" (stark blues and grays).
+
+This concept positions SAGE as a **modern instrument for experts**—blending the authority of a legal library with the precision of a terminal.
+
+### **Design Concept: "The Modern Ledger"**
+
+**The Vibe:** Authoritative, Archival, Precise, "Old World Wisdom meets New World Intelligence."
+**Inspiration:** High-end financial journals (e.g., *The Economist*, *Monocle*), architectural blueprints, and vintage mainframe terminals.
+
+---
+
+### **1. Color Palette: "Organic Authority"**
+
+Avoid the standard "Trust Blue" (#0056b3). Instead, use colors that evoke money, paper, and ink, but with a modern saturation.
+
+* **Backgrounds (The Canvas):**
+* **Day Mode:** `Alabaster White` (#F9F8F4) — *Not blinding #FFFFFF. A very subtle warmth that feels like high-quality paper. Easier on the eyes for reading dense policy text.*
+* **Night Mode:** `Deep Slate` (#1A1E23) — *Not pure black. A rich, cool charcoal that makes text pop.*
+
+
+* **Primary Brand Color:**
+* **`Sage Green`** (#3A6B56) — *A nod to the name. It represents growth, stability, and money, but is calmer and more sophisticated than "Success Green."*
+
+
+* **Functional Accents:**
+* **Alert/Fail:** `Burnt Sienna` (#C05640) — *Use this instead of standard "Error Red." It feels like a stamp on a document or a red-ink correction.*
+* **Highlight/Focus:** `Amber Gold` (#E0A82E) — *For key metrics or "Agent Findings." Highlights important data without screaming.*
+* **Code/Technical:** `Indigo Ink` (#3F47CC) — *Specifically used for the "Generated Updates" tab to distinguish code from policy text.*
+
+
+
+---
+
+### **2. Typography: "Editorial & Code"**
+
+Contrast is key here. We want to mix the feeling of a **Regulatory Document** (Serif) with an **Engineering Console** (Monospace).
+
+* **Headings (The "Guide" Voice):** **`Newsreader`** or **`Source Serif 4`** (Google Fonts).
+* *Why:* Serifs convey authority and history. When the agent cites the "Selling Guide," it should look like a legal citation. It adds weight to the "Wisdom" aspect of SAGE.
+
+
+* **Body & UI (The "Interface" Voice):** **`Public Sans`** or **`Instrument Sans`**.
+* *Why:* Clean, geometric, and highly legible at small sizes. It gets out of the way.
+
+
+* **Data & Code (The "Agent" Voice):** **`JetBrains Mono`** or **`IBM Plex Mono`**.
+* *Why:* Use this for ALL numbers (DTI, LTV), the "Code Updates" tab, and the "Change Log." This reinforces the engineering/precision persona.
+
+
+
+---
+
+### **3. Shape & Structure: "Structured Brutalism"**
+
+Avoid the "soft SaaS" look (large border radii, drop shadows, floating cards).
+
+* **Borders over Shadows:** Use **1px solid borders** to define sections rather than soft drop shadows. This creates a "dashboard" feel rather than a "floating app" feel.
+* **Tight Radii:** Use small corner radii (2px - 4px) or sharp corners. This feels technical and precise.
+* **The "Split View":** Since comparison is a key feature (Fannie vs. Freddie, Old vs. New), design the layout around **vertical split panes** (like a code editor or diff tool) rather than stacked cards.
+
+---
+
+### **4. Iconography: "Technical Schematics"**
+
+Don't use filled, bubbly icons. Use **stroke-based, fine-line icons**.
+
+* **Style:** `Phosphor Icons` (Thin or Regular weight) or custom SVG strokes.
+* **Metaphor:**
+* *Agent:* A geometric node or spark (✳️), not a robot face.
+* *Policy:* A paragraph symbol (¶) or an open ledger, not a generic "doc" icon.
+* *Alert:* A hexagon with an exclamation, evoking a "Stop Sign" or engineering hazard symbol.
+
+
+
+---
+
+### **5. Key UI Moments (Visualizing the Features)**
+
+#### **The "Agent Check" Stamp (Tab 4: Check My Loan)**
+
+When the "Scenario Reasoner" passes or fails a loan, don't just use a colored badge. Design it to look like a **physical rubber stamp** or a **digital signature**.
+
+* *Visual:* A box with a thick border in `Burnt Sienna` (Fail) or `Sage Green` (Pass), slightly rotated or with a "texture" mask to look stamped.
+* *Text:* "INELIGIBLE: FNMA B3-4.1" set in `JetBrains Mono` uppercase.
+
+#### **The "Diff" View (Tab 3: Generated Updates)**
+
+Since you are targeting engineers, lean into the **IDE aesthetic** for the Code Generation tab.
+
+* *Visual:* Dark background panel (even in light mode) for the code block.
+* *Syntax Highlighting:* Use a custom theme that matches your brand (Greens, Golds, and Siennas) rather than the default "Monokai" or "Dracula."
+
+#### **The "Conversation" (Tab 1: Ask The Guide)**
+
+Don't make it look like iMessage or WhatsApp. Make it look like a **transcript**.
+
+* *User:* "Is 50% DTI allowed?" (Aligned left, serif font, bold).
+* *SAGE:* "Per *Selling Guide B3-6-02*..." (Aligned left, indented with a vertical `Sage Green` line running down the side, distinct background highlight).
+* *Citations:* Floating bubbles on the right margin, resembling footnotes or legal annotations.
+
+### **Why this works for your Persona:**
+
+* **The Manager:** Sees the `IBM Plex Mono` data and "Diff Views" and recognizes a serious engineering tool.
+* **The Underwriter:** Sees the Serif typography and "Paper" background and recognizes the familiar authority of the Selling Guide, making it feel less alien than a "tech startup" app.
+
+Would you like me to generate a **Tailwind config object** (colors/fonts) based on this concept so you can paste it directly into your `Project_Spec` or code?

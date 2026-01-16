@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 SAGE (Smart Agentic Guide Engine) is an AI-powered mortgage policy intelligence system that transforms Fannie Mae and Freddie Mac guidelines into an actionable platform. It monitors policy changes, reasons about loan scenarios, compares GSE products, and generates code updates for compliance.
 
-**Status:** Phase 1 Complete - Core UI and eligibility rules engine implemented.
+**Status:** Phase 1 Complete - Core UI and eligibility rules engine implemented. Design system complete.
 
 ## Tech Stack
 
@@ -175,6 +175,30 @@ cd frontend && fly deploy --build-arg NEXT_PUBLIC_API_URL=https://sage-api.fly.d
 - Frontend: https://sage-app.fly.dev
 - Backend API: https://sage-api.fly.dev/api
 - API Docs: https://sage-api.fly.dev/api/docs
+
+## Design System: "The Modern Ledger"
+
+A professional fintech aesthetic built for mortgage industry applications.
+
+### Typography
+- **Display font:** Fraunces (serif) - headings and titles
+- **Body font:** Public Sans - readable body text
+- **Monospace:** JetBrains Mono - numbers, code, data
+
+### Color Palette
+- **Paper:** `#F9F8F4` - warm off-white background
+- **Sage green:** `#3A6B56` - primary brand color
+- **Gold:** `#E0A82E` - accent/warning
+- **Ink:** `#1C1917` to `#A8A29E` - text hierarchy
+- **Fannie Mae:** `#00447C` - blue badge
+- **Freddie Mac:** `#8B2332` - red badge
+
+### Icons
+- Phosphor Icons with consistent "thin" weight throughout
+- Examples: ChatText, ClockCounterClockwise, Code, CheckCircle, Scales
+
+### CSS Custom Properties
+All design tokens defined in `frontend/app/globals.css` using Tailwind CSS 4 `@theme inline` syntax.
 
 ## Development Notes
 

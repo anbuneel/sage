@@ -2,11 +2,17 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import {
+  ChatText,
+  ClockCounterClockwise,
+  Code,
+  CheckCircle,
+  List,
+} from '@phosphor-icons/react';
 
 interface Tab {
   name: string;
   href: string;
-  description: string;
   icon: React.ReactNode;
 }
 
@@ -14,82 +20,22 @@ const tabs: Tab[] = [
   {
     name: 'Ask the Guide',
     href: '/ask',
-    description: 'Chat with the mortgage guidelines',
-    icon: (
-      <svg
-        className="w-5 h-5"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
-        />
-      </svg>
-    ),
+    icon: <ChatText size={20} weight="thin" />,
   },
   {
     name: 'What Changed',
     href: '/changes',
-    description: 'Recent policy updates',
-    icon: (
-      <svg
-        className="w-5 h-5"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-        />
-      </svg>
-    ),
+    icon: <ClockCounterClockwise size={20} weight="thin" />,
   },
   {
-    name: 'Generated Updates',
+    name: 'Code Updates',
     href: '/code',
-    description: 'View code changes',
-    icon: (
-      <svg
-        className="w-5 h-5"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-        />
-      </svg>
-    ),
+    icon: <Code size={20} weight="thin" />,
   },
   {
     name: 'Check My Loan',
     href: '/check',
-    description: 'Verify loan eligibility',
-    icon: (
-      <svg
-        className="w-5 h-5"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-        />
-      </svg>
-    ),
+    icon: <CheckCircle size={20} weight="thin" />,
   },
 ];
 
@@ -97,21 +43,21 @@ export default function TabNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="bg-white border-b border-gray-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
+    <nav className="border-b border-border bg-paper">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center">
-            <Link href="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">S</span>
-              </div>
-              <span className="text-xl font-semibold text-gray-900">SAGE</span>
-            </Link>
-          </div>
+          <Link href="/" className="flex items-center gap-2 group">
+            <div className="w-8 h-8 bg-sage-600 flex items-center justify-center">
+              <span className="text-white font-display font-bold text-lg">S</span>
+            </div>
+            <span className="font-display text-xl font-semibold text-ink-900 tracking-tight">
+              SAGE
+            </span>
+          </Link>
 
-          {/* Tab Navigation */}
-          <div className="hidden sm:flex sm:space-x-1">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-1">
             {tabs.map((tab) => {
               const isActive = pathname === tab.href;
               return (
@@ -119,25 +65,22 @@ export default function TabNav() {
                   key={tab.href}
                   href={tab.href}
                   className={`
-                    inline-flex items-center px-4 py-2 my-2 rounded-md text-sm font-medium
-                    transition-colors duration-150 ease-in-out
-                    ${
-                      isActive
-                        ? 'bg-indigo-100 text-indigo-700'
-                        : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
+                    flex items-center gap-2 px-4 py-2 text-sm font-medium transition-colors
+                    ${isActive
+                      ? 'text-sage-600 bg-sage-600/5'
+                      : 'text-ink-500 hover:text-ink-900 hover:bg-surface'
                     }
                   `}
-                  title={tab.description}
                 >
-                  <span className="mr-2">{tab.icon}</span>
+                  {tab.icon}
                   {tab.name}
                 </Link>
               );
             })}
           </div>
 
-          {/* Mobile menu button */}
-          <div className="sm:hidden flex items-center">
+          {/* Mobile Menu Button */}
+          <div className="md:hidden">
             <MobileMenu tabs={tabs} currentPath={pathname} />
           </div>
         </div>
@@ -156,27 +99,15 @@ function MobileMenu({
   return (
     <div className="relative group">
       <button
-        className="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+        className="p-2 text-ink-500 hover:text-ink-900 hover:bg-surface transition-colors"
         aria-label="Open menu"
       >
-        <svg
-          className="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M4 6h16M4 12h16M4 18h16"
-          />
-        </svg>
+        <List size={24} weight="thin" />
       </button>
 
-      {/* Dropdown menu */}
-      <div className="absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
-        <div className="py-1">
+      {/* Dropdown */}
+      <div className="absolute right-0 mt-2 w-56 bg-paper border border-border opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
+        <div className="py-2">
           {tabs.map((tab) => {
             const isActive = currentPath === tab.href;
             return (
@@ -184,21 +115,15 @@ function MobileMenu({
                 key={tab.href}
                 href={tab.href}
                 className={`
-                  block px-4 py-3 text-sm
-                  ${
-                    isActive
-                      ? 'bg-indigo-50 text-indigo-700'
-                      : 'text-gray-700 hover:bg-gray-50'
+                  flex items-center gap-3 px-4 py-3 text-sm
+                  ${isActive
+                    ? 'text-sage-600 bg-sage-600/5'
+                    : 'text-ink-700 hover:bg-surface'
                   }
                 `}
               >
-                <div className="flex items-center">
-                  <span className="mr-3">{tab.icon}</span>
-                  <div>
-                    <div className="font-medium">{tab.name}</div>
-                    <div className="text-xs text-gray-500">{tab.description}</div>
-                  </div>
-                </div>
+                {tab.icon}
+                <span className="font-medium">{tab.name}</span>
               </Link>
             );
           })}

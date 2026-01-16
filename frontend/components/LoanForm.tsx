@@ -15,6 +15,16 @@ import {
   OCCUPANCY_TYPES,
   LOAN_TERMS,
 } from '@/lib/types';
+import {
+  User,
+  CurrencyDollar,
+  House,
+  CaretDown,
+  CircleNotch,
+  ArrowCounterClockwise,
+  CheckCircle,
+  Warning,
+} from '@phosphor-icons/react';
 
 interface LoanFormProps {
   onSubmit: (scenario: LoanScenario) => void;
@@ -36,7 +46,6 @@ const initialFormData: LoanFormData = {
 };
 
 function formatCurrency(value: string): string {
-  // Remove non-numeric characters except decimal point
   const numericValue = value.replace(/[^0-9.]/g, '');
   if (!numericValue) return '';
 
@@ -106,7 +115,6 @@ export default function LoanForm({ onSubmit, isLoading = false }: LoanFormProps)
     const newErrors: FormErrors = {};
     let isValid = true;
 
-    // Validate all fields
     Object.entries(formData).forEach(([key, value]) => {
       const error = validateField(key, value);
       if (error) {
@@ -115,7 +123,6 @@ export default function LoanForm({ onSubmit, isLoading = false }: LoanFormProps)
       }
     });
 
-    // Additional validation: loan amount vs property value
     const loanAmount = parseCurrency(formData.loan_amount);
     const propertyValue = parseCurrency(formData.property_value);
     if (loanAmount > 0 && propertyValue > 0) {
@@ -145,7 +152,6 @@ export default function LoanForm({ onSubmit, isLoading = false }: LoanFormProps)
       [name]: newValue,
     }));
 
-    // Clear error when user starts typing
     if (errors[name]) {
       setErrors((prev) => ({
         ...prev,
@@ -182,7 +188,6 @@ export default function LoanForm({ onSubmit, isLoading = false }: LoanFormProps)
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Mark all fields as touched
     const allTouched: Record<string, boolean> = {};
     Object.keys(formData).forEach((key) => {
       allTouched[key] = true;
@@ -193,7 +198,6 @@ export default function LoanForm({ onSubmit, isLoading = false }: LoanFormProps)
       return;
     }
 
-    // Convert form data to LoanScenario
     const scenario: LoanScenario = {
       credit_score: parseInt(formData.credit_score, 10),
       annual_income: parseCurrency(formData.annual_income),
@@ -228,26 +232,43 @@ export default function LoanForm({ onSubmit, isLoading = false }: LoanFormProps)
   const annualIncome = parseCurrency(formData.annual_income);
   const monthlyDebt = parseCurrency(formData.monthly_debt_payments) || 0;
   const monthlyIncome = annualIncome / 12;
-  const estimatedMonthlyPayment = loanAmount * 0.006; // Rough estimate
+  const estimatedMonthlyPayment = loanAmount * 0.006;
   const dtiPreview = monthlyIncome > 0
     ? (((monthlyDebt + estimatedMonthlyPayment) / monthlyIncome) * 100).toFixed(1)
     : null;
 
+  const getLtvColor = (ltv: string | null) => {
+    if (!ltv) return 'text-ink-500';
+    const value = parseFloat(ltv);
+    if (value > 97) return 'text-error';
+    if (value > 95) return 'text-gold-600';
+    return 'text-success';
+  };
+
+  const getDtiColor = (dti: string | null) => {
+    if (!dti) return 'text-ink-500';
+    const value = parseFloat(dti);
+    if (value > 50) return 'text-error';
+    if (value > 45) return 'text-gold-600';
+    return 'text-success';
+  };
+
   return (
     <form onSubmit={handleSubmit} className="space-y-8">
       {/* Borrower Information */}
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">
-          Borrower Information
-        </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <fieldset className="bg-surface border border-border p-6">
+        <legend className="flex items-center gap-2 px-2 -ml-2">
+          <User size={18} weight="thin" className="text-sage-600" />
+          <span className="font-display text-lg font-semibold text-ink-900">
+            Borrower Information
+          </span>
+        </legend>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
           {/* Credit Score */}
           <div>
-            <label
-              htmlFor="credit_score"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
-              Credit Score *
+            <label htmlFor="credit_score" className="block text-sm font-medium text-ink-700 mb-2">
+              Credit Score <span className="text-error">*</span>
             </label>
             <input
               type="number"
@@ -259,33 +280,30 @@ export default function LoanForm({ onSubmit, isLoading = false }: LoanFormProps)
               min="300"
               max="850"
               placeholder="620"
-              className={`
-                w-full px-4 py-2 rounded-lg border
-                focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500
-                ${errors.credit_score && touched.credit_score
-                  ? 'border-red-300 bg-red-50'
-                  : 'border-gray-300'
-                }
-              `}
+              className={`input input-mono ${
+                errors.credit_score && touched.credit_score
+                  ? 'border-error/50 bg-error/5'
+                  : ''
+              }`}
             />
             {errors.credit_score && touched.credit_score && (
-              <p className="mt-1 text-sm text-red-600">{errors.credit_score}</p>
+              <p className="mt-1 text-sm text-error flex items-center gap-1">
+                <Warning size={14} weight="thin" />
+                {errors.credit_score}
+              </p>
             )}
-            <p className="mt-1 text-xs text-gray-500">
+            <p className="mt-1 text-xs text-ink-500">
               HomeReady: 620+ | Home Possible: 660+
             </p>
           </div>
 
           {/* Annual Income */}
           <div>
-            <label
-              htmlFor="annual_income"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
-              Annual Income *
+            <label htmlFor="annual_income" className="block text-sm font-medium text-ink-700 mb-2">
+              Annual Income <span className="text-error">*</span>
             </label>
             <div className="relative">
-              <span className="absolute left-3 top-2 text-gray-500">$</span>
+              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-ink-500 font-mono">$</span>
               <input
                 type="text"
                 id="annual_income"
@@ -294,58 +312,66 @@ export default function LoanForm({ onSubmit, isLoading = false }: LoanFormProps)
                 onChange={handleCurrencyChange}
                 onBlur={handleBlur}
                 placeholder="75,000"
-                className={`
-                  w-full pl-8 pr-4 py-2 rounded-lg border
-                  focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500
-                  ${errors.annual_income && touched.annual_income
-                    ? 'border-red-300 bg-red-50'
-                    : 'border-gray-300'
-                  }
-                `}
+                className={`input input-mono pl-8 ${
+                  errors.annual_income && touched.annual_income
+                    ? 'border-error/50 bg-error/5'
+                    : ''
+                }`}
               />
             </div>
             {errors.annual_income && touched.annual_income && (
-              <p className="mt-1 text-sm text-red-600">{errors.annual_income}</p>
+              <p className="mt-1 text-sm text-error flex items-center gap-1">
+                <Warning size={14} weight="thin" />
+                {errors.annual_income}
+              </p>
             )}
           </div>
 
           {/* First Time Buyer */}
           <div className="md:col-span-2">
-            <label className="flex items-center space-x-3 cursor-pointer">
-              <input
-                type="checkbox"
-                name="is_first_time_buyer"
-                checked={formData.is_first_time_buyer}
-                onChange={handleChange}
-                className="w-5 h-5 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
-              />
-              <span className="text-sm font-medium text-gray-700">
+            <label className="flex items-center gap-3 cursor-pointer group">
+              <div className="relative">
+                <input
+                  type="checkbox"
+                  name="is_first_time_buyer"
+                  checked={formData.is_first_time_buyer}
+                  onChange={handleChange}
+                  className="sr-only peer"
+                />
+                <div className="w-5 h-5 border border-border bg-white peer-checked:bg-sage-600 peer-checked:border-sage-600 peer-focus:ring-2 peer-focus:ring-sage-600/20 transition-colors">
+                  {formData.is_first_time_buyer && (
+                    <CheckCircle size={18} weight="bold" className="text-white m-px" />
+                  )}
+                </div>
+              </div>
+              <span className="text-sm font-medium text-ink-700 group-hover:text-ink-900">
                 First-time homebuyer
               </span>
             </label>
-            <p className="mt-1 ml-8 text-xs text-gray-500">
+            <p className="mt-1 ml-8 text-xs text-ink-500">
               Homeownership education may be required for first-time buyers
             </p>
           </div>
         </div>
-      </div>
+      </fieldset>
 
       {/* Loan Details */}
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">
-          Loan Details
-        </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <fieldset className="bg-surface border border-border p-6">
+        <legend className="flex items-center gap-2 px-2 -ml-2">
+          <CurrencyDollar size={18} weight="thin" className="text-sage-600" />
+          <span className="font-display text-lg font-semibold text-ink-900">
+            Loan Details
+          </span>
+        </legend>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
           {/* Loan Amount */}
           <div>
-            <label
-              htmlFor="loan_amount"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
-              Loan Amount *
+            <label htmlFor="loan_amount" className="block text-sm font-medium text-ink-700 mb-2">
+              Loan Amount <span className="text-error">*</span>
             </label>
             <div className="relative">
-              <span className="absolute left-3 top-2 text-gray-500">$</span>
+              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-ink-500 font-mono">$</span>
               <input
                 type="text"
                 id="loan_amount"
@@ -354,31 +380,28 @@ export default function LoanForm({ onSubmit, isLoading = false }: LoanFormProps)
                 onChange={handleCurrencyChange}
                 onBlur={handleBlur}
                 placeholder="350,000"
-                className={`
-                  w-full pl-8 pr-4 py-2 rounded-lg border
-                  focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500
-                  ${errors.loan_amount && touched.loan_amount
-                    ? 'border-red-300 bg-red-50'
-                    : 'border-gray-300'
-                  }
-                `}
+                className={`input input-mono pl-8 ${
+                  errors.loan_amount && touched.loan_amount
+                    ? 'border-error/50 bg-error/5'
+                    : ''
+                }`}
               />
             </div>
             {errors.loan_amount && touched.loan_amount && (
-              <p className="mt-1 text-sm text-red-600">{errors.loan_amount}</p>
+              <p className="mt-1 text-sm text-error flex items-center gap-1">
+                <Warning size={14} weight="thin" />
+                {errors.loan_amount}
+              </p>
             )}
           </div>
 
           {/* Property Value */}
           <div>
-            <label
-              htmlFor="property_value"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
-              Property Value *
+            <label htmlFor="property_value" className="block text-sm font-medium text-ink-700 mb-2">
+              Property Value <span className="text-error">*</span>
             </label>
             <div className="relative">
-              <span className="absolute left-3 top-2 text-gray-500">$</span>
+              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-ink-500 font-mono">$</span>
               <input
                 type="text"
                 id="property_value"
@@ -387,59 +410,60 @@ export default function LoanForm({ onSubmit, isLoading = false }: LoanFormProps)
                 onChange={handleCurrencyChange}
                 onBlur={handleBlur}
                 placeholder="400,000"
-                className={`
-                  w-full pl-8 pr-4 py-2 rounded-lg border
-                  focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500
-                  ${errors.property_value && touched.property_value
-                    ? 'border-red-300 bg-red-50'
-                    : 'border-gray-300'
-                  }
-                `}
+                className={`input input-mono pl-8 ${
+                  errors.property_value && touched.property_value
+                    ? 'border-error/50 bg-error/5'
+                    : ''
+                }`}
               />
             </div>
             {errors.property_value && touched.property_value && (
-              <p className="mt-1 text-sm text-red-600">{errors.property_value}</p>
+              <p className="mt-1 text-sm text-error flex items-center gap-1">
+                <Warning size={14} weight="thin" />
+                {errors.property_value}
+              </p>
             )}
           </div>
 
           {/* Loan Term */}
           <div>
-            <label
-              htmlFor="loan_term_years"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
+            <label htmlFor="loan_term_years" className="block text-sm font-medium text-ink-700 mb-2">
               Loan Term
             </label>
-            <select
-              id="loan_term_years"
-              name="loan_term_years"
-              value={formData.loan_term_years}
-              onChange={(e) =>
-                setFormData((prev) => ({
-                  ...prev,
-                  loan_term_years: parseInt(e.target.value, 10) as LoanTerm,
-                }))
-              }
-              className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-            >
-              {LOAN_TERMS.map((term) => (
-                <option key={term.value} value={term.value}>
-                  {term.label}
-                </option>
-              ))}
-            </select>
+            <div className="relative">
+              <select
+                id="loan_term_years"
+                name="loan_term_years"
+                value={formData.loan_term_years}
+                onChange={(e) =>
+                  setFormData((prev) => ({
+                    ...prev,
+                    loan_term_years: parseInt(e.target.value, 10) as LoanTerm,
+                  }))
+                }
+                className="select appearance-none pr-10"
+              >
+                {LOAN_TERMS.map((term) => (
+                  <option key={term.value} value={term.value}>
+                    {term.label}
+                  </option>
+                ))}
+              </select>
+              <CaretDown
+                size={16}
+                weight="thin"
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-ink-500 pointer-events-none"
+              />
+            </div>
           </div>
 
           {/* Monthly Debt Payments */}
           <div>
-            <label
-              htmlFor="monthly_debt_payments"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
+            <label htmlFor="monthly_debt_payments" className="block text-sm font-medium text-ink-700 mb-2">
               Monthly Debt Payments
             </label>
             <div className="relative">
-              <span className="absolute left-3 top-2 text-gray-500">$</span>
+              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-ink-500 font-mono">$</span>
               <input
                 type="text"
                 id="monthly_debt_payments"
@@ -448,168 +472,168 @@ export default function LoanForm({ onSubmit, isLoading = false }: LoanFormProps)
                 onChange={handleCurrencyChange}
                 onBlur={handleBlur}
                 placeholder="500"
-                className={`
-                  w-full pl-8 pr-4 py-2 rounded-lg border
-                  focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500
-                  ${errors.monthly_debt_payments && touched.monthly_debt_payments
-                    ? 'border-red-300 bg-red-50'
-                    : 'border-gray-300'
-                  }
-                `}
+                className={`input input-mono pl-8 ${
+                  errors.monthly_debt_payments && touched.monthly_debt_payments
+                    ? 'border-error/50 bg-error/5'
+                    : ''
+                }`}
               />
             </div>
-            <p className="mt-1 text-xs text-gray-500">
+            <p className="mt-1 text-xs text-ink-500">
               Car loans, student loans, credit cards, etc.
             </p>
           </div>
 
           {/* LTV & DTI Preview */}
           <div className="md:col-span-2 lg:col-span-2">
-            <div className="bg-gray-50 rounded-lg p-4 flex space-x-8">
+            <div className="bg-paper border border-border p-4 flex gap-8">
               <div>
-                <p className="text-xs text-gray-500 uppercase tracking-wide">
+                <p className="text-xs font-mono uppercase tracking-wider text-ink-500 mb-1">
                   Estimated LTV
                 </p>
-                <p className={`text-2xl font-semibold ${
-                  ltvPreview && parseFloat(ltvPreview) > 97
-                    ? 'text-red-600'
-                    : ltvPreview && parseFloat(ltvPreview) > 95
-                    ? 'text-amber-600'
-                    : 'text-gray-900'
-                }`}>
+                <p className={`text-2xl font-mono font-medium ${getLtvColor(ltvPreview)}`}>
                   {ltvPreview ? `${ltvPreview}%` : '--'}
                 </p>
-                <p className="text-xs text-gray-500">Max: 97%</p>
+                <p className="text-xs text-ink-500 mt-1">Max: 97%</p>
               </div>
+              <div className="w-px bg-border" />
               <div>
-                <p className="text-xs text-gray-500 uppercase tracking-wide">
+                <p className="text-xs font-mono uppercase tracking-wider text-ink-500 mb-1">
                   Estimated DTI
                 </p>
-                <p className={`text-2xl font-semibold ${
-                  dtiPreview && parseFloat(dtiPreview) > 50
-                    ? 'text-red-600'
-                    : dtiPreview && parseFloat(dtiPreview) > 45
-                    ? 'text-amber-600'
-                    : 'text-gray-900'
-                }`}>
+                <p className={`text-2xl font-mono font-medium ${getDtiColor(dtiPreview)}`}>
                   {dtiPreview ? `${dtiPreview}%` : '--'}
                 </p>
-                <p className="text-xs text-gray-500">Max: 45-50%</p>
+                <p className="text-xs text-ink-500 mt-1">Max: 45-50%</p>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </fieldset>
 
       {/* Property Information */}
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">
-          Property Information
-        </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <fieldset className="bg-surface border border-border p-6">
+        <legend className="flex items-center gap-2 px-2 -ml-2">
+          <House size={18} weight="thin" className="text-sage-600" />
+          <span className="font-display text-lg font-semibold text-ink-900">
+            Property Information
+          </span>
+        </legend>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
           {/* Property Type */}
           <div>
-            <label
-              htmlFor="property_type"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
+            <label htmlFor="property_type" className="block text-sm font-medium text-ink-700 mb-2">
               Property Type
             </label>
-            <select
-              id="property_type"
-              name="property_type"
-              value={formData.property_type}
-              onChange={(e) =>
-                setFormData((prev) => ({
-                  ...prev,
-                  property_type: e.target.value as PropertyType,
-                }))
-              }
-              className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-            >
-              {PROPERTY_TYPES.map((type) => (
-                <option key={type.value} value={type.value}>
-                  {type.label}
-                </option>
-              ))}
-            </select>
+            <div className="relative">
+              <select
+                id="property_type"
+                name="property_type"
+                value={formData.property_type}
+                onChange={(e) =>
+                  setFormData((prev) => ({
+                    ...prev,
+                    property_type: e.target.value as PropertyType,
+                  }))
+                }
+                className="select appearance-none pr-10"
+              >
+                {PROPERTY_TYPES.map((type) => (
+                  <option key={type.value} value={type.value}>
+                    {type.label}
+                  </option>
+                ))}
+              </select>
+              <CaretDown
+                size={16}
+                weight="thin"
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-ink-500 pointer-events-none"
+              />
+            </div>
           </div>
 
           {/* Occupancy */}
           <div>
-            <label
-              htmlFor="occupancy"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
+            <label htmlFor="occupancy" className="block text-sm font-medium text-ink-700 mb-2">
               Occupancy Type
             </label>
-            <select
-              id="occupancy"
-              name="occupancy"
-              value={formData.occupancy}
-              onChange={(e) =>
-                setFormData((prev) => ({
-                  ...prev,
-                  occupancy: e.target.value as Occupancy,
-                }))
-              }
-              className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-            >
-              {OCCUPANCY_TYPES.map((type) => (
-                <option key={type.value} value={type.value}>
-                  {type.label}
-                </option>
-              ))}
-            </select>
+            <div className="relative">
+              <select
+                id="occupancy"
+                name="occupancy"
+                value={formData.occupancy}
+                onChange={(e) =>
+                  setFormData((prev) => ({
+                    ...prev,
+                    occupancy: e.target.value as Occupancy,
+                  }))
+                }
+                className="select appearance-none pr-10"
+              >
+                {OCCUPANCY_TYPES.map((type) => (
+                  <option key={type.value} value={type.value}>
+                    {type.label}
+                  </option>
+                ))}
+              </select>
+              <CaretDown
+                size={16}
+                weight="thin"
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-ink-500 pointer-events-none"
+              />
+            </div>
             {formData.occupancy !== 'primary' && (
-              <p className="mt-1 text-xs text-amber-600">
-                Note: HomeReady and Home Possible require primary residence
+              <p className="mt-1 text-xs text-gold-600 flex items-center gap-1">
+                <Warning size={12} weight="thin" />
+                HomeReady and Home Possible require primary residence
               </p>
             )}
           </div>
 
           {/* State */}
           <div>
-            <label
-              htmlFor="property_state"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
-              State *
+            <label htmlFor="property_state" className="block text-sm font-medium text-ink-700 mb-2">
+              State <span className="text-error">*</span>
             </label>
-            <select
-              id="property_state"
-              name="property_state"
-              value={formData.property_state}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              className={`
-                w-full px-4 py-2 rounded-lg border
-                focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500
-                ${errors.property_state && touched.property_state
-                  ? 'border-red-300 bg-red-50'
-                  : 'border-gray-300'
-                }
-              `}
-            >
-              <option value="">Select a state</option>
-              {US_STATES.map((state) => (
-                <option key={state.code} value={state.code}>
-                  {state.name}
-                </option>
-              ))}
-            </select>
+            <div className="relative">
+              <select
+                id="property_state"
+                name="property_state"
+                value={formData.property_state}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                className={`select appearance-none pr-10 ${
+                  errors.property_state && touched.property_state
+                    ? 'border-error/50 bg-error/5'
+                    : ''
+                }`}
+              >
+                <option value="">Select a state</option>
+                {US_STATES.map((state) => (
+                  <option key={state.code} value={state.code}>
+                    {state.name}
+                  </option>
+                ))}
+              </select>
+              <CaretDown
+                size={16}
+                weight="thin"
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-ink-500 pointer-events-none"
+              />
+            </div>
             {errors.property_state && touched.property_state && (
-              <p className="mt-1 text-sm text-red-600">{errors.property_state}</p>
+              <p className="mt-1 text-sm text-error flex items-center gap-1">
+                <Warning size={14} weight="thin" />
+                {errors.property_state}
+              </p>
             )}
           </div>
 
           {/* County */}
           <div>
-            <label
-              htmlFor="property_county"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
-              County *
+            <label htmlFor="property_county" className="block text-sm font-medium text-ink-700 mb-2">
+              County <span className="text-error">*</span>
             </label>
             <input
               type="text"
@@ -619,73 +643,53 @@ export default function LoanForm({ onSubmit, isLoading = false }: LoanFormProps)
               onChange={handleChange}
               onBlur={handleBlur}
               placeholder="Los Angeles"
-              className={`
-                w-full px-4 py-2 rounded-lg border
-                focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500
-                ${errors.property_county && touched.property_county
-                  ? 'border-red-300 bg-red-50'
-                  : 'border-gray-300'
-                }
-              `}
+              className={`input ${
+                errors.property_county && touched.property_county
+                  ? 'border-error/50 bg-error/5'
+                  : ''
+              }`}
             />
             {errors.property_county && touched.property_county && (
-              <p className="mt-1 text-sm text-red-600">{errors.property_county}</p>
+              <p className="mt-1 text-sm text-error flex items-center gap-1">
+                <Warning size={14} weight="thin" />
+                {errors.property_county}
+              </p>
             )}
-            <p className="mt-1 text-xs text-gray-500">
+            <p className="mt-1 text-xs text-ink-500">
               Used for income limits and loan limits
             </p>
           </div>
         </div>
-      </div>
+      </fieldset>
 
       {/* Form Actions */}
       <div className="flex flex-col sm:flex-row gap-4">
         <button
           type="submit"
           disabled={isLoading}
-          className={`
-            flex-1 px-6 py-3 rounded-lg font-semibold text-white
-            transition-colors duration-150
-            ${isLoading
-              ? 'bg-indigo-400 cursor-not-allowed'
-              : 'bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800'
-            }
-          `}
+          className={`btn btn-primary flex-1 inline-flex items-center justify-center gap-2 ${
+            isLoading ? 'opacity-60 cursor-not-allowed' : ''
+          }`}
         >
           {isLoading ? (
-            <span className="flex items-center justify-center">
-              <svg
-                className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <circle
-                  className="opacity-25"
-                  cx="12"
-                  cy="12"
-                  r="10"
-                  stroke="currentColor"
-                  strokeWidth="4"
-                ></circle>
-                <path
-                  className="opacity-75"
-                  fill="currentColor"
-                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                ></path>
-              </svg>
+            <>
+              <CircleNotch size={18} weight="bold" className="animate-spin" />
               Checking Eligibility...
-            </span>
+            </>
           ) : (
-            'Check Eligibility'
+            <>
+              <CheckCircle size={18} weight="bold" />
+              Check Eligibility
+            </>
           )}
         </button>
         <button
           type="button"
           onClick={handleReset}
           disabled={isLoading}
-          className="px-6 py-3 rounded-lg font-semibold text-gray-700 bg-white border border-gray-300 hover:bg-gray-50 transition-colors duration-150"
+          className="btn btn-secondary inline-flex items-center justify-center gap-2"
         >
+          <ArrowCounterClockwise size={18} weight="thin" />
           Reset Form
         </button>
       </div>

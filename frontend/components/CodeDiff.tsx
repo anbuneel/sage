@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import type { CodeFormat } from '@/lib/types';
+import { Copy, Check, Warning } from '@phosphor-icons/react';
 
 interface CodeDiffProps {
   updateId?: string;
@@ -181,20 +182,22 @@ export default function CodeDiff({ updateId, initialCode }: CodeDiffProps) {
   };
 
   return (
-    <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+    <div className="bg-paper border border-border overflow-hidden">
       {/* Header */}
-      <div className="flex items-center justify-between px-4 py-3 bg-gray-50 border-b border-gray-200">
-        <div className="flex items-center space-x-4">
-          <span className="text-sm font-medium text-gray-700">Format:</span>
-          <div className="flex space-x-1">
+      <div className="flex items-center justify-between px-4 py-3 bg-surface border-b border-border">
+        <div className="flex items-center gap-4">
+          <span className="text-xs font-mono uppercase tracking-wider text-ink-500">
+            Format:
+          </span>
+          <div className="flex gap-1">
             {(Object.keys(CODE_SAMPLES) as CodeFormat[]).map((fmt) => (
               <button
                 key={fmt}
                 onClick={() => setFormat(fmt)}
-                className={`px-3 py-1 rounded text-sm font-medium transition-colors ${
+                className={`px-3 py-1 text-sm font-mono transition-colors ${
                   format === fmt
-                    ? 'bg-indigo-600 text-white'
-                    : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-300'
+                    ? 'bg-sage-600 text-white'
+                    : 'bg-paper border border-border text-ink-700 hover:border-sage-600'
                 }`}
               >
                 {FORMAT_LABELS[fmt]}
@@ -205,38 +208,16 @@ export default function CodeDiff({ updateId, initialCode }: CodeDiffProps) {
 
         <button
           onClick={handleCopy}
-          className="flex items-center px-3 py-1.5 rounded text-sm font-medium text-gray-700 bg-white border border-gray-300 hover:bg-gray-50 transition-colors"
+          className="btn btn-secondary text-sm py-1.5 px-3 inline-flex items-center gap-2"
         >
           {copied ? (
             <>
-              <svg
-                className="w-4 h-4 mr-1.5 text-green-600"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                  clipRule="evenodd"
-                />
-              </svg>
+              <Check size={16} weight="bold" className="text-success" />
               Copied!
             </>
           ) : (
             <>
-              <svg
-                className="w-4 h-4 mr-1.5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
-                />
-              </svg>
+              <Copy size={16} weight="thin" />
               Copy
             </>
           )}
@@ -244,58 +225,48 @@ export default function CodeDiff({ updateId, initialCode }: CodeDiffProps) {
       </div>
 
       {/* Code Block */}
-      <div className="relative">
-        <pre className="p-4 overflow-x-auto bg-gray-900 text-gray-100 text-sm leading-relaxed">
-          <code>{code}</code>
-        </pre>
-
-        {/* Line numbers overlay */}
-        <div className="absolute top-0 left-0 p-4 select-none pointer-events-none">
-          <div className="text-gray-500 text-sm leading-relaxed text-right pr-4 border-r border-gray-700">
+      <div className="code-panel relative">
+        <div className="flex">
+          {/* Line numbers */}
+          <div className="select-none text-ink-500 text-right pr-4 border-r border-ink-700/30">
             {code.split('\n').map((_, i) => (
-              <div key={i}>{i + 1}</div>
+              <div key={i} className="leading-relaxed">
+                {i + 1}
+              </div>
             ))}
           </div>
+          {/* Code content */}
+          <pre className="pl-4 overflow-x-auto flex-1">
+            <code className="leading-relaxed">{code}</code>
+          </pre>
         </div>
       </div>
 
       {/* Footer */}
-      <div className="px-4 py-3 bg-gray-50 border-t border-gray-200">
+      <div className="px-4 py-3 bg-surface border-t border-border">
         <div className="flex items-center justify-between text-sm">
-          <div className="text-gray-500">
+          <div className="text-ink-500 font-mono text-xs">
             {updateId ? (
               <span>
-                Generated from update: <strong>{updateId}</strong>
+                Generated from: <strong className="text-ink-900">{updateId}</strong>
               </span>
             ) : (
               <span>Select a policy update to view generated code</span>
             )}
           </div>
-          <div className="text-gray-500">
-            {code.split('\n').length} lines | {format.toUpperCase()}
+          <div className="text-ink-500 font-mono text-xs">
+            {code.split('\n').length} lines | {FORMAT_LABELS[format]}
           </div>
         </div>
       </div>
 
       {/* Placeholder notice */}
-      <div className="px-4 py-3 bg-amber-50 border-t border-amber-200">
-        <div className="flex">
-          <svg
-            className="w-5 h-5 text-amber-600 mt-0.5 mr-3 flex-shrink-0"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-          >
-            <path
-              fillRule="evenodd"
-              d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-              clipRule="evenodd"
-            />
-          </svg>
+      <div className="px-4 py-3 bg-gold-500/5 border-t border-gold-500/20">
+        <div className="flex gap-3">
+          <Warning size={20} weight="thin" className="text-gold-600 mt-0.5 flex-shrink-0" />
           <div>
-            <h4 className="text-sm font-medium text-amber-800">
-              Placeholder Code
-            </h4>
-            <p className="text-sm text-amber-700 mt-1">
+            <p className="font-medium text-ink-900 text-sm">Placeholder Code</p>
+            <p className="text-sm text-ink-500 mt-1">
               This is example code showing the expected output format. Real code
               will be generated from policy updates when the LLM integration is
               complete.

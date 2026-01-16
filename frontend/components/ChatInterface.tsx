@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import type { ChatMessage, Citation } from '@/lib/types';
+import { PaperPlaneTilt, CircleNotch, BookOpen } from '@phosphor-icons/react';
 
 interface ChatInterfaceProps {
   placeholder?: string;
@@ -18,10 +19,22 @@ const initialMessages: ChatMessage[] = [
 ];
 
 function CitationBadge({ citation }: { citation: Citation }) {
+  const isFannie = citation.source.toLowerCase().includes('fannie');
+
   return (
-    <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-indigo-100 text-indigo-800 mr-1">
+    <a
+      href={citation.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`inline-flex items-center gap-1 px-2 py-0.5 text-xs font-mono hover:opacity-80 transition-opacity ${
+        isFannie
+          ? 'bg-fannie/10 text-fannie'
+          : 'bg-freddie/10 text-freddie'
+      }`}
+    >
+      <BookOpen size={12} weight="thin" />
       {citation.source}
-    </span>
+    </a>
   );
 }
 
@@ -29,28 +42,28 @@ function MessageBubble({ message }: { message: ChatMessage }) {
   const isUser = message.role === 'user';
 
   return (
-    <div className={`flex ${isUser ? 'justify-end' : 'justify-start'} mb-4`}>
-      <div
-        className={`
-          max-w-[80%] rounded-lg px-4 py-3
-          ${isUser
-            ? 'bg-indigo-600 text-white'
-            : 'bg-white border border-gray-200 text-gray-900'
-          }
-        `}
-      >
-        <p className="text-sm whitespace-pre-wrap">{message.content}</p>
-        {message.citations && message.citations.length > 0 && (
-          <div className="mt-2 pt-2 border-t border-gray-200">
-            <p className="text-xs text-gray-500 mb-1">Sources:</p>
-            <div className="flex flex-wrap gap-1">
-              {message.citations.map((citation, index) => (
-                <CitationBadge key={index} citation={citation} />
-              ))}
+    <div className={`${isUser ? 'message-user' : 'message-sage'}`}>
+      {isUser ? (
+        <p className="text-ink-900">{message.content}</p>
+      ) : (
+        <>
+          <p className="text-ink-700 whitespace-pre-wrap leading-relaxed">
+            {message.content}
+          </p>
+          {message.citations && message.citations.length > 0 && (
+            <div className="mt-4 pt-3 border-t border-border">
+              <p className="text-xs font-mono uppercase tracking-wider text-ink-500 mb-2">
+                Sources
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {message.citations.map((citation, index) => (
+                  <CitationBadge key={index} citation={citation} />
+                ))}
+              </div>
             </div>
-          </div>
-        )}
-      </div>
+          )}
+        </>
+      )}
     </div>
   );
 }
@@ -95,51 +108,43 @@ export default function ChatInterface({
   };
 
   return (
-    <div className="flex flex-col h-[600px] bg-gray-50 rounded-lg border border-gray-200">
+    <div className="flex flex-col h-[600px] bg-surface border border-border">
       {/* Messages Area */}
-      <div className="flex-1 overflow-y-auto p-4">
+      <div className="flex-1 overflow-y-auto p-6">
         {messages.map((message, index) => (
           <MessageBubble key={index} message={message} />
         ))}
         {isLoading && (
-          <div className="flex justify-start mb-4">
-            <div className="bg-white border border-gray-200 rounded-lg px-4 py-3">
-              <div className="flex space-x-2">
-                <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" />
-                <div
-                  className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"
-                  style={{ animationDelay: '0.1s' }}
-                />
-                <div
-                  className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"
-                  style={{ animationDelay: '0.2s' }}
-                />
-              </div>
+          <div className="message-sage">
+            <div className="flex items-center gap-2 text-ink-500">
+              <CircleNotch size={16} weight="thin" className="animate-spin" />
+              <span className="text-sm">Searching guidelines...</span>
             </div>
           </div>
         )}
       </div>
 
       {/* Input Area */}
-      <form onSubmit={handleSubmit} className="border-t border-gray-200 p-4">
-        <div className="flex space-x-4">
+      <form onSubmit={handleSubmit} className="border-t border-border p-4 bg-paper">
+        <div className="flex gap-3">
           <input
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder={placeholder}
             disabled={isLoading}
-            className="flex-1 px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 disabled:bg-gray-100 disabled:cursor-not-allowed"
+            className="input flex-1 disabled:opacity-60 disabled:cursor-not-allowed"
           />
           <button
             type="submit"
             disabled={isLoading || !input.trim()}
-            className="px-6 py-2 rounded-lg font-medium text-white bg-indigo-600 hover:bg-indigo-700 disabled:bg-indigo-400 disabled:cursor-not-allowed transition-colors"
+            className="btn btn-primary inline-flex items-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
           >
+            <PaperPlaneTilt size={18} weight="bold" />
             Send
           </button>
         </div>
-        <p className="mt-2 text-xs text-gray-500">
+        <p className="mt-2 text-xs text-ink-500">
           Ask about eligibility requirements, income limits, property types, or any
           other guideline questions.
         </p>
