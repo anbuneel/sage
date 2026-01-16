@@ -157,7 +157,7 @@ async def chunk_and_embed_guides(
     """Chunk guides and generate embeddings."""
     all_vectors = []
 
-    for guide in guides:
+    for guide_idx, guide in enumerate(guides):
         content = guide["content"]
         metadata = guide["metadata"]
 
@@ -172,6 +172,11 @@ async def chunk_and_embed_guides(
 
         # Prepare texts for embedding
         chunk_texts = [chunk["text"] for chunk in chunks]
+
+        # Add delay between files to stay within rate limits
+        if guide_idx > 0:
+            logger.info("Waiting 40s before next file to respect rate limits...")
+            await asyncio.sleep(40)
 
         # Generate embeddings
         embeddings = await embedding_service.embed_texts(chunk_texts)
@@ -228,8 +233,8 @@ async def main():
     settings = get_settings()
 
     # Check required API keys
-    if not settings.openai_api_key:
-        logger.error("OPENAI_API_KEY not set. Cannot generate embeddings.")
+    if not settings.voyage_api_key:
+        logger.error("VOYAGE_API_KEY not set. Cannot generate embeddings.")
         sys.exit(1)
 
     if not settings.pinecone_api_key:

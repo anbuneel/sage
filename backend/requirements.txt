@@ -21,13 +21,13 @@ alembic>=1.13.0
 aiosqlite>=0.19.0  # For local SQLite development
 
 # Vector store (Pinecone)
-pinecone-client>=3.0.0
+pinecone>=5.0.0
 
 # AI (Anthropic Claude)
 anthropic>=0.40.0
 
-# Embeddings (OpenAI)
-openai>=1.10.0
+# Embeddings (Voyage AI)
+voyageai>=0.3.0
 
 # Web scraping
 beautifulsoup4>=4.12.0

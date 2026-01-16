@@ -13,9 +13,9 @@ SAGE (Smart Agentic Guide Engine) is an AI-powered mortgage policy intelligence 
 - **Frontend:** Next.js 16 + Tailwind CSS 4
 - **Backend:** FastAPI (Python 3.11+)
 - **Vector DB:** Pinecone (implemented, needs API key)
-- **LLM:** Claude 3.5 Sonnet via Anthropic SDK (implemented, needs API key)
+- **LLM:** Claude Sonnet 4.5 via Anthropic SDK (implemented, needs API key)
 - **Database:** PostgreSQL via SQLAlchemy async (implemented, falls back to SQLite)
-- **Embeddings:** OpenAI text-embedding-3-small (implemented, needs API key)
+- **Embeddings:** Voyage AI voyage-2 (implemented, needs API key)
 
 ## Hosting (Fly.io)
 
@@ -99,7 +99,7 @@ pytest tests/test_file.py -k "test_name"  # Run single test
 ### Data Ingestion (from `scripts/`)
 ```bash
 python scrape_guides.py           # Scrape guide content from GSE websites
-python ingest_guides.py           # Embed guides into Pinecone (requires OPENAI_API_KEY, PINECONE_API_KEY)
+python ingest_guides.py           # Embed guides into Pinecone (requires VOYAGE_API_KEY, PINECONE_API_KEY)
 ```
 
 ### Environment Setup
@@ -109,8 +109,8 @@ cp backend/.env.example backend/.env
 
 # Required API keys for Phase 2 features:
 # - PINECONE_API_KEY: Vector storage for RAG
-# - ANTHROPIC_API_KEY: Claude for chat responses
-# - OPENAI_API_KEY: Text embeddings
+# - ANTHROPIC_API_KEY: Claude Sonnet 4.5 for chat responses
+# - VOYAGE_API_KEY: Voyage AI voyage-2 for text embeddings
 # - DATABASE_URL: PostgreSQL connection (optional, uses SQLite by default)
 ```
 
@@ -141,9 +141,9 @@ cp backend/.env.example backend/.env
 
 **RAG Chat Infrastructure:**
 - Pinecone vector DB service (`services/pinecone_service.py`)
-- OpenAI embedding service (`services/embedding_service.py`)
-- RAG pipeline with Claude (`services/rag_service.py`)
-- Guide ingestion script (`scripts/ingest_guides.py`)
+- Voyage AI embedding service (`services/embedding_service.py`)
+- RAG pipeline with Claude Sonnet 4.5 (`services/rag_service.py`)
+- Guide ingestion script with rate limiting (`scripts/ingest_guides.py`)
 - Chat router with RAG support (`routers/chat.py`)
 
 **Policy Updates Infrastructure:**
@@ -165,10 +165,10 @@ cp backend/.env.example backend/.env
 ### Remaining Work
 
 **To Activate Features:**
-1. Set up Pinecone index and add API key
-2. Add Anthropic API key for Claude
-3. Add OpenAI API key for embeddings
-4. Run `python scripts/ingest_guides.py` to embed guide content
+1. Set up Pinecone index (1024 dimensions for voyage-2) and add API key
+2. Add Anthropic API key for Claude Sonnet 4.5
+3. Add Voyage AI API key for embeddings
+4. Run `python scripts/ingest_guides.py` to embed guide content (takes ~45min due to rate limits)
 5. Optionally configure PostgreSQL (uses SQLite by default)
 
 **Future Enhancements:**

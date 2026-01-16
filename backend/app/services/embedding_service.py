@@ -1,7 +1,7 @@
 """
 Embedding Service
 
-Handles text embedding generation using OpenAI.
+Handles text embedding generation using Voyage AI.
 """
 
 import asyncio
@@ -11,7 +11,7 @@ from typing import Any
 from functools import lru_cache
 
 import tiktoken
-from openai import OpenAI
+import voyageai
 
 from ..config import get_settings
 
@@ -23,17 +23,17 @@ class EmbeddingService:
 
     def __init__(self):
         settings = get_settings()
-        self._api_key = settings.openai_api_key
-        self._model = settings.openai_embedding_model
-        self._client: OpenAI | None = None
+        self._api_key = settings.voyage_api_key
+        self._model = settings.voyage_embedding_model
+        self._client: voyageai.Client | None = None
         self._tokenizer = None
 
-    def _ensure_client(self) -> OpenAI:
-        """Initialize OpenAI client if not already done."""
+    def _ensure_client(self) -> voyageai.Client:
+        """Initialize Voyage AI client if not already done."""
         if self._client is None:
             if not self._api_key:
-                raise ValueError("OPENAI_API_KEY not configured")
-            self._client = OpenAI(api_key=self._api_key)
+                raise ValueError("VOYAGE_API_KEY not configured")
+            self._client = voyageai.Client(api_key=self._api_key)
         return self._client
 
     def _get_tokenizer(self):
@@ -61,12 +61,12 @@ class EmbeddingService:
 
         # Run blocking call in thread pool
         response = await asyncio.to_thread(
-            client.embeddings.create,
+            client.embed,
+            texts=[text],
             model=self._model,
-            input=text,
         )
 
-        return response.data[0].embedding
+        return response.embeddings[0]
 
     async def embed_texts(self, texts: list[str]) -> list[list[float]]:
         """
@@ -83,21 +83,25 @@ class EmbeddingService:
 
         client = self._ensure_client()
 
-        # OpenAI supports batching up to 2048 texts
-        batch_size = 100
+        # Voyage AI free tier has 3 RPM and 10K TPM limits
+        # Use small batches (4 chunks ~2K tokens) with 35s delays to stay under both limits
+        batch_size = 4
         all_embeddings = []
 
         for i in range(0, len(texts), batch_size):
             batch = texts[i : i + batch_size]
             # Run blocking call in thread pool
             response = await asyncio.to_thread(
-                client.embeddings.create,
+                client.embed,
+                texts=batch,
                 model=self._model,
-                input=batch,
             )
-            batch_embeddings = [item.embedding for item in response.data]
-            all_embeddings.extend(batch_embeddings)
+            all_embeddings.extend(response.embeddings)
             logger.info(f"Embedded batch {i // batch_size + 1}, count: {len(batch)}")
+
+            # Add delay to stay within rate limits (35s ensures ~2 requests/min under 10K TPM)
+            if i + batch_size < len(texts):
+                await asyncio.sleep(35)
 
         return all_embeddings
 

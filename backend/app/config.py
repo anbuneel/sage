@@ -42,15 +42,15 @@ class Settings(BaseSettings):
     # Vector Store (Pinecone)
     pinecone_api_key: str = ""
     pinecone_index_name: str = "sage-guides"
-    pinecone_dimension: int = 1536  # text-embedding-3-small dimension
+    pinecone_dimension: int = 1024  # voyage-2 dimension
 
     # AI (Anthropic)
     anthropic_api_key: str = ""
     anthropic_model: str = "claude-3-5-sonnet-20241022"
 
-    # Embeddings (OpenAI)
-    openai_api_key: str = ""
-    openai_embedding_model: str = "text-embedding-3-small"
+    # Embeddings (Voyage AI)
+    voyage_api_key: str = ""
+    voyage_embedding_model: str = "voyage-2"
 
     # Feature Flags
     enable_rag_chat: bool = True
