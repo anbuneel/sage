@@ -115,6 +115,37 @@ python check_for_updates.py       # Check for new Lender Letters/Bulletins
 - **Products:** HomeReady (Fannie Mae) and Home Possible (Freddie Mac)
 - **Key eligibility rules:** Max DTI (50%), Max LTV (97%), Min Credit (620/660), Income Limit (80% AMI), Occupancy, Property Types, Homeownership Education
 
+## Phase 2 Notes (from Gemini Review)
+
+### Code Generation Tab
+- Output **JSON Logic** or **YAML** rules instead of just Python
+- Makes it look enterprise-ready (compatible with BRE like Drools, IBM ODM)
+
+### Data Model Enhancement
+- Add `affected_rule_ids` (Array of UUIDs) to `POLICY_UPDATES` table
+- Links policy changes to specific rows in `ELIGIBILITY_RULES`
+- Enables "which rules are now obsolete" flagging
+
+### Fix Finder Agent (ReAct Loop Pattern)
+```
+1. Evaluate  → Check loan against rule set
+2. Identify  → "DTI is 52%, limit is 50%"
+3. Reason    → "Need to lower DTI by 2%"
+4. Tool Use  → Calculator: solve for required debt reduction
+5. Verify    → Re-run new numbers against rules
+6. Output    → Present the fix with confidence
+```
+
+### AMI Income Limits
+- Skip geocoding/Census Tract lookups for MVP demo
+- Hardcode specific "High Cost" and "Low Cost" areas if needed
+- Full AMI lookup is a rabbit hole that can break demos
+
+### Already Addressed ✅
+- Fix suggestions use Python math (not LLM) in `rules_engine.py`
+- Fannie vs Freddie side-by-side comparison
+- Focus on DTI/LTV/Credit Score rules
+
 ## Development Notes
 
 - This is a Windows development environment
