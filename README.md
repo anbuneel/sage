@@ -75,6 +75,9 @@ The Fannie Mae Selling Guide and Freddie Mac Seller/Servicer Guide are massive (
 - Color palette: Sage green, amber gold, paper backgrounds
 - Phosphor icons with consistent "thin" weight
 - GSE brand colors for Fannie Mae/Freddie Mac badges
+- Enhanced animations with staggered entrance effects
+- Improved spacing and visual hierarchy across all pages
+- Ledger-style patterns, textures, and interactive states
 
 🚧 **Phase 2 In Progress** - RAG chat, Pinecone vector DB, LangGraph agents
 

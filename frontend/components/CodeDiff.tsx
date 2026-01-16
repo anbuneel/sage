@@ -182,22 +182,22 @@ export default function CodeDiff({ updateId, initialCode }: CodeDiffProps) {
   };
 
   return (
-    <div className="bg-paper border border-border overflow-hidden">
+    <div className="bg-paper border-2 border-border overflow-hidden shadow-sm">
       {/* Header */}
-      <div className="flex items-center justify-between px-4 py-3 bg-surface border-b border-border">
-        <div className="flex items-center gap-4">
-          <span className="text-xs font-mono uppercase tracking-wider text-ink-500">
+      <div className="flex items-center justify-between px-5 py-4 bg-surface border-b border-border">
+        <div className="flex items-center gap-5">
+          <span className="text-xs font-mono uppercase tracking-widest text-ink-500">
             Format:
           </span>
-          <div className="flex gap-1">
+          <div className="flex gap-2">
             {(Object.keys(CODE_SAMPLES) as CodeFormat[]).map((fmt) => (
               <button
                 key={fmt}
                 onClick={() => setFormat(fmt)}
-                className={`px-3 py-1 text-sm font-mono transition-colors ${
+                className={`px-4 py-1.5 text-sm font-mono transition-all duration-200 ${
                   format === fmt
-                    ? 'bg-sage-600 text-white'
-                    : 'bg-paper border border-border text-ink-700 hover:border-sage-600'
+                    ? 'bg-sage-600 text-white shadow-md'
+                    : 'bg-paper border border-border text-ink-700 hover:border-sage-600 hover:shadow-sm'
                 }`}
               >
                 {FORMAT_LABELS[fmt]}
@@ -208,17 +208,19 @@ export default function CodeDiff({ updateId, initialCode }: CodeDiffProps) {
 
         <button
           onClick={handleCopy}
-          className="btn btn-secondary text-sm py-1.5 px-3 inline-flex items-center gap-2"
+          className={`btn btn-secondary text-sm py-2 px-4 inline-flex items-center gap-2 transition-all duration-200 ${
+            copied ? 'border-success text-success' : ''
+          }`}
         >
           {copied ? (
             <>
-              <Check size={16} weight="bold" className="text-success" />
+              <Check size={18} weight="bold" className="text-success" />
               Copied!
             </>
           ) : (
             <>
-              <Copy size={16} weight="thin" />
-              Copy
+              <Copy size={18} weight="thin" />
+              Copy Code
             </>
           )}
         </button>
@@ -228,23 +230,23 @@ export default function CodeDiff({ updateId, initialCode }: CodeDiffProps) {
       <div className="code-panel relative">
         <div className="flex">
           {/* Line numbers */}
-          <div className="select-none text-ink-500 text-right pr-4 border-r border-ink-700/30">
+          <div className="select-none text-ink-500 text-right pr-4 border-r border-ink-700/30 py-1">
             {code.split('\n').map((_, i) => (
-              <div key={i} className="leading-relaxed">
+              <div key={i} className="leading-relaxed text-sm">
                 {i + 1}
               </div>
             ))}
           </div>
           {/* Code content */}
-          <pre className="pl-4 overflow-x-auto flex-1">
-            <code className="leading-relaxed">{code}</code>
+          <pre className="pl-5 overflow-x-auto flex-1 py-1">
+            <code className="leading-relaxed text-sm">{code}</code>
           </pre>
         </div>
       </div>
 
       {/* Footer */}
-      <div className="px-4 py-3 bg-surface border-t border-border">
-        <div className="flex items-center justify-between text-sm">
+      <div className="px-5 py-4 bg-surface border-t border-border">
+        <div className="flex items-center justify-between">
           <div className="text-ink-500 font-mono text-xs">
             {updateId ? (
               <span>
@@ -254,19 +256,24 @@ export default function CodeDiff({ updateId, initialCode }: CodeDiffProps) {
               <span>Select a policy update to view generated code</span>
             )}
           </div>
-          <div className="text-ink-500 font-mono text-xs">
-            {code.split('\n').length} lines | {FORMAT_LABELS[format]}
+          <div className="text-ink-500 font-mono text-xs flex items-center gap-2">
+            <span className="px-2 py-1 bg-paper border border-border">
+              {code.split('\n').length} lines
+            </span>
+            <span className="px-2 py-1 bg-paper border border-border">
+              {FORMAT_LABELS[format]}
+            </span>
           </div>
         </div>
       </div>
 
       {/* Placeholder notice */}
-      <div className="px-4 py-3 bg-gold-500/5 border-t border-gold-500/20">
-        <div className="flex gap-3">
-          <Warning size={20} weight="thin" className="text-gold-600 mt-0.5 flex-shrink-0" />
+      <div className="px-5 py-4 bg-gold-500/5 border-t border-gold-500/20">
+        <div className="flex gap-4">
+          <Warning size={22} weight="thin" className="text-gold-600 mt-0.5 flex-shrink-0" />
           <div>
-            <p className="font-medium text-ink-900 text-sm">Placeholder Code</p>
-            <p className="text-sm text-ink-500 mt-1">
+            <p className="font-semibold text-ink-900">Placeholder Code</p>
+            <p className="text-sm text-ink-500 mt-1 leading-relaxed">
               This is example code showing the expected output format. Real code
               will be generated from policy updates when the LLM integration is
               complete.

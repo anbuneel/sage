@@ -254,17 +254,17 @@ export default function LoanForm({ onSubmit, isLoading = false }: LoanFormProps)
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-8">
+    <form onSubmit={handleSubmit} className="space-y-10">
       {/* Borrower Information */}
-      <fieldset className="bg-surface border border-border p-6">
-        <legend className="flex items-center gap-2 px-2 -ml-2">
-          <User size={18} weight="thin" className="text-sage-600" />
+      <fieldset className="bg-surface border border-border p-6 md:p-8 relative">
+        <div className="absolute top-0 left-6 -translate-y-1/2 bg-surface px-3 py-1 flex items-center gap-2">
+          <User size={20} weight="thin" className="text-sage-600" />
           <span className="font-display text-lg font-semibold text-ink-900">
             Borrower Information
           </span>
-        </legend>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mt-4">
           {/* Credit Score */}
           <div>
             <label htmlFor="credit_score" className="block text-sm font-medium text-ink-700 mb-2">
@@ -356,15 +356,15 @@ export default function LoanForm({ onSubmit, isLoading = false }: LoanFormProps)
       </fieldset>
 
       {/* Loan Details */}
-      <fieldset className="bg-surface border border-border p-6">
-        <legend className="flex items-center gap-2 px-2 -ml-2">
-          <CurrencyDollar size={18} weight="thin" className="text-sage-600" />
+      <fieldset className="bg-surface border border-border p-6 md:p-8 relative">
+        <div className="absolute top-0 left-6 -translate-y-1/2 bg-surface px-3 py-1 flex items-center gap-2">
+          <CurrencyDollar size={20} weight="thin" className="text-sage-600" />
           <span className="font-display text-lg font-semibold text-ink-900">
             Loan Details
           </span>
-        </legend>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mt-4">
           {/* Loan Amount */}
           <div>
             <label htmlFor="loan_amount" className="block text-sm font-medium text-ink-700 mb-2">
@@ -486,25 +486,25 @@ export default function LoanForm({ onSubmit, isLoading = false }: LoanFormProps)
 
           {/* LTV & DTI Preview */}
           <div className="md:col-span-2 lg:col-span-2">
-            <div className="bg-paper border border-border p-4 flex gap-8">
+            <div className="bg-paper border-2 border-border p-6 flex gap-12">
               <div>
-                <p className="text-xs font-mono uppercase tracking-wider text-ink-500 mb-1">
+                <p className="text-xs font-mono uppercase tracking-wider text-ink-500 mb-2">
                   Estimated LTV
                 </p>
-                <p className={`text-2xl font-mono font-medium ${getLtvColor(ltvPreview)}`}>
+                <p className={`text-3xl font-mono font-semibold ${getLtvColor(ltvPreview)}`}>
                   {ltvPreview ? `${ltvPreview}%` : '--'}
                 </p>
-                <p className="text-xs text-ink-500 mt-1">Max: 97%</p>
+                <p className="text-xs text-ink-500 mt-2">Max: 97%</p>
               </div>
               <div className="w-px bg-border" />
               <div>
-                <p className="text-xs font-mono uppercase tracking-wider text-ink-500 mb-1">
+                <p className="text-xs font-mono uppercase tracking-wider text-ink-500 mb-2">
                   Estimated DTI
                 </p>
-                <p className={`text-2xl font-mono font-medium ${getDtiColor(dtiPreview)}`}>
+                <p className={`text-3xl font-mono font-semibold ${getDtiColor(dtiPreview)}`}>
                   {dtiPreview ? `${dtiPreview}%` : '--'}
                 </p>
-                <p className="text-xs text-ink-500 mt-1">Max: 45-50%</p>
+                <p className="text-xs text-ink-500 mt-2">Max: 45-50%</p>
               </div>
             </div>
           </div>
@@ -512,15 +512,15 @@ export default function LoanForm({ onSubmit, isLoading = false }: LoanFormProps)
       </fieldset>
 
       {/* Property Information */}
-      <fieldset className="bg-surface border border-border p-6">
-        <legend className="flex items-center gap-2 px-2 -ml-2">
-          <House size={18} weight="thin" className="text-sage-600" />
+      <fieldset className="bg-surface border border-border p-6 md:p-8 relative">
+        <div className="absolute top-0 left-6 -translate-y-1/2 bg-surface px-3 py-1 flex items-center gap-2">
+          <House size={20} weight="thin" className="text-sage-600" />
           <span className="font-display text-lg font-semibold text-ink-900">
             Property Information
           </span>
-        </legend>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mt-4">
           {/* Property Type */}
           <div>
             <label htmlFor="property_type" className="block text-sm font-medium text-ink-700 mb-2">
@@ -663,22 +663,22 @@ export default function LoanForm({ onSubmit, isLoading = false }: LoanFormProps)
       </fieldset>
 
       {/* Form Actions */}
-      <div className="flex flex-col sm:flex-row gap-4">
+      <div className="flex flex-col sm:flex-row gap-4 pt-4">
         <button
           type="submit"
           disabled={isLoading}
-          className={`btn btn-primary flex-1 inline-flex items-center justify-center gap-2 ${
+          className={`btn btn-primary btn-lg flex-1 inline-flex items-center justify-center gap-3 ${
             isLoading ? 'opacity-60 cursor-not-allowed' : ''
           }`}
         >
           {isLoading ? (
             <>
-              <CircleNotch size={18} weight="bold" className="animate-spin" />
+              <CircleNotch size={20} weight="bold" className="animate-spin" />
               Checking Eligibility...
             </>
           ) : (
             <>
-              <CheckCircle size={18} weight="bold" />
+              <CheckCircle size={20} weight="bold" />
               Check Eligibility
             </>
           )}
@@ -687,9 +687,9 @@ export default function LoanForm({ onSubmit, isLoading = false }: LoanFormProps)
           type="button"
           onClick={handleReset}
           disabled={isLoading}
-          className="btn btn-secondary inline-flex items-center justify-center gap-2"
+          className="btn btn-secondary btn-lg inline-flex items-center justify-center gap-2"
         >
-          <ArrowCounterClockwise size={18} weight="thin" />
+          <ArrowCounterClockwise size={20} weight="thin" />
           Reset Form
         </button>
       </div>

@@ -26,13 +26,13 @@ function CitationBadge({ citation }: { citation: Citation }) {
       href={citation.url}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center gap-1 px-2 py-0.5 text-xs font-mono hover:opacity-80 transition-opacity ${
+      className={`inline-flex items-center gap-1.5 px-3 py-1 text-xs font-mono hover:opacity-80 transition-all duration-200 hover:scale-105 ${
         isFannie
-          ? 'bg-fannie/10 text-fannie'
-          : 'bg-freddie/10 text-freddie'
+          ? 'bg-fannie/10 text-fannie border border-fannie/20'
+          : 'bg-freddie/10 text-freddie border border-freddie/20'
       }`}
     >
-      <BookOpen size={12} weight="thin" />
+      <BookOpen size={14} weight="thin" />
       {citation.source}
     </a>
   );
@@ -42,17 +42,17 @@ function MessageBubble({ message }: { message: ChatMessage }) {
   const isUser = message.role === 'user';
 
   return (
-    <div className={`${isUser ? 'message-user' : 'message-sage'}`}>
+    <div className={`animate-fade-up ${isUser ? 'message-user' : 'message-sage'}`}>
       {isUser ? (
-        <p className="text-ink-900">{message.content}</p>
+        <p className="text-ink-900 text-lg">{message.content}</p>
       ) : (
         <>
-          <p className="text-ink-700 whitespace-pre-wrap leading-relaxed">
+          <p className="text-ink-700 whitespace-pre-wrap leading-relaxed text-[15px]">
             {message.content}
           </p>
           {message.citations && message.citations.length > 0 && (
-            <div className="mt-4 pt-3 border-t border-border">
-              <p className="text-xs font-mono uppercase tracking-wider text-ink-500 mb-2">
+            <div className="mt-5 pt-4 border-t border-border">
+              <p className="text-xs font-mono uppercase tracking-widest text-ink-500 mb-3">
                 Sources
               </p>
               <div className="flex flex-wrap gap-2">
@@ -108,16 +108,16 @@ export default function ChatInterface({
   };
 
   return (
-    <div className="flex flex-col h-[600px] bg-surface border border-border">
+    <div className="flex flex-col h-[650px] bg-surface border-2 border-border shadow-sm">
       {/* Messages Area */}
-      <div className="flex-1 overflow-y-auto p-6">
+      <div className="flex-1 overflow-y-auto p-6 md:p-8">
         {messages.map((message, index) => (
           <MessageBubble key={index} message={message} />
         ))}
         {isLoading && (
-          <div className="message-sage">
-            <div className="flex items-center gap-2 text-ink-500">
-              <CircleNotch size={16} weight="thin" className="animate-spin" />
+          <div className="message-sage animate-fade-up">
+            <div className="flex items-center gap-3 text-ink-500">
+              <CircleNotch size={18} weight="thin" className="animate-spin" />
               <span className="text-sm">Searching guidelines...</span>
             </div>
           </div>
@@ -125,26 +125,26 @@ export default function ChatInterface({
       </div>
 
       {/* Input Area */}
-      <form onSubmit={handleSubmit} className="border-t border-border p-4 bg-paper">
-        <div className="flex gap-3">
+      <form onSubmit={handleSubmit} className="border-t-2 border-border p-5 md:p-6 bg-paper">
+        <div className="flex gap-4">
           <input
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder={placeholder}
             disabled={isLoading}
-            className="input flex-1 disabled:opacity-60 disabled:cursor-not-allowed"
+            className="input flex-1 disabled:opacity-60 disabled:cursor-not-allowed text-base"
           />
           <button
             type="submit"
             disabled={isLoading || !input.trim()}
             className="btn btn-primary inline-flex items-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
           >
-            <PaperPlaneTilt size={18} weight="bold" />
+            <PaperPlaneTilt size={20} weight="bold" />
             Send
           </button>
         </div>
-        <p className="mt-2 text-xs text-ink-500">
+        <p className="mt-3 text-xs text-ink-500">
           Ask about eligibility requirements, income limits, property types, or any
           other guideline questions.
         </p>

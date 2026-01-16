@@ -72,10 +72,18 @@ html, body {
   --spacing-8: 32px;
   --spacing-12: 48px;
   --spacing-16: 64px;
+  --spacing-20: 80px;
+  --spacing-24: 96px;
 
   /* Border radius */
   --radius-sm: 2px;
   --radius-none: 0px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(28, 25, 23, 0.04);
+  --shadow-md: 0 4px 12px rgba(28, 25, 23, 0.06);
+  --shadow-lg: 0 8px 24px rgba(28, 25, 23, 0.08);
+  --shadow-xl: 0 16px 48px rgba(28, 25, 23, 0.1);
 }
 
 /* Base styles */
@@ -83,6 +91,13 @@ body {
   font-family: var(--font-body);
   background-color: var(--color-paper);
   color: var(--color-ink-900);
+}
+
+/* Paper texture - subtle noise overlay */
+.bg-paper-texture {
+  background-color: var(--color-paper);
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
 }
 
 /* Typography utilities */
@@ -99,7 +114,13 @@ body {
 }
 
 /* Heading styles */
-h1, h2, h3, h4 {
+h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+h2, h3, h4 {
   font-family: var(--font-display);
   font-weight: 600;
   letter-spacing: -0.01em;
@@ -121,30 +142,64 @@ h1, h2, h3, h4 {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   padding: var(--spacing-6);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .card:hover {
   border-color: var(--color-sage-600);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+/* Ledger-style card variant */
+.card-ledger {
+  background: var(--color-paper);
+  border: 2px solid var(--color-border);
+  border-radius: 0;
+  position: relative;
+}
+
+.card-ledger::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid var(--color-border);
+  margin: 3px;
+  pointer-events: none;
 }
 
 /* Buttons */
 .btn {
   font-family: var(--font-body);
   font-weight: 600;
-  padding: 12px 24px;
+  padding: 14px 28px;
   border-radius: var(--radius-sm);
-  transition: all 0.15s ease;
+  transition: all 0.2s ease;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
 }
 
 .btn-primary {
   background: var(--color-sage-600);
   color: white;
   border: none;
+  box-shadow: 0 2px 8px rgba(58, 107, 86, 0.25);
 }
 
 .btn-primary:hover {
   background: var(--color-sage-700);
+  box-shadow: 0 4px 16px rgba(58, 107, 86, 0.35);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(58, 107, 86, 0.2);
 }
 
 .btn-secondary {
@@ -156,6 +211,17 @@ h1, h2, h3, h4 {
 .btn-secondary:hover {
   border-color: var(--color-sage-600);
   color: var(--color-sage-600);
+  background: rgba(58, 107, 86, 0.04);
+}
+
+.btn-secondary:active {
+  background: rgba(58, 107, 86, 0.08);
+}
+
+/* Large button variant */
+.btn-lg {
+  padding: 18px 36px;
+  font-size: 1.0625rem;
 }
 
 /* Form inputs */
@@ -163,17 +229,22 @@ h1, h2, h3, h4 {
   background: white;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
-  padding: 12px 16px;
+  padding: 14px 16px;
   font-family: var(--font-body);
   font-size: 16px;
   width: 100%;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.input:hover {
+  border-color: var(--color-ink-300);
 }
 
 .input:focus {
   outline: none;
   border-color: var(--color-sage-600);
   box-shadow: 0 0 0 3px rgba(58, 107, 86, 0.1);
+  background: white;
 }
 
 .input-mono {
@@ -185,11 +256,16 @@ h1, h2, h3, h4 {
   background: white;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
-  padding: 12px 16px;
+  padding: 14px 16px;
   font-family: var(--font-body);
   font-size: 16px;
   width: 100%;
   cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.select:hover {
+  border-color: var(--color-ink-300);
 }
 
 .select:focus {
@@ -301,5 +377,258 @@ h1, h2, h3, h4 {
 .focus-ring:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(58, 107, 86, 0.2);
+}
+
+/* ============================================
+   Animations & Transitions
+   ============================================ */
+
+/* Fade up entrance animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+/* Staggered delays for children */
+.animate-stagger > *:nth-child(1) { animation-delay: 0ms; }
+.animate-stagger > *:nth-child(2) { animation-delay: 50ms; }
+.animate-stagger > *:nth-child(3) { animation-delay: 100ms; }
+.animate-stagger > *:nth-child(4) { animation-delay: 150ms; }
+.animate-stagger > *:nth-child(5) { animation-delay: 200ms; }
+.animate-stagger > *:nth-child(6) { animation-delay: 250ms; }
+.animate-stagger > *:nth-child(7) { animation-delay: 300ms; }
+.animate-stagger > *:nth-child(8) { animation-delay: 350ms; }
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+  opacity: 0;
+}
+
+/* Slide in from left */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-left {
+  animation: slideInLeft 0.4s ease-out forwards;
+  opacity: 0;
+}
+
+/* Scale in animation */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.3s ease-out forwards;
+  opacity: 0;
+}
+
+/* Shimmer loading effect */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--color-surface) 0%,
+    var(--color-paper) 50%,
+    var(--color-surface) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Pulse glow effect for CTAs */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 2px 8px rgba(58, 107, 86, 0.25);
+  }
+  50% {
+    box-shadow: 0 4px 20px rgba(58, 107, 86, 0.4);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* ============================================
+   Ledger Aesthetic Patterns
+   ============================================ */
+
+/* Ledger ruled lines */
+.ledger-lines {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 31px,
+    var(--color-border) 31px,
+    var(--color-border) 32px
+  );
+}
+
+/* Subtle grid pattern */
+.grid-pattern {
+  background-image:
+    linear-gradient(var(--color-border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-border) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Double border ledger style */
+.border-ledger {
+  border: 2px solid var(--color-border);
+  position: relative;
+}
+
+.border-ledger::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  border: 1px solid var(--color-border);
+  pointer-events: none;
+}
+
+/* ============================================
+   Enhanced Interactive States
+   ============================================ */
+
+/* Interactive list items */
+.interactive-item {
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.interactive-item:hover {
+  background: var(--color-surface);
+  transform: translateX(4px);
+}
+
+/* Subtle hover lift */
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Link underline animation */
+.link-underline {
+  position: relative;
+  text-decoration: none;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.2s ease;
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* ============================================
+   Layout Utilities
+   ============================================ */
+
+/* Container with texture */
+.section-paper {
+  background-color: var(--color-paper);
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E");
+}
+
+/* Hero gradient background */
+.hero-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--color-sage-900) 0%,
+    #152922 50%,
+    var(--color-sage-900) 100%
+  );
+}
+
+/* Decorative corner accent */
+.corner-accent::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, transparent 50%, var(--color-sage-600) 50%);
+  opacity: 0.1;
+}
+
+/* Separator with icon space */
+.separator-icon {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.separator-icon::before,
+.separator-icon::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--color-border);
+}
+
+/* ============================================
+   Scroll-based Effects
+   ============================================ */
+
+/* Navigation shadow on scroll - applied via JS */
+.nav-scrolled {
+  box-shadow: 0 2px 12px rgba(28, 25, 23, 0.06);
+  border-color: transparent;
+}
+
+/* Sticky element shadow */
+.sticky-shadow {
+  box-shadow: 0 4px 12px rgba(28, 25, 23, 0.08);
 }
 

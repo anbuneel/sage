@@ -22,13 +22,13 @@ export default function ChangesPage() {
     <div className="min-h-screen bg-paper">
       <TabNav />
 
-      <main className="max-w-6xl mx-auto px-6 py-12">
+      <main className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-20">
         {/* Page Header */}
-        <div className="mb-10">
-          <h1 className="font-display text-4xl font-bold text-ink-900 mb-3">
+        <div className="mb-12 animate-fade-up">
+          <h1 className="font-display text-4xl md:text-5xl font-bold text-ink-900 mb-4">
             What Changed
           </h1>
-          <p className="text-ink-500 text-lg max-w-2xl">
+          <p className="text-ink-500 text-lg md:text-xl max-w-2xl leading-relaxed">
             Track the latest updates to Fannie Mae and Freddie Mac guidelines.
             See lender letters, bulletins, and guide updates as they are
             published.
@@ -36,7 +36,7 @@ export default function ChangesPage() {
         </div>
 
         {/* Layout: Timeline and Detail Panel */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           {/* Timeline Column */}
           <div className="lg:col-span-2">
             <ChangeTimeline onSelectUpdate={setSelectedUpdate} />
@@ -45,7 +45,7 @@ export default function ChangesPage() {
           {/* Detail Panel */}
           <div className="lg:col-span-1">
             {selectedUpdate ? (
-              <div className="sticky top-8 bg-surface border border-border p-6">
+              <div className="sticky top-24 bg-surface border-2 border-border p-6 md:p-8 shadow-sm animate-scale-in">
                 <div className="flex items-center justify-between mb-4">
                   <div
                     className={`gse-badge ${
@@ -167,9 +167,9 @@ export default function ChangesPage() {
                 </div>
               </div>
             ) : (
-              <div className="sticky top-8 bg-surface border border-border border-dashed p-8 text-center">
-                <FileText size={48} weight="thin" className="text-ink-300 mx-auto mb-4" />
-                <p className="text-ink-500">
+              <div className="sticky top-24 bg-surface border-2 border-border border-dashed p-10 text-center">
+                <FileText size={56} weight="thin" className="text-ink-300 mx-auto mb-5" />
+                <p className="text-ink-500 text-lg">
                   Select an update from the timeline to view details
                 </p>
               </div>

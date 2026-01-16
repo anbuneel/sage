@@ -41,13 +41,13 @@ export default function CheckMyLoanPage() {
     <div className="min-h-screen bg-paper">
       <TabNav />
 
-      <main className="max-w-5xl mx-auto px-6 py-12">
+      <main className="max-w-5xl mx-auto px-6 lg:px-8 py-16 md:py-20">
         {/* Page Header */}
-        <div className="mb-10">
-          <h1 className="font-display text-4xl font-bold text-ink-900 mb-3">
+        <div className="mb-12 animate-fade-up">
+          <h1 className="font-display text-4xl md:text-5xl font-bold text-ink-900 mb-4">
             Check My Loan
           </h1>
-          <p className="text-ink-500 text-lg max-w-2xl">
+          <p className="text-ink-500 text-lg md:text-xl max-w-2xl leading-relaxed">
             Enter your loan scenario to check eligibility for Fannie Mae HomeReady
             and Freddie Mac Home Possible programs.
           </p>
@@ -55,12 +55,12 @@ export default function CheckMyLoanPage() {
 
         {/* Error Message */}
         {error && (
-          <div className="mb-8 p-4 border border-error/30 bg-error/5">
-            <div className="flex items-start gap-3">
-              <Warning size={20} weight="thin" className="text-error mt-0.5" />
+          <div className="mb-10 p-5 border-2 border-error/30 bg-error/5 animate-fade-up">
+            <div className="flex items-start gap-4">
+              <Warning size={24} weight="thin" className="text-error mt-0.5" />
               <div>
-                <p className="font-medium text-error">Error</p>
-                <p className="text-sm text-ink-700 mt-1">{error}</p>
+                <p className="font-semibold text-error">Error</p>
+                <p className="text-sm text-ink-700 mt-2">{error}</p>
               </div>
             </div>
           </div>
@@ -74,56 +74,56 @@ export default function CheckMyLoanPage() {
             <LoanForm onSubmit={handleSubmit} isLoading={isLoading} />
 
             {/* Program Reference */}
-            <div className="mt-12 grid md:grid-cols-2 gap-px bg-border">
-              <div className="bg-paper p-6">
-                <div className="gse-badge gse-badge-fannie mb-3">Fannie Mae</div>
-                <h3 className="font-display text-lg font-semibold mb-3">HomeReady Requirements</h3>
-                <dl className="space-y-2 text-sm">
-                  <div className="flex justify-between">
+            <div className="mt-16 grid md:grid-cols-2 gap-px bg-border border-2 border-border">
+              <div className="bg-paper p-6 md:p-8">
+                <div className="gse-badge gse-badge-fannie mb-4">Fannie Mae</div>
+                <h3 className="font-display text-xl font-semibold mb-5">HomeReady Requirements</h3>
+                <dl className="space-y-3 text-sm">
+                  <div className="flex justify-between py-2 border-b border-border/50">
                     <dt className="text-ink-500">Minimum Credit Score</dt>
-                    <dd className="font-mono text-ink-900">620</dd>
+                    <dd className="font-mono text-ink-900 font-medium">620</dd>
                   </div>
-                  <div className="flex justify-between">
+                  <div className="flex justify-between py-2 border-b border-border/50">
                     <dt className="text-ink-500">Maximum DTI</dt>
-                    <dd className="font-mono text-ink-900">50%</dd>
+                    <dd className="font-mono text-ink-900 font-medium">50%</dd>
                   </div>
-                  <div className="flex justify-between">
+                  <div className="flex justify-between py-2 border-b border-border/50">
                     <dt className="text-ink-500">Maximum LTV</dt>
-                    <dd className="font-mono text-ink-900">97%</dd>
+                    <dd className="font-mono text-ink-900 font-medium">97%</dd>
                   </div>
-                  <div className="flex justify-between">
+                  <div className="flex justify-between py-2 border-b border-border/50">
                     <dt className="text-ink-500">Income Limit</dt>
-                    <dd className="font-mono text-ink-900">80% AMI</dd>
+                    <dd className="font-mono text-ink-900 font-medium">80% AMI</dd>
                   </div>
-                  <div className="flex justify-between">
+                  <div className="flex justify-between py-2">
                     <dt className="text-ink-500">Occupancy</dt>
-                    <dd className="font-mono text-ink-900">Primary only</dd>
+                    <dd className="font-mono text-ink-900 font-medium">Primary only</dd>
                   </div>
                 </dl>
               </div>
-              <div className="bg-paper p-6">
-                <div className="gse-badge gse-badge-freddie mb-3">Freddie Mac</div>
-                <h3 className="font-display text-lg font-semibold mb-3">Home Possible Requirements</h3>
-                <dl className="space-y-2 text-sm">
-                  <div className="flex justify-between">
+              <div className="bg-paper p-6 md:p-8">
+                <div className="gse-badge gse-badge-freddie mb-4">Freddie Mac</div>
+                <h3 className="font-display text-xl font-semibold mb-5">Home Possible Requirements</h3>
+                <dl className="space-y-3 text-sm">
+                  <div className="flex justify-between py-2 border-b border-border/50">
                     <dt className="text-ink-500">Minimum Credit Score</dt>
-                    <dd className="font-mono text-ink-900">660</dd>
+                    <dd className="font-mono text-ink-900 font-medium">660</dd>
                   </div>
-                  <div className="flex justify-between">
+                  <div className="flex justify-between py-2 border-b border-border/50">
                     <dt className="text-ink-500">Maximum DTI</dt>
-                    <dd className="font-mono text-ink-900">45%</dd>
+                    <dd className="font-mono text-ink-900 font-medium">45%</dd>
                   </div>
-                  <div className="flex justify-between">
+                  <div className="flex justify-between py-2 border-b border-border/50">
                     <dt className="text-ink-500">Maximum LTV</dt>
-                    <dd className="font-mono text-ink-900">97%</dd>
+                    <dd className="font-mono text-ink-900 font-medium">97%</dd>
                   </div>
-                  <div className="flex justify-between">
+                  <div className="flex justify-between py-2 border-b border-border/50">
                     <dt className="text-ink-500">Income Limit</dt>
-                    <dd className="font-mono text-ink-900">80% AMI</dd>
+                    <dd className="font-mono text-ink-900 font-medium">80% AMI</dd>
                   </div>
-                  <div className="flex justify-between">
+                  <div className="flex justify-between py-2">
                     <dt className="text-ink-500">Occupancy</dt>
-                    <dd className="font-mono text-ink-900">Primary only</dd>
+                    <dd className="font-mono text-ink-900 font-medium">Primary only</dd>
                   </div>
                 </dl>
               </div>
