@@ -182,25 +182,29 @@ cp backend/.env.example backend/.env
 - GSE brand colors (Fannie Mae blue, Freddie Mac green)
 - Staggered entrance animations
 
-## Phase 3 Roadmap — Loan Structuring Focus
+## Phase 3: Full Guide Intelligence
 
-**Priority 1: Fix Finder Agent**
-- ReAct loop pattern for intelligent loan restructuring suggestions
-- "Pay off $400/mo car loan to reduce DTI from 52% to 48%"
-- Trade-off analysis and timeline suggestions
+**See [Phase 3 Plan](./docs/PHASE3_PLAN.md) for detailed roadmap.**
 
-**Priority 2: Real AMI Income Limits**
-- Lookup by ZIP code/county and household size
-- Pull from FFIEC or HUD data sources
-- Replace hardcoded demo values
+### Objectives
 
-**Priority 3: Enhanced UI/UX**
-- Streamlined loan structuring workflow
-- Better visualization of fix options
+1. **Full Guide Coverage** — Scrape and index entire Fannie Mae Selling Guide + Freddie Mac Guide (1,200+ pages) to address "won't scale" objection
 
-**Priority 4: Production Deployment**
-- Deploy to Fly.io
-- Configure PostgreSQL for persistence
+2. **Intelligent Reasoner** — Replace hardcoded rules with RAG-powered AI reasoning that retrieves relevant guide sections and analyzes loans dynamically
+
+3. **Fix Finder Agent** — ReAct loop pattern for intelligent loan restructuring suggestions with trade-off analysis
+
+4. **Natural Language Input** — Accept loan scenarios in plain English, not just form fields
+
+### The Pitch
+
+> "AskPoli tells you what the guide says. SAGE tells you if your specific loan works, and if not, exactly how to fix it - across both Fannie and Freddie products. All 1,200+ pages are indexed."
+
+### Context
+
+- **Goal:** Portfolio project + internal pitch showcasing GenAI for software engineering
+- **Audience:** Senior Fannie Mae leaders
+- **Constraint:** Built on personal machine with public data only
 
 ## Deployment (Fly.io)
 

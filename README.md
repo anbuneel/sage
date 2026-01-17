@@ -57,6 +57,7 @@ See [Competitive Analysis](./docs/COMPETITIVE_ANALYSIS.md) for detailed comparis
 
 ## Documentation
 
+- [Phase 3 Plan](./docs/PHASE3_PLAN.md) — Full Guide Intelligence roadmap
 - [Competitive Analysis](./docs/COMPETITIVE_ANALYSIS.md) — Strategic positioning vs AskPoli
 - [Project Specification](./PROJECT_SPEC.md) — Detailed architecture, data model, and implementation plan
 
@@ -90,11 +91,18 @@ See [Competitive Analysis](./docs/COMPETITIVE_ANALYSIS.md) for detailed comparis
 - 11 automated loan scenario tests with GSE guide references
 - Site-wide footer with quick links and official resources
 
-🚀 **Phase 3 Roadmap** — Loan Structuring Focus
-1. **Fix Finder Agent** — Intelligent loan restructuring suggestions (Priority 1)
-2. **Real AMI Income Limits** — Accurate income limit validation by location (Priority 2)
-3. **Enhanced UI/UX** — Streamlined loan structuring workflow (Priority 3)
-4. **Production Deployment** — Fly.io hosting (Priority 4)
+🚀 **Phase 3 In Progress** — Full Guide Intelligence
+
+See [Phase 3 Plan](./docs/PHASE3_PLAN.md) for detailed roadmap.
+
+| Milestone | Description |
+|-----------|-------------|
+| **3a. Full Guide Scraping** | Index entire Fannie Mae + Freddie Mac guides (1,200+ pages) |
+| **3b. Intelligent Reasoner** | Replace hardcoded rules with AI-powered RAG reasoning |
+| **3c. Fix Finder Agent** | Intelligent loan restructuring with trade-off analysis |
+| **3d. Natural Language Input** | Describe loans in plain English |
+
+**The Goal:** Address the "won't scale" objection and demonstrate GenAI capabilities for software engineering.
 
 ---
 
