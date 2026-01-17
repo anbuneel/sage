@@ -67,7 +67,7 @@ See [Competitive Analysis](./docs/COMPETITIVE_ANALYSIS.md) for detailed comparis
 - Next.js frontend with 4 functional tabs
 - FastAPI backend with eligibility checking endpoint
 - 880-line rules engine covering HomeReady and Home Possible requirements
-- Scraped 17 guide files from Fannie Mae and Freddie Mac (~490K characters)
+- Guide sections for HomeReady (B5-6) and Home Possible (4501) eligibility (~500KB)
 
 ✅ **Design System Complete** - "The Modern Ledger" professional fintech aesthetic
 

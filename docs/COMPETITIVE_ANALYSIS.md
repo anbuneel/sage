@@ -48,10 +48,27 @@ SAGE should **not** compete with AskPoli on policy Q&A. Instead, SAGE should foc
 
 | Feature | Status | Assessment |
 |---------|--------|------------|
-| RAG Chat | ✅ Working | Not differentiated - AskPoli does this better |
+| RAG Chat | ⚠️ Limited scope | HomeReady/Home Possible sections only (~500KB vs full 1,200+ page guides) |
 | Policy Monitoring | ⚠️ Mock data | Nice-to-have, not core value |
 | Code Generation | ⚠️ Templates | Enterprise feature, low priority |
 | Fix Suggestions | ⚠️ Static | Needs intelligence to be valuable |
+
+### Guide Coverage (Current Scope)
+
+**Fannie Mae (~215 KB):**
+- B5-6: HomeReady Overview, Eligibility, Underwriting, Pricing
+- B2-1.2: LTV Ratios
+- B3-5.1: Credit Scores
+- B3-6: DTI Ratios
+- 2 Lender Letters
+
+**Freddie Mac (~308 KB):**
+- 4501: Home Possible Overview, Eligibility, Additional Requirements
+- 5201: Credit Assessment
+- 5401: Income Assessment
+- 3 Bulletins
+
+**Not covered:** Full Selling Guide (1,200+ pages), other products (conventional, jumbo, etc.)
 
 ---
 

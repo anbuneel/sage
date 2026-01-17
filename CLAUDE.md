@@ -79,8 +79,9 @@ sage/
 │           └── models.py        # ORM models (PolicyUpdate, etc.)
 ├── contracts/                   # API contracts
 │   └── api_contracts.md         # Shared interfaces between frontend/backend
-├── data/                        # Scraped guide content
-│   └── scraped_guides/          # 17 guide files (~490K characters)
+├── data/                        # Guide content (HomeReady/Home Possible scope)
+│   ├── fannie/                  # B5-6 (HomeReady), B2-1.2, B3-5.1, B3-6 + Lender Letters
+│   └── freddie/                 # 4501 (Home Possible), 5201, 5401 + Bulletins
 └── scripts/
     ├── scrape_guides.py         # Guide scraping script
     ├── ingest_guides.py         # Embed guides into Pinecone
