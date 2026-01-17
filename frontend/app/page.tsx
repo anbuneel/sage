@@ -185,10 +185,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Footer note */}
-        <p className="text-xs text-ink-400 text-center">
-          For informational purposes only. Consult a licensed mortgage professional.
-        </p>
       </main>
     </div>
   );

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, Public_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import Footer from "@/components/Footer";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -36,8 +37,9 @@ export default function RootLayout({
       className={`${fraunces.variable} ${publicSans.variable} ${jetbrainsMono.variable} light`}
       style={{ colorScheme: 'light' }}
     >
-      <body className="bg-paper text-ink-900 antialiased">
-        {children}
+      <body className="bg-paper text-ink-900 antialiased min-h-screen flex flex-col">
+        <div className="flex-1">{children}</div>
+        <Footer />
       </body>
     </html>
   );
