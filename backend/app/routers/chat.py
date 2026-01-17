@@ -190,10 +190,15 @@ async def _process_rag_chat(request: ChatRequest, conversation_id: str) -> ChatR
     # Detect if user is asking about a specific GSE
     gse_filter = None
     message_lower = request.message.lower()
-    if "fannie" in message_lower or "homeready" in message_lower:
+    mentions_fannie = "fannie" in message_lower or "homeready" in message_lower
+    mentions_freddie = "freddie" in message_lower or "home possible" in message_lower
+
+    # Only filter if asking about ONE specific GSE, not both
+    if mentions_fannie and not mentions_freddie:
         gse_filter = "fannie_mae"
-    elif "freddie" in message_lower or "home possible" in message_lower:
+    elif mentions_freddie and not mentions_fannie:
         gse_filter = "freddie_mac"
+    # If both or neither mentioned, don't filter - search all guides
 
     # Generate response using RAG
     response_content, citations = await rag_service.chat(

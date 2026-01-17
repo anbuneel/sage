@@ -200,6 +200,7 @@ Please provide a clear, accurate answer with citations to the relevant source se
         query: str,
         conversation_history: list[dict[str, str]] | None = None,
         gse_filter: str | None = None,
+        compare_both: bool = False,
     ) -> tuple[str, list[Citation]]:
         """
         Main chat method that retrieves context and generates a response.
@@ -208,16 +209,32 @@ Please provide a clear, accurate answer with citations to the relevant source se
             query: The user's question
             conversation_history: Optional previous messages
             gse_filter: Optional GSE filter
+            compare_both: If True, retrieve from both GSEs separately
 
         Returns:
             Tuple of (response_text, citations)
         """
-        # Retrieve relevant context
-        context_chunks = await self.retrieve_context(
-            query=query,
-            top_k=5,
-            gse_filter=gse_filter,
-        )
+        # When comparing both products, retrieve from each GSE separately
+        if compare_both or gse_filter is None:
+            # Get chunks from both GSEs to ensure balanced comparison
+            fannie_chunks = await self.retrieve_context(
+                query=query,
+                top_k=4,
+                gse_filter="fannie_mae",
+            )
+            freddie_chunks = await self.retrieve_context(
+                query=query,
+                top_k=4,
+                gse_filter="freddie_mac",
+            )
+            context_chunks = fannie_chunks + freddie_chunks
+        else:
+            # Single GSE query
+            context_chunks = await self.retrieve_context(
+                query=query,
+                top_k=5,
+                gse_filter=gse_filter,
+            )
 
         if not context_chunks:
             # No context found, provide a helpful response

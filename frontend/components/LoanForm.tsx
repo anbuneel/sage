@@ -162,10 +162,11 @@ export default function LoanForm({ onSubmit, isLoading = false }: LoanFormProps)
 
   const handleCurrencyChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    const formatted = formatCurrency(value);
+    // Only allow digits and commas while typing
+    const cleaned = value.replace(/[^0-9,]/g, '');
     setFormData((prev) => ({
       ...prev,
-      [name]: formatted,
+      [name]: cleaned,
     }));
 
     if (errors[name]) {
@@ -174,6 +175,17 @@ export default function LoanForm({ onSubmit, isLoading = false }: LoanFormProps)
         [name]: undefined,
       }));
     }
+  };
+
+  const handleCurrencyBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    // Format on blur
+    const formatted = formatCurrency(value);
+    setFormData((prev) => ({
+      ...prev,
+      [name]: formatted,
+    }));
+    handleBlur(e);
   };
 
   const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -310,9 +322,9 @@ export default function LoanForm({ onSubmit, isLoading = false }: LoanFormProps)
                 name="annual_income"
                 value={formData.annual_income}
                 onChange={handleCurrencyChange}
-                onBlur={handleBlur}
+                onBlur={handleCurrencyBlur}
                 placeholder="75,000"
-                className={`input input-mono pl-8 ${
+                className={`input input-mono !pl-10 ${
                   errors.annual_income && touched.annual_income
                     ? 'border-error/50 bg-error/5'
                     : ''
@@ -378,9 +390,9 @@ export default function LoanForm({ onSubmit, isLoading = false }: LoanFormProps)
                 name="loan_amount"
                 value={formData.loan_amount}
                 onChange={handleCurrencyChange}
-                onBlur={handleBlur}
+                onBlur={handleCurrencyBlur}
                 placeholder="350,000"
-                className={`input input-mono pl-8 ${
+                className={`input input-mono !pl-10 ${
                   errors.loan_amount && touched.loan_amount
                     ? 'border-error/50 bg-error/5'
                     : ''
@@ -408,9 +420,9 @@ export default function LoanForm({ onSubmit, isLoading = false }: LoanFormProps)
                 name="property_value"
                 value={formData.property_value}
                 onChange={handleCurrencyChange}
-                onBlur={handleBlur}
+                onBlur={handleCurrencyBlur}
                 placeholder="400,000"
-                className={`input input-mono pl-8 ${
+                className={`input input-mono !pl-10 ${
                   errors.property_value && touched.property_value
                     ? 'border-error/50 bg-error/5'
                     : ''
@@ -470,9 +482,9 @@ export default function LoanForm({ onSubmit, isLoading = false }: LoanFormProps)
                 name="monthly_debt_payments"
                 value={formData.monthly_debt_payments}
                 onChange={handleCurrencyChange}
-                onBlur={handleBlur}
+                onBlur={handleCurrencyBlur}
                 placeholder="500"
-                className={`input input-mono pl-8 ${
+                className={`input input-mono !pl-10 ${
                   errors.monthly_debt_payments && touched.monthly_debt_payments
                     ? 'border-error/50 bg-error/5'
                     : ''
@@ -642,7 +654,7 @@ export default function LoanForm({ onSubmit, isLoading = false }: LoanFormProps)
               value={formData.property_county}
               onChange={handleChange}
               onBlur={handleBlur}
-              placeholder="Los Angeles"
+              placeholder="e.g. Cook, Harris, Maricopa"
               className={`input ${
                 errors.property_county && touched.property_county
                   ? 'border-error/50 bg-error/5'

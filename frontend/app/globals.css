@@ -50,9 +50,9 @@ html, body {
   --color-code-text: #CDD6F4;
   --color-indigo: #3F47CC;
 
-  /* GSE Brands */
-  --color-fannie: #00447C;
-  --color-freddie: #8B2332;
+  /* GSE Brands - Official Colors */
+  --color-fannie: #05314D;
+  --color-freddie: #6CB516;
 
   /* Border colors */
   --color-border: #E8E0D0;

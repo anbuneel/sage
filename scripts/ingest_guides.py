@@ -105,6 +105,14 @@ GUIDE_METADATA = {
 }
 
 
+def extract_url_from_content(content: str) -> str | None:
+    """Extract the source URL from the file header."""
+    for line in content.split("\n")[:5]:
+        if line.startswith("# Source:"):
+            return line.replace("# Source:", "").strip()
+    return None
+
+
 async def load_guide_files(data_dir: Path) -> list[dict]:
     """Load all guide files from the data directory."""
     guides = []
@@ -117,6 +125,10 @@ async def load_guide_files(data_dir: Path) -> list[dict]:
                 content = file_path.read_text(encoding="utf-8")
                 metadata = GUIDE_METADATA[file_path.name].copy()
                 metadata["source_file"] = str(file_path)
+                # Extract URL from file header (more up-to-date than hardcoded)
+                extracted_url = extract_url_from_content(content)
+                if extracted_url:
+                    metadata["url"] = extracted_url
                 guides.append({"content": content, "metadata": metadata})
                 logger.info(f"Loaded: {file_path.name} ({len(content)} chars)")
 
@@ -128,6 +140,10 @@ async def load_guide_files(data_dir: Path) -> list[dict]:
                 content = file_path.read_text(encoding="utf-8")
                 metadata = GUIDE_METADATA[file_path.name].copy()
                 metadata["source_file"] = str(file_path)
+                # Extract URL from file header (more up-to-date than hardcoded)
+                extracted_url = extract_url_from_content(content)
+                if extracted_url:
+                    metadata["url"] = extracted_url
                 guides.append({"content": content, "metadata": metadata})
                 logger.info(f"Loaded: {file_path.name} ({len(content)} chars)")
 
@@ -142,6 +158,10 @@ async def load_guide_files(data_dir: Path) -> list[dict]:
                         content = file_path.read_text(encoding="utf-8")
                         metadata = GUIDE_METADATA[file_path.name].copy()
                         metadata["source_file"] = str(file_path)
+                        # Extract URL from file header
+                        extracted_url = extract_url_from_content(content)
+                        if extracted_url:
+                            metadata["url"] = extracted_url
                         guides.append({"content": content, "metadata": metadata})
                         logger.info(f"Loaded: {file_path.name} ({len(content)} chars)")
 
@@ -157,7 +177,7 @@ async def chunk_and_embed_guides(
     """Chunk guides and generate embeddings."""
     all_vectors = []
 
-    for guide_idx, guide in enumerate(guides):
+    for guide in guides:
         content = guide["content"]
         metadata = guide["metadata"]
 
@@ -172,11 +192,6 @@ async def chunk_and_embed_guides(
 
         # Prepare texts for embedding
         chunk_texts = [chunk["text"] for chunk in chunks]
-
-        # Add delay between files to stay within rate limits
-        if guide_idx > 0:
-            logger.info("Waiting 40s before next file to respect rate limits...")
-            await asyncio.sleep(40)
 
         # Generate embeddings
         embeddings = await embedding_service.embed_texts(chunk_texts)

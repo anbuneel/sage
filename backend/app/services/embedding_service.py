@@ -83,9 +83,8 @@ class EmbeddingService:
 
         client = self._ensure_client()
 
-        # Voyage AI free tier has 3 RPM and 10K TPM limits
-        # Use small batches (4 chunks ~2K tokens) with 35s delays to stay under both limits
-        batch_size = 4
+        # Voyage AI supports batching up to 128 texts
+        batch_size = 64
         all_embeddings = []
 
         for i in range(0, len(texts), batch_size):
@@ -98,10 +97,6 @@ class EmbeddingService:
             )
             all_embeddings.extend(response.embeddings)
             logger.info(f"Embedded batch {i // batch_size + 1}, count: {len(batch)}")
-
-            # Add delay to stay within rate limits (35s ensures ~2 requests/min under 10K TPM)
-            if i + batch_size < len(texts):
-                await asyncio.sleep(35)
 
         return all_embeddings
 

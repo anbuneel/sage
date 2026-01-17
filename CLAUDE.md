@@ -220,8 +220,8 @@ A professional fintech aesthetic built for mortgage industry applications.
 - **Sage green:** `#3A6B56` - primary brand color
 - **Gold:** `#E0A82E` - accent/warning
 - **Ink:** `#1C1917` to `#A8A29E` - text hierarchy
-- **Fannie Mae:** `#00447C` - blue badge
-- **Freddie Mac:** `#8B2332` - red badge
+- **Fannie Mae:** `#05314D` - official blue (badge)
+- **Freddie Mac:** `#6CB516` - official green (badge)
 
 ### Icons
 - Phosphor Icons with consistent "thin" weight throughout
