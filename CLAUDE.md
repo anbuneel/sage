@@ -4,9 +4,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-SAGE (Smart Agentic Guide Engine) is an AI-powered mortgage policy intelligence system that transforms Fannie Mae and Freddie Mac guidelines into an actionable platform. It monitors policy changes, reasons about loan scenarios, compares GSE products, and generates code updates for compliance.
+SAGE (Smart Agentic Guide Engine) is a **loan structuring assistant** that helps loan officers and borrowers find eligibility across GSE products. Unlike AskPoli (which answers "What does the guide say?"), SAGE answers "Is this specific loan eligible, and how do I fix it?"
+
+**Core Value Proposition:**
+- Analyze loan scenarios against HomeReady (Fannie Mae) and Home Possible (Freddie Mac)
+- Side-by-side GSE comparison (AskPoli is Fannie-only)
+- Actionable fix suggestions when loans fail eligibility
 
 **Status:** Phase 2 Complete ✅ - All features active and operational.
+
+**Strategic Direction:** See [Competitive Analysis](./docs/COMPETITIVE_ANALYSIS.md) for positioning vs AskPoli.
 
 ## Tech Stack
 
@@ -174,13 +181,25 @@ cp backend/.env.example backend/.env
 - GSE brand colors (Fannie Mae blue, Freddie Mac green)
 - Staggered entrance animations
 
-## Phase 3 Roadmap
+## Phase 3 Roadmap — Loan Structuring Focus
 
-**Future Enhancements:**
-- Fix Finder Agent (ReAct loop pattern for loan fix suggestions)
-- AMI Income Limits lookup (currently hardcoded for demo)
-- LangGraph agent orchestration
-- Deploy to Fly.io for production
+**Priority 1: Fix Finder Agent**
+- ReAct loop pattern for intelligent loan restructuring suggestions
+- "Pay off $400/mo car loan to reduce DTI from 52% to 48%"
+- Trade-off analysis and timeline suggestions
+
+**Priority 2: Real AMI Income Limits**
+- Lookup by ZIP code/county and household size
+- Pull from FFIEC or HUD data sources
+- Replace hardcoded demo values
+
+**Priority 3: Enhanced UI/UX**
+- Streamlined loan structuring workflow
+- Better visualization of fix options
+
+**Priority 4: Production Deployment**
+- Deploy to Fly.io
+- Configure PostgreSQL for persistence
 
 ## Deployment (Fly.io)
 

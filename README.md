@@ -1,45 +1,44 @@
 # SAGE — Smart Agentic Guide Engine
 
-> **"Policy intelligence that works for you."**
+> **"The loan structuring assistant that finds eligibility across GSE products."**
 
-SAGE is an AI-powered solution that transforms mortgage guidelines from static documents into an intelligent system that:
+SAGE helps loan officers and borrowers answer the question AskPoli can't: **"Is this specific loan eligible, and if not, how do I fix it?"**
 
-- **Monitors** policy changes across Fannie Mae and Freddie Mac
-- **Reasons** about loan scenarios and eligibility
-- **Compares** GSE products side-by-side
+- **Analyzes** loan scenarios against HomeReady and Home Possible requirements
+- **Compares** Fannie Mae vs Freddie Mac eligibility side-by-side
 - **Suggests** actionable fixes when loans fail eligibility
-- **Generates** code updates for compliance
+- **Explains** exactly which rules are violated and why
 
 ## The Problem
 
-The Fannie Mae Selling Guide and Freddie Mac Seller/Servicer Guide are massive (1,200+ pages each) and change frequently. Lenders struggle to keep up with policy changes, understand eligibility, and maintain compliance.
+AskPoli answers "What does the Fannie Mae guide say?" but loan officers need to answer:
+- "Is *this specific loan* eligible for HomeReady? Home Possible? Both?"
+- "If it fails, what's the easiest fix?"
+- "Which GSE product is the better fit?"
 
-## How SAGE Goes Beyond AskPoli
+## How SAGE Complements AskPoli
 
-| AskPoli | SAGE |
-|---------|------|
-| Reactive search/Q&A | **Proactive** change monitoring |
-| Text responses | **Generates code** showing rule updates |
-| Finds the rule | **Reasons** about your specific loan scenario |
-| Fannie Mae only | **Fannie + Freddie** comparison |
+| Need | AskPoli | SAGE |
+|------|---------|------|
+| "What's the DTI limit?" | ✅ Policy lookup | Use AskPoli |
+| "Is my 52% DTI loan eligible?" | ❌ Can't analyze scenarios | ✅ **SAGE answers this** |
+| "HomeReady vs Home Possible?" | ❌ Fannie Mae only | ✅ **Side-by-side comparison** |
+| "How do I fix this loan?" | ❌ No suggestions | ✅ **Actionable fixes** |
+
+See [Competitive Analysis](./docs/COMPETITIVE_ANALYSIS.md) for detailed comparison.
 
 ## Features
 
-### Four Tabs
+### Core Value (Differentiated)
 
-1. **Ask the Guide** — RAG-powered Q&A with citations
-2. **What Changed** — Timeline of detected policy updates
-3. **Generated Updates** — Code diffs for rule engine updates
-4. **Check My Loan** — Scenario analyzer with fix suggestions
+1. **Check My Loan** — Enter a loan scenario, get instant eligibility for both HomeReady and Home Possible with specific violations and fix suggestions
+2. **Side-by-Side Comparison** — See exactly where each GSE product differs on your specific loan
 
-### Four Agentic Layers
+### Supporting Features
 
-| Agent | Function |
-|-------|----------|
-| Change Detection | Monitors for new Lender Letters and Bulletins |
-| Impact Analyst | Compares old vs new policy semantically |
-| Code Generator | Drafts rule engine updates |
-| Scenario Reasoner | Analyzes loans, explains failures, suggests fixes |
+3. **Ask the Guide** — RAG-powered Q&A with citations (for policy lookup)
+4. **What Changed** — Timeline of detected policy updates
+5. **Generated Updates** — Code diffs for rule engine updates (enterprise feature)
 
 ## Tech Stack
 
@@ -58,6 +57,7 @@ The Fannie Mae Selling Guide and Freddie Mac Seller/Servicer Guide are massive (
 
 ## Documentation
 
+- [Competitive Analysis](./docs/COMPETITIVE_ANALYSIS.md) — Strategic positioning vs AskPoli
 - [Project Specification](./PROJECT_SPEC.md) — Detailed architecture, data model, and implementation plan
 
 ## Status
@@ -90,11 +90,11 @@ The Fannie Mae Selling Guide and Freddie Mac Seller/Servicer Guide are massive (
 - 11 automated loan scenario tests with GSE guide references
 - Site-wide footer with quick links and official resources
 
-🚀 **Phase 3 Roadmap**
-- Fix Finder Agent (ReAct loop for loan fix suggestions)
-- Real-time AMI Income Limits lookup
-- LangGraph agent orchestration
-- Production deployment to Fly.io
+🚀 **Phase 3 Roadmap** — Loan Structuring Focus
+1. **Fix Finder Agent** — Intelligent loan restructuring suggestions (Priority 1)
+2. **Real AMI Income Limits** — Accurate income limit validation by location (Priority 2)
+3. **Enhanced UI/UX** — Streamlined loan structuring workflow (Priority 3)
+4. **Production Deployment** — Fly.io hosting (Priority 4)
 
 ---
 
