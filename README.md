@@ -46,9 +46,9 @@ The Fannie Mae Selling Guide and Freddie Mac Seller/Servicer Guide are massive (
 - **Frontend:** Next.js 16 + Tailwind CSS 4
 - **Backend:** FastAPI (Python 3.11+)
 - **Vector DB:** Pinecone
-- **LLM:** Claude 3.5 Sonnet
-- **Agentic Framework:** LangGraph
-- **Database:** PostgreSQL (Fly Postgres)
+- **LLM:** Claude Sonnet 4 (Anthropic)
+- **Embeddings:** Voyage AI voyage-2
+- **Database:** PostgreSQL (Fly Postgres) / SQLite fallback
 - **Deployment:** Fly.io
 
 ## MVP Scope
@@ -62,7 +62,7 @@ The Fannie Mae Selling Guide and Freddie Mac Seller/Servicer Guide are massive (
 
 ## Status
 
-✅ **Phase 1 Complete** - Core UI and eligibility rules engine implemented
+✅ **Phase 1 Complete** - Core UI and eligibility rules engine
 
 - Next.js frontend with 4 functional tabs
 - FastAPI backend with eligibility checking endpoint
@@ -76,24 +76,25 @@ The Fannie Mae Selling Guide and Freddie Mac Seller/Servicer Guide are massive (
 - Phosphor icons with consistent "thin" weight
 - GSE brand colors for Fannie Mae/Freddie Mac badges
 - Enhanced animations with staggered entrance effects
-- Improved spacing and visual hierarchy across all pages
 - Ledger-style patterns, textures, and interactive states
 
-✅ **Phase 2 Infrastructure Complete** - RAG chat and policy updates backend ready
+✅ **Phase 2 Complete** - RAG chat and policy updates fully operational
 
 - Pinecone vector DB service for semantic search
-- OpenAI embeddings for guide content vectorization
-- Claude integration for RAG chat responses with citations
+- Voyage AI voyage-2 embeddings for guide content vectorization
+- Claude Sonnet 4 integration for RAG chat responses with citations
 - PostgreSQL database models (PolicyUpdate, EligibilityRule, Conversation)
 - Fannie Mae Lender Letters scraper
 - Freddie Mac Bulletins scraper
-- Graceful fallback to mock data when API keys not configured
+- Code generation in Python, TypeScript, YAML, and JSON formats
+- 11 automated loan scenario tests with GSE guide references
+- Site-wide footer with quick links and official resources
 
-🔧 **To Activate Phase 2** - Add API keys to `.env`:
-- `PINECONE_API_KEY` - Vector storage
-- `ANTHROPIC_API_KEY` - Claude for chat
-- `OPENAI_API_KEY` - Text embeddings
-- Run `python scripts/ingest_guides.py` to embed guide content
+🚀 **Phase 3 Roadmap**
+- Fix Finder Agent (ReAct loop for loan fix suggestions)
+- Real-time AMI Income Limits lookup
+- LangGraph agent orchestration
+- Production deployment to Fly.io
 
 ---
 

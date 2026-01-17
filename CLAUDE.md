@@ -6,16 +6,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 SAGE (Smart Agentic Guide Engine) is an AI-powered mortgage policy intelligence system that transforms Fannie Mae and Freddie Mac guidelines into an actionable platform. It monitors policy changes, reasons about loan scenarios, compares GSE products, and generates code updates for compliance.
 
-**Status:** Phase 2 Infrastructure Complete - RAG chat and policy updates backend ready. Requires API keys to activate.
+**Status:** Phase 2 Complete ✅ - All features active and operational.
 
 ## Tech Stack
 
 - **Frontend:** Next.js 16 + Tailwind CSS 4
 - **Backend:** FastAPI (Python 3.11+)
-- **Vector DB:** Pinecone (implemented, needs API key)
-- **LLM:** Claude Sonnet 4.5 via Anthropic SDK (implemented, needs API key)
-- **Database:** PostgreSQL via SQLAlchemy async (implemented, falls back to SQLite)
-- **Embeddings:** Voyage AI voyage-2 (implemented, needs API key)
+- **Vector DB:** Pinecone (active)
+- **LLM:** Claude Sonnet 4 via Anthropic SDK (active)
+- **Database:** PostgreSQL via SQLAlchemy async (falls back to SQLite)
+- **Embeddings:** Voyage AI voyage-2 (active)
 
 ## Hosting (Fly.io)
 
@@ -41,7 +41,8 @@ sage/
 │   │   ├── EligibilityResult.tsx # Eligibility results display
 │   │   ├── ChatInterface.tsx    # RAG chat component
 │   │   ├── ChangeTimeline.tsx   # Policy updates timeline
-│   │   └── CodeDiff.tsx         # Code diff viewer
+│   │   ├── CodeDiff.tsx         # Code diff viewer
+│   │   └── Footer.tsx           # Site-wide footer
 │   └── lib/                     # Utilities
 │       ├── api.ts               # API client
 │       └── types.ts             # TypeScript interfaces
@@ -75,7 +76,8 @@ sage/
 │   └── scraped_guides/          # 17 guide files (~490K characters)
 └── scripts/
     ├── scrape_guides.py         # Guide scraping script
-    └── ingest_guides.py         # Embed guides into Pinecone
+    ├── ingest_guides.py         # Embed guides into Pinecone
+    └── test_scenarios.py        # Automated loan scenario tests
 ```
 
 ## Commands
@@ -162,19 +164,23 @@ cp backend/.env.example backend/.env
 - `affected_rule_ids` array in `POLICY_UPDATES` table ✅
 - Links policy changes to `ELIGIBILITY_RULES` table ✅
 
-### Remaining Work
+**Test Suite:**
+- 11 automated loan scenarios (`scripts/test_scenarios.py`)
+- Covers credit scores, DTI, LTV, occupancy, property types
+- Each test references official GSE guide sections
 
-**To Activate Features:**
-1. Set up Pinecone index (1024 dimensions for voyage-2) and add API key
-2. Add Anthropic API key for Claude Sonnet 4.5
-3. Add Voyage AI API key for embeddings
-4. Run `python scripts/ingest_guides.py` to embed guide content (takes ~45min due to rate limits)
-5. Optionally configure PostgreSQL (uses SQLite by default)
+**UI Polish:**
+- Site-wide footer with quick links and official resources
+- GSE brand colors (Fannie Mae blue, Freddie Mac green)
+- Staggered entrance animations
+
+## Phase 3 Roadmap
 
 **Future Enhancements:**
 - Fix Finder Agent (ReAct loop pattern for loan fix suggestions)
 - AMI Income Limits lookup (currently hardcoded for demo)
 - LangGraph agent orchestration
+- Deploy to Fly.io for production
 
 ## Deployment (Fly.io)
 
