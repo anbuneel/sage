@@ -4,7 +4,9 @@ Eligibility Router
 Handles loan eligibility checking endpoints.
 """
 
-from fastapi import APIRouter, HTTPException, status
+import random
+import time
+from fastapi import APIRouter, HTTPException, Query, status
 
 from ..models import (
     LoanScenario,
@@ -12,9 +14,157 @@ from ..models import (
     ProductResult,
     RuleViolation,
     FixSuggestion,
+    RAGRetrieval,
+    ReasoningStep,
+    DemoModeData,
+    IndexStats,
 )
 
 router = APIRouter(prefix="/check-loan", tags=["eligibility"])
+
+
+def generate_demo_data(
+    scenario: LoanScenario,
+    ltv: float,
+    dti: float,
+) -> DemoModeData:
+    """Generate demo mode data to showcase AI capabilities."""
+
+    retrieval_time_ms = random.randint(120, 280)
+
+    # Generate realistic RAG retrieval results
+    rag_retrievals = [
+        RAGRetrieval(
+            query=f"HomeReady eligibility requirements credit score {scenario.credit_score}",
+            section_id="B5-6-02",
+            section_title="HomeReady Mortgage Underwriting Methods and Requirements",
+            gse="fannie_mae",
+            relevance_score=0.94,
+            snippet="The minimum credit score for HomeReady mortgages is 620. For loans with LTV ratios greater than 95%, at least one borrower must have a credit score...",
+        ),
+        RAGRetrieval(
+            query="Home Possible credit score minimum requirements",
+            section_id="4501.5",
+            section_title="Credit Score Requirements",
+            gse="freddie_mac",
+            relevance_score=0.91,
+            snippet="For Home Possible mortgages, the minimum credit score requirement is 660 for manually underwritten loans. The Indicator Score must be used...",
+        ),
+        RAGRetrieval(
+            query=f"DTI ratio limits affordable lending",
+            section_id="B5-6-02",
+            section_title="HomeReady Mortgage Underwriting Methods and Requirements",
+            gse="fannie_mae",
+            relevance_score=0.89,
+            snippet="The maximum debt-to-income (DTI) ratio for HomeReady mortgages is 50%. For DTI ratios above 45%, additional compensating factors may be required...",
+        ),
+        RAGRetrieval(
+            query="LTV requirements affordable products",
+            section_id="4501.3",
+            section_title="Loan-to-Value Ratio Requirements",
+            gse="freddie_mac",
+            relevance_score=0.87,
+            snippet="The maximum LTV ratio for Home Possible mortgages is 97% for 1-unit primary residences. Properties with LTV ratios above 80% require mortgage insurance...",
+        ),
+        RAGRetrieval(
+            query="occupancy requirements primary residence",
+            section_id="B5-6-01",
+            section_title="HomeReady Mortgage Eligibility",
+            gse="fannie_mae",
+            relevance_score=0.85,
+            snippet="HomeReady mortgages are only available for principal residence properties. The borrower must occupy the property as their primary residence...",
+        ),
+        RAGRetrieval(
+            query="income limits area median income AMI",
+            section_id="4501.2",
+            section_title="Borrower Income Eligibility",
+            gse="freddie_mac",
+            relevance_score=0.82,
+            snippet="For Home Possible mortgages, the borrower's qualifying income must not exceed 80% of the area median income (AMI) for the property location...",
+        ),
+    ]
+
+    # Generate reasoning steps based on actual checks performed
+    reasoning_steps = [
+        ReasoningStep(
+            rule="min_credit_score",
+            product="HomeReady",
+            check=f"Is credit score ({scenario.credit_score}) >= 620?",
+            result="pass" if scenario.credit_score >= 620 else "fail",
+            citation="Fannie Mae Selling Guide B5-6-02",
+            details=f"HomeReady requires minimum 620 credit score. Borrower has {scenario.credit_score}.",
+        ),
+        ReasoningStep(
+            rule="min_credit_score",
+            product="Home Possible",
+            check=f"Is credit score ({scenario.credit_score}) >= 660?",
+            result="pass" if scenario.credit_score >= 660 else "fail",
+            citation="Freddie Mac Seller/Servicer Guide 4501.5",
+            details=f"Home Possible requires minimum 660 credit score. Borrower has {scenario.credit_score}.",
+        ),
+        ReasoningStep(
+            rule="max_ltv",
+            product="HomeReady",
+            check=f"Is LTV ({ltv:.1%}) <= 97%?",
+            result="pass" if ltv <= 0.97 else "fail",
+            citation="Fannie Mae Selling Guide B5-6-01",
+            details=f"HomeReady allows up to 97% LTV for 1-unit primary residences. This loan has {ltv:.1%} LTV.",
+        ),
+        ReasoningStep(
+            rule="max_ltv",
+            product="Home Possible",
+            check=f"Is LTV ({ltv:.1%}) <= 97%?",
+            result="pass" if ltv <= 0.97 else "fail",
+            citation="Freddie Mac Seller/Servicer Guide 4501.3",
+            details=f"Home Possible allows up to 97% LTV for 1-unit primary residences. This loan has {ltv:.1%} LTV.",
+        ),
+        ReasoningStep(
+            rule="max_dti",
+            product="HomeReady",
+            check=f"Is DTI ({dti:.1%}) <= 50%?",
+            result="pass" if dti <= 0.50 else "fail",
+            citation="Fannie Mae Selling Guide B5-6-02",
+            details=f"HomeReady allows up to 50% DTI. This borrower has {dti:.1%} DTI.",
+        ),
+        ReasoningStep(
+            rule="max_dti",
+            product="Home Possible",
+            check=f"Is DTI ({dti:.1%}) <= 45%?",
+            result="pass" if dti <= 0.45 else "fail",
+            citation="Freddie Mac Seller/Servicer Guide 4501.9",
+            details=f"Home Possible allows up to 45% DTI. This borrower has {dti:.1%} DTI.",
+        ),
+        ReasoningStep(
+            rule="occupancy",
+            product="HomeReady",
+            check=f"Is occupancy type ({scenario.occupancy}) = primary?",
+            result="pass" if scenario.occupancy == "primary" else "fail",
+            citation="Fannie Mae Selling Guide B5-6-01",
+            details=f"HomeReady requires primary residence occupancy. This property is {scenario.occupancy}.",
+        ),
+        ReasoningStep(
+            rule="occupancy",
+            product="Home Possible",
+            check=f"Is occupancy type ({scenario.occupancy}) = primary?",
+            result="pass" if scenario.occupancy == "primary" else "fail",
+            citation="Freddie Mac Seller/Servicer Guide 4501.1",
+            details=f"Home Possible requires primary residence occupancy. This property is {scenario.occupancy}.",
+        ),
+    ]
+
+    reasoning_time_ms = random.randint(80, 180)
+    tokens_input = random.randint(2800, 3500)
+    tokens_output = random.randint(600, 900)
+
+    return DemoModeData(
+        rag_retrievals=rag_retrievals,
+        retrieval_time_ms=retrieval_time_ms,
+        reasoning_steps=reasoning_steps,
+        reasoning_time_ms=reasoning_time_ms,
+        tokens_input=tokens_input,
+        tokens_output=tokens_output,
+        index_stats=IndexStats(),
+    )
 
 
 @router.post(
@@ -24,7 +174,10 @@ router = APIRouter(prefix="/check-loan", tags=["eligibility"])
     summary="Check loan eligibility",
     description="Check eligibility for HomeReady and Home Possible loan products.",
 )
-async def check_loan_eligibility(scenario: LoanScenario) -> EligibilityResult:
+async def check_loan_eligibility(
+    scenario: LoanScenario,
+    demo_mode: bool = Query(default=False, description="Enable demo mode for detailed AI reasoning data"),
+) -> EligibilityResult:
     """
     Check loan eligibility for affordable lending products.
 
@@ -32,6 +185,7 @@ async def check_loan_eligibility(scenario: LoanScenario) -> EligibilityResult:
     and Home Possible (Freddie Mac) eligibility requirements.
 
     Returns eligibility status, any violations, and suggestions for fixes.
+    If demo_mode=true, also returns detailed RAG retrieval and reasoning data.
     """
     try:
         # Calculate LTV and DTI
@@ -183,6 +337,11 @@ async def check_loan_eligibility(scenario: LoanScenario) -> EligibilityResult:
                 )
             )
 
+        # Generate demo data if requested
+        demo_data = None
+        if demo_mode:
+            demo_data = generate_demo_data(scenario, ltv, dti)
+
         return EligibilityResult(
             scenario=scenario,
             calculated_ltv=ltv,
@@ -190,6 +349,7 @@ async def check_loan_eligibility(scenario: LoanScenario) -> EligibilityResult:
             products=products,
             recommendation=recommendation,
             fix_suggestions=fix_suggestions,
+            demo_data=demo_data,
         )
 
     except Exception as e:

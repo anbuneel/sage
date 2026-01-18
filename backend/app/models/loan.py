@@ -109,6 +109,65 @@ class ProductResult(BaseModel):
     )
 
 
+class RAGRetrieval(BaseModel):
+    """A single RAG retrieval result for demo mode."""
+
+    query: str = Field(..., description="The search query used")
+    section_id: str = Field(..., description="Guide section identifier")
+    section_title: str = Field(..., description="Title of the section")
+    gse: Literal["fannie_mae", "freddie_mac"] = Field(..., description="Source GSE")
+    relevance_score: float = Field(..., ge=0, le=1, description="Relevance score (0-1)")
+    snippet: str = Field(..., description="Text snippet from the section")
+
+
+class ReasoningStep(BaseModel):
+    """A single step in the reasoning chain for demo mode."""
+
+    rule: str = Field(..., description="Rule being checked")
+    product: Literal["HomeReady", "Home Possible"] = Field(..., description="Product being evaluated")
+    check: str = Field(..., description="What is being checked")
+    result: Literal["pass", "fail"] = Field(..., description="Result of the check")
+    citation: str = Field(..., description="Guide citation")
+    details: str = Field(..., description="Detailed explanation")
+
+
+class IndexStats(BaseModel):
+    """Statistics about the indexed guides."""
+
+    total_pages: int = Field(default=4866, description="Total pages indexed")
+    total_sections: int = Field(default=1203, description="Total sections indexed")
+    total_vectors: int = Field(default=6174, description="Total vectors in the index")
+
+
+class ParsedInput(BaseModel):
+    """Parsed natural language input for demo mode."""
+
+    raw_text: str = Field(..., description="Original input text")
+    extracted_fields: dict[str, str | int | float | bool] = Field(
+        default_factory=dict, description="Extracted field values"
+    )
+
+
+class DemoModeData(BaseModel):
+    """Additional data returned in demo mode to showcase AI capabilities."""
+
+    parsed_input: ParsedInput | None = Field(None, description="Parsed NL input if applicable")
+    rag_retrievals: list[RAGRetrieval] = Field(
+        default_factory=list, description="RAG retrieval results"
+    )
+    retrieval_time_ms: int = Field(default=0, description="Time taken for RAG retrieval")
+    reasoning_steps: list[ReasoningStep] = Field(
+        default_factory=list, description="Reasoning chain steps"
+    )
+    reasoning_time_ms: int = Field(default=0, description="Time taken for reasoning")
+    tokens_input: int = Field(default=0, description="Input tokens used")
+    tokens_output: int = Field(default=0, description="Output tokens used")
+    index_stats: IndexStats = Field(
+        default_factory=IndexStats,
+        description="Index statistics"
+    )
+
+
 class EligibilityResult(BaseModel):
     """Complete eligibility check result."""
 
@@ -119,4 +178,7 @@ class EligibilityResult(BaseModel):
     recommendation: str = Field(..., description="Summary recommendation")
     fix_suggestions: list[FixSuggestion] = Field(
         default_factory=list, description="Suggestions for becoming eligible"
+    )
+    demo_data: DemoModeData | None = Field(
+        None, description="Demo mode data (only present when demo_mode=true)"
     )

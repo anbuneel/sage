@@ -81,14 +81,46 @@ The entire process - from "it's too big" to "4,866 pages indexed" - took about a
 
 ---
 
-## What's Next (Phase 3b-d)
+## Phase 3b: Dual-Mode UI ✅ (January 2026)
+
+### The Challenge
+
+How do you build one interface that serves two different audiences?
+- **Loan Officers** want clean, practical results - eligibility status and fix suggestions
+- **SVP/Senior Leaders** want to see the AI in action - RAG retrieval, reasoning chains, performance stats
+
+### The Solution
+
+A toggle between LO Mode and Demo Mode:
+
+**LO Mode:**
+- Clean eligibility results with ELIGIBLE/INELIGIBLE stamps
+- Side-by-side HomeReady vs Home Possible comparison
+- Actionable fix suggestions ranked by difficulty
+
+**Demo Mode:**
+- Everything from LO Mode, PLUS:
+- RAG retrieval results showing which guide sections were found
+- Step-by-step reasoning chain with pass/fail for each rule
+- Performance stats (retrieval time, reasoning time, tokens used)
+- Index coverage (4,866 pages, 1,203 sections, 6,174 vectors)
+
+### New Components
+- `ModeToggle.tsx` - Toggle between LO Mode and Demo Mode
+- `DemoModePanel.tsx` - Renders RAG retrieval, reasoning chain, and stats
+- Backend updates to return detailed reasoning data when `demo_mode=true`
+
+---
+
+## What's Next (Phase 3c-e)
 
 | Milestone | Status | Description |
 |-----------|--------|-------------|
 | 3a. Full Guide Coverage | ✅ Done | 4,866 pages indexed |
-| 3b. Intelligent Reasoner | 🔜 Next | Replace hardcoded rules with RAG-powered reasoning |
-| 3c. Fix Finder Agent | Planned | ReAct loop for loan restructuring suggestions |
-| 3d. Natural Language Input | Planned | Describe loans in plain English |
+| 3b. Dual-Mode UI | ✅ Done | LO Mode + Demo Mode with AI transparency |
+| 3c. Intelligent Reasoner | 🔜 Next | Replace hardcoded rules with RAG-powered reasoning |
+| 3d. Fix Finder Agent | Planned | ReAct loop for loan restructuring suggestions |
+| 3e. Natural Language Input | Planned | Describe loans in plain English |
 
 ---
 

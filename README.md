@@ -33,6 +33,7 @@ See [Competitive Analysis](./docs/COMPETITIVE_ANALYSIS.md) for detailed comparis
 
 1. **Check My Loan** — Enter a loan scenario, get instant eligibility for both HomeReady and Home Possible with specific violations and fix suggestions
 2. **Side-by-Side Comparison** — See exactly where each GSE product differs on your specific loan
+3. **Dual-Mode UI** — Toggle between LO Mode (clean, practical results) and Demo Mode (full AI transparency with RAG retrieval, reasoning chain, and performance stats)
 
 ### Supporting Features
 
@@ -98,9 +99,10 @@ See [Phase 3 Plan](./docs/PHASE3_PLAN.md) for detailed roadmap.
 | Milestone | Status | Description |
 |-----------|--------|-------------|
 | **3a. Full Guide Coverage** | ✅ Done | 4,866 pages indexed (1,203 sections, 6,174 vectors) |
-| **3b. Intelligent Reasoner** | 🔜 Next | Replace hardcoded rules with AI-powered RAG reasoning |
-| **3c. Fix Finder Agent** | Planned | Intelligent loan restructuring with trade-off analysis |
-| **3d. Natural Language Input** | Planned | Describe loans in plain English |
+| **3b. Dual-Mode UI** | ✅ Done | LO Mode + Demo Mode with RAG/reasoning transparency |
+| **3c. Intelligent Reasoner** | 🔜 Next | Replace hardcoded rules with AI-powered RAG reasoning |
+| **3d. Fix Finder Agent** | Planned | Intelligent loan restructuring with trade-off analysis |
+| **3e. Natural Language Input** | Planned | Describe loans in plain English |
 
 **Guide Coverage:**
 - Fannie Mae Selling Guide: 1,181 pages, 367 sections

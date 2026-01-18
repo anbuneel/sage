@@ -4,7 +4,9 @@ import { useState } from 'react';
 import TabNav from '@/components/TabNav';
 import LoanForm from '@/components/LoanForm';
 import EligibilityResult from '@/components/EligibilityResult';
-import type { LoanScenario, EligibilityResult as EligibilityResultType } from '@/lib/types';
+import ModeToggle from '@/components/ModeToggle';
+import DemoModePanel from '@/components/DemoModePanel';
+import type { LoanScenario, EligibilityResult as EligibilityResultType, ViewMode } from '@/lib/types';
 import { checkLoanEligibility } from '@/lib/api';
 import { Warning } from '@phosphor-icons/react';
 
@@ -12,13 +14,15 @@ export default function CheckMyLoanPage() {
   const [result, setResult] = useState<EligibilityResultType | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [viewMode, setViewMode] = useState<ViewMode>('lo');
 
   const handleSubmit = async (scenario: LoanScenario) => {
     setIsLoading(true);
     setError(null);
 
     try {
-      const eligibilityResult = await checkLoanEligibility(scenario);
+      // Pass demo_mode flag to get detailed reasoning data
+      const eligibilityResult = await checkLoanEligibility(scenario, viewMode === 'demo');
       setResult(eligibilityResult);
     } catch (err) {
       console.error('Error checking eligibility:', err);
@@ -42,14 +46,22 @@ export default function CheckMyLoanPage() {
       <TabNav />
 
       <main className="max-w-5xl mx-auto px-6 lg:px-8 py-16 md:py-20">
-        {/* Page Header */}
+        {/* Page Header with Mode Toggle */}
         <div className="mb-12 animate-fade-up">
-          <h1 className="font-display text-4xl md:text-5xl font-bold text-ink-900 mb-4">
-            Check My Loan
-          </h1>
+          <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-4">
+            <h1 className="font-display text-4xl md:text-5xl font-bold text-ink-900">
+              Check My Loan
+            </h1>
+            <ModeToggle mode={viewMode} onModeChange={setViewMode} />
+          </div>
           <p className="text-ink-500 text-lg md:text-xl max-w-2xl leading-relaxed">
-            Enter your loan scenario to check eligibility for Fannie Mae HomeReady
-            and Freddie Mac Home Possible programs.
+            {viewMode === 'lo' ? (
+              <>Enter your loan scenario to check eligibility for Fannie Mae HomeReady
+              and Freddie Mac Home Possible programs.</>
+            ) : (
+              <>See how AI analyzes loans against 4,866 pages of GSE guidelines using
+              RAG retrieval and intelligent reasoning.</>
+            )}
           </p>
         </div>
 
@@ -68,7 +80,13 @@ export default function CheckMyLoanPage() {
 
         {/* Conditional Rendering: Form or Results */}
         {result ? (
-          <EligibilityResult result={result} onReset={handleReset} />
+          <>
+            <EligibilityResult result={result} onReset={handleReset} />
+            {/* Demo Mode Panel - shows AI reasoning details */}
+            {viewMode === 'demo' && result.demo_data && (
+              <DemoModePanel data={result.demo_data} />
+            )}
+          </>
         ) : (
           <>
             <LoanForm onSubmit={handleSubmit} isLoading={isLoading} />

@@ -10,6 +10,12 @@ from .loan import (
     FixSuggestion,
     ProductResult,
     EligibilityResult,
+    # Demo mode models
+    RAGRetrieval,
+    ReasoningStep,
+    IndexStats,
+    ParsedInput,
+    DemoModeData,
 )
 from .chat import (
     Citation,
@@ -26,6 +32,12 @@ __all__ = [
     "FixSuggestion",
     "ProductResult",
     "EligibilityResult",
+    # Demo mode models
+    "RAGRetrieval",
+    "ReasoningStep",
+    "IndexStats",
+    "ParsedInput",
+    "DemoModeData",
     # Chat models
     "Citation",
     "ChatMessage",

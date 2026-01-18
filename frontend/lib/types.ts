@@ -72,6 +72,55 @@ export interface EligibilityResult {
   products: ProductResult[];
   recommendation: string;
   fix_suggestions: FixSuggestion[];
+  // Demo mode data (optional - only present when demo_mode=true)
+  demo_data?: DemoModeData;
+}
+
+// ============================================
+// Demo Mode Types (for SVP presentation)
+// ============================================
+
+export type ViewMode = 'lo' | 'demo';
+
+export interface RAGRetrieval {
+  query: string;
+  section_id: string;
+  section_title: string;
+  gse: GSE;
+  relevance_score: number;
+  snippet: string;
+}
+
+export interface ReasoningStep {
+  rule: string;
+  product: ProductName;
+  check: string;
+  result: 'pass' | 'fail';
+  citation: string;
+  details: string;
+}
+
+export interface DemoModeData {
+  // Parsed scenario (from NL input)
+  parsed_input?: {
+    raw_text: string;
+    extracted_fields: Record<string, string | number | boolean>;
+  };
+  // RAG retrieval results
+  rag_retrievals: RAGRetrieval[];
+  retrieval_time_ms: number;
+  // Reasoning chain
+  reasoning_steps: ReasoningStep[];
+  reasoning_time_ms: number;
+  // Token usage
+  tokens_input: number;
+  tokens_output: number;
+  // Index stats
+  index_stats: {
+    total_pages: number;
+    total_sections: number;
+    total_vectors: number;
+  };
 }
 
 // ============================================

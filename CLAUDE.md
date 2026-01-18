@@ -197,11 +197,15 @@ cp backend/.env.example backend/.env
    - Fannie Mae Servicing Guide: 771 pages, 108 sections
    - Freddie Mac Seller/Servicer Guide: 2,914 pages, 728 sections
 
-2. **Intelligent Reasoner** — Replace hardcoded rules with RAG-powered AI reasoning that retrieves relevant guide sections and analyzes loans dynamically
+2. ✅ **Dual-Mode UI** — Toggle between LO Mode (practical results) and Demo Mode (AI transparency)
+   - LO Mode: Clean eligibility results with fix suggestions for loan officers
+   - Demo Mode: Full transparency showing RAG retrieval, reasoning chain, token usage, and index stats
 
-3. **Fix Finder Agent** — ReAct loop pattern for intelligent loan restructuring suggestions with trade-off analysis
+3. **Intelligent Reasoner** — Replace hardcoded rules with RAG-powered AI reasoning that retrieves relevant guide sections and analyzes loans dynamically
 
-4. **Natural Language Input** — Accept loan scenarios in plain English, not just form fields
+4. **Fix Finder Agent** — ReAct loop pattern for intelligent loan restructuring suggestions with trade-off analysis
+
+5. **Natural Language Input** — Accept loan scenarios in plain English, not just form fields
 
 ### The Pitch
 

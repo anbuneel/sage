@@ -109,9 +109,11 @@ export async function getChangeCode(
 // ============================================
 
 export async function checkLoanEligibility(
-  scenario: LoanScenario
+  scenario: LoanScenario,
+  demoMode: boolean = false
 ): Promise<EligibilityResult> {
-  return fetchApi<EligibilityResult>('/check-loan', {
+  const endpoint = demoMode ? '/check-loan?demo_mode=true' : '/check-loan';
+  return fetchApi<EligibilityResult>(endpoint, {
     method: 'POST',
     body: JSON.stringify(scenario),
   });
