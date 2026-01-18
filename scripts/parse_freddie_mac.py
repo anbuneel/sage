@@ -46,19 +46,23 @@ def extract_all_text(pdf_path: Path, progress_callback=None) -> str:
             if text:
                 text_parts.append(text)
 
-    return '\n\n'.join(text_parts)
+    # Normalize line endings (CRLF -> LF) for consistent regex matching
+    result = '\n\n'.join(text_parts)
+    return result.replace('\r\n', '\n').replace('\r', '\n')
 
 
 def find_sections(text: str) -> list[tuple[str, str, int]]:
     """
     Find section headers in the text.
     Returns list of (section_id, title, position)
+
+    Freddie Mac format: 1101.1: Introduction to the Guide (12/17/25)
     """
     sections = []
 
-    # Pattern for Freddie Mac sections: 1301.4: Title (date) or 4501.5: Title
-    # Format: ####.#: Title or ####.##: Title
-    pattern = re.compile(r'\n(\d{4}\.\d{1,2}):\s*([^\n\(]+)', re.MULTILINE)
+    # Pattern for Freddie Mac sections: ####.#: Title or ####.##: Title
+    # Use ^ with MULTILINE to match at start of any line
+    pattern = re.compile(r'^(\d{4}\.\d{1,2}):\s*([^\n\(]+)', re.MULTILINE)
 
     for match in pattern.finditer(text):
         section_id = match.group(1)
@@ -84,6 +88,11 @@ def split_into_sections(text: str, sections: list[tuple[str, str, int]]) -> dict
             end_pos = len(text)
 
         content = text[start_pos:end_pos].strip()
+
+        # Skip if duplicate (keep the one with more content)
+        if section_id in result:
+            if len(content) <= len(result[section_id]['content']):
+                continue
 
         result[section_id] = {
             "title": title,

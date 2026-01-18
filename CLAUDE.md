@@ -11,7 +11,7 @@ SAGE (Smart Agentic Guide Engine) is a **loan structuring assistant** that helps
 - Side-by-side GSE comparison (AskPoli is Fannie-only)
 - Actionable fix suggestions when loans fail eligibility
 
-**Status:** Phase 2 Complete ✅ - All features active and operational.
+**Status:** Phase 2 Complete ✅ + Full Guide Coverage ✅ - 4,866 pages indexed across both GSEs.
 
 **Strategic Direction:** See [Competitive Analysis](./docs/COMPETITIVE_ANALYSIS.md) for positioning vs AskPoli.
 
@@ -79,9 +79,10 @@ sage/
 │           └── models.py        # ORM models (PolicyUpdate, etc.)
 ├── contracts/                   # API contracts
 │   └── api_contracts.md         # Shared interfaces between frontend/backend
-├── data/                        # Guide content (HomeReady/Home Possible scope)
-│   ├── fannie/                  # B5-6 (HomeReady), B2-1.2, B3-5.1, B3-6 + Lender Letters
-│   └── freddie/                 # 4501 (Home Possible), 5201, 5401 + Bulletins
+├── data/                        # Full GSE guide content (4,866 pages)
+│   ├── fannie_mae_guide/        # Selling Guide: 367 sections (1,181 pages)
+│   ├── fannie_mae_servicing_guide/  # Servicing Guide: 108 sections (771 pages)
+│   └── freddie_mac_guide/       # Seller/Servicer Guide: 728 sections (2,914 pages)
 └── scripts/
     ├── scrape_guides.py         # Guide scraping script
     ├── ingest_guides.py         # Embed guides into Pinecone
@@ -108,8 +109,11 @@ pytest tests/test_file.py -k "test_name"  # Run single test
 
 ### Data Ingestion (from `scripts/`)
 ```bash
-python scrape_guides.py           # Scrape guide content from GSE websites
-python ingest_guides.py           # Embed guides into Pinecone (requires VOYAGE_API_KEY, PINECONE_API_KEY)
+python parse_fannie_mae_pdf.py    # Parse Fannie Mae Selling Guide PDF
+python parse_freddie_mac.py       # Parse Freddie Mac Guide PDF
+python ingest_guides.py           # Embed all guides into Pinecone (dynamic discovery, batched)
+python ingest_guides.py --fresh   # Clear and re-ingest everything
+python ingest_guides.py --dry-run # Just count files without ingesting
 ```
 
 ### Environment Setup
@@ -188,7 +192,10 @@ cp backend/.env.example backend/.env
 
 ### Objectives
 
-1. **Full Guide Coverage** — Scrape and index entire Fannie Mae Selling Guide + Freddie Mac Guide (1,200+ pages) to address "won't scale" objection
+1. ✅ **Full Guide Coverage** — All GSE guides indexed: 4,866 pages, 1,203 sections, 6,174 vectors in Pinecone
+   - Fannie Mae Selling Guide: 1,181 pages, 367 sections
+   - Fannie Mae Servicing Guide: 771 pages, 108 sections
+   - Freddie Mac Seller/Servicer Guide: 2,914 pages, 728 sections
 
 2. **Intelligent Reasoner** — Replace hardcoded rules with RAG-powered AI reasoning that retrieves relevant guide sections and analyzes loans dynamically
 
@@ -198,7 +205,7 @@ cp backend/.env.example backend/.env
 
 ### The Pitch
 
-> "AskPoli tells you what the guide says. SAGE tells you if your specific loan works, and if not, exactly how to fix it - across both Fannie and Freddie products. All 1,200+ pages are indexed."
+> "AskPoli tells you what the guide says. SAGE tells you if your specific loan works, and if not, exactly how to fix it - across both Fannie and Freddie products. All 4,866 pages are indexed."
 
 ### Context
 

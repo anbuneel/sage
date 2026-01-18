@@ -95,12 +95,17 @@ See [Competitive Analysis](./docs/COMPETITIVE_ANALYSIS.md) for detailed comparis
 
 See [Phase 3 Plan](./docs/PHASE3_PLAN.md) for detailed roadmap.
 
-| Milestone | Description |
-|-----------|-------------|
-| **3a. Full Guide Scraping** | Index entire Fannie Mae + Freddie Mac guides (1,200+ pages) |
-| **3b. Intelligent Reasoner** | Replace hardcoded rules with AI-powered RAG reasoning |
-| **3c. Fix Finder Agent** | Intelligent loan restructuring with trade-off analysis |
-| **3d. Natural Language Input** | Describe loans in plain English |
+| Milestone | Status | Description |
+|-----------|--------|-------------|
+| **3a. Full Guide Coverage** | ✅ Done | 4,866 pages indexed (1,203 sections, 6,174 vectors) |
+| **3b. Intelligent Reasoner** | 🔜 Next | Replace hardcoded rules with AI-powered RAG reasoning |
+| **3c. Fix Finder Agent** | Planned | Intelligent loan restructuring with trade-off analysis |
+| **3d. Natural Language Input** | Planned | Describe loans in plain English |
+
+**Guide Coverage:**
+- Fannie Mae Selling Guide: 1,181 pages, 367 sections
+- Fannie Mae Servicing Guide: 771 pages, 108 sections
+- Freddie Mac Seller/Servicer Guide: 2,914 pages, 728 sections
 
 **The Goal:** Address the "won't scale" objection and demonstrate GenAI capabilities for software engineering.
 

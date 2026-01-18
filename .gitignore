@@ -49,3 +49,4 @@ data/freddie_mac_guide/
 *.pem
 *.key
 credentials.json
+data/fannie_mae_servicing_guide/
