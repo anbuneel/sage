@@ -15,5 +15,6 @@
       "Bash(wc:*)",
       "Bash(find:*)"
     ]
-  }
+  },
+  "outputStyle": "Explanatory"
 }
