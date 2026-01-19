@@ -29,8 +29,8 @@ class Settings(BaseSettings):
 
     # CORS
     cors_origins: list[str] = [
-        "http://localhost:6000",
-        "http://127.0.0.1:6000",
+        "http://localhost:4000",
+        "http://127.0.0.1:4000",
     ]
 
     # Database (Supabase)

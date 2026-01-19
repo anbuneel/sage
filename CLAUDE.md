@@ -95,7 +95,7 @@ sage/
 ### Frontend (from `frontend/`)
 ```bash
 npm install          # Install dependencies
-npm run dev          # Start development server (port 6000)
+npm run dev          # Start development server (port 4000)
 npm run build        # Production build
 npm run lint         # Run ESLint
 ```
