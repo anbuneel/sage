@@ -248,6 +248,66 @@ This matches AskPoli's answer **exactly**.
 
 ---
 
+## Validation Results
+
+### Post-Fix Test: "How do I document gift funds?"
+
+**Date:** 2026-01-19
+**Status:** ✅ **FIX VERIFIED**
+
+### Before vs After
+
+| Aspect | Before Fix | After Fix |
+|--------|------------|-----------|
+| **Fannie Mae Content** | ❌ "Context does not include Fannie Mae requirements" | ✅ Complete B3-4.3-04 content |
+| **Gift Letter Requirements** | Freddie Mac only | Both GSEs |
+| **"Relationship to borrower"** | ❌ Missing | ✅ Included |
+| **Citations** | Freddie Mac only | Fannie Mae B3-4.3-04 + Freddie Mac 5501.4 |
+
+### AskPoli Parity Check
+
+| Requirement | AskPoli | SAGE (After Fix) | Match? |
+|-------------|---------|------------------|--------|
+| Gift letter signed by donor | ✅ | ✅ | ✅ |
+| Trust/estate: signed by trustee | ✅ | ✅ | ✅ |
+| Actual/maximum dollar amount | ✅ | ✅ | ✅ |
+| No repayment statement | ✅ | ✅ | ✅ |
+| Donor's name, address, telephone | ✅ | ✅ | ✅ |
+| **Relationship to borrower** | ✅ | ✅ | ✅ |
+| DU resubmission note | ✅ | ✅ | ✅ |
+| Pooled funds (12-month cohabitation) | ✅ | ✅ | ✅ |
+| Shared residency documentation | ✅ | ✅ | ✅ |
+
+### SAGE Exceeds AskPoli
+
+SAGE now provides additional value that AskPoli cannot:
+
+| Feature | AskPoli | SAGE |
+|---------|---------|------|
+| Fund transfer documentation methods | ❌ Not detailed | ✅ 5 specific methods listed |
+| Wedding/graduation gift provisions | ❌ Not covered | ✅ Freddie Mac special rules |
+| Freddie Mac coverage | ❌ None | ✅ Full 5501.4 content |
+| Dual-GSE comparison | ❌ Impossible | ✅ Side-by-side |
+
+### Quality Metrics (Final)
+
+| Metric | Rating | Notes |
+|--------|--------|-------|
+| Factual Accuracy | ✅ Excellent | Matches AskPoli exactly for Fannie Mae |
+| Completeness | ✅ Excellent | Both GSEs covered comprehensively |
+| Dual-GSE Promise | ✅ Delivered | Citations from both sources |
+| AskPoli Parity | ✅ 100% | All Fannie Mae requirements present |
+| Added Value | ✅ Exceeds | Freddie Mac content AskPoli can't provide |
+
+### Conclusion
+
+**The fix is successful.** SAGE's "Ask" feature now:
+1. Matches AskPoli 100% for Fannie Mae gift fund requirements
+2. Exceeds AskPoli by providing Freddie Mac coverage
+3. Delivers on the dual-GSE value proposition
+
+---
+
 ## Source Documents
 
 - Fannie Mae Quality Insider Newsletter, March 2025
