@@ -63,6 +63,11 @@ class Settings(BaseSettings):
     # RAG Eligibility settings
     rag_eligibility_timeout: int = 30  # Max seconds for RAG eligibility analysis
 
+    # Fix Finder Agent settings
+    enable_fix_finder: bool = True  # Feature flag for Fix Finder Agent
+    fix_finder_max_iterations: int = 3  # Max ReAct loop iterations
+    fix_finder_timeout: int = 15  # Max seconds for Fix Finder analysis
+
 
 @lru_cache
 def get_settings() -> Settings:

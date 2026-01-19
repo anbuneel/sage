@@ -21,7 +21,9 @@ from ..models import (
     DemoModeData,
     IndexStats,
 )
+from ..models.fix_finder import FixFinderResult
 from ..services.eligibility_reasoner import get_eligibility_reasoner
+from ..services.fix_finder_service import get_fix_finder_service
 
 router = APIRouter(prefix="/check-loan", tags=["eligibility"])
 logger = logging.getLogger(__name__)
@@ -181,6 +183,7 @@ def generate_demo_data(
 async def check_loan_eligibility(
     scenario: LoanScenario,
     demo_mode: bool = Query(default=False, description="Enable demo mode for detailed AI reasoning data"),
+    enable_fix_finder: bool = Query(default=False, description="Enable Fix Finder Agent for intelligent fix suggestions"),
 ) -> EligibilityResult:
     """
     Check loan eligibility for affordable lending products.
@@ -205,6 +208,32 @@ async def check_loan_eligibility(
                 scenario
             )
 
+            # Run Fix Finder Agent if enabled and there are violations
+            fix_finder_result = None
+            if enable_fix_finder and settings.enable_fix_finder:
+                # Collect all violations across products
+                all_violations = []
+                for product in products:
+                    all_violations.extend(product.violations)
+
+                if all_violations:
+                    try:
+                        fix_finder = get_fix_finder_service()
+                        fix_finder_result = await fix_finder.find_fixes(
+                            scenario=scenario,
+                            violations=all_violations,
+                            products=products,
+                            demo_mode=demo_mode,
+                        )
+                        logger.info(
+                            f"Fix Finder completed: {len(fix_finder_result.enhanced_fixes)} fixes, "
+                            f"{len(fix_finder_result.fix_sequences)} sequences, "
+                            f"{fix_finder_result.total_iterations} iterations"
+                        )
+                    except Exception as fix_err:
+                        logger.warning(f"Fix Finder failed, continuing without: {fix_err}")
+                        # Continue without fix finder results
+
             return EligibilityResult(
                 scenario=scenario,
                 calculated_ltv=ltv,
@@ -213,6 +242,7 @@ async def check_loan_eligibility(
                 recommendation=recommendation,
                 fix_suggestions=fix_suggestions,
                 demo_data=demo_data,
+                fix_finder_result=fix_finder_result,
             )
 
         except Exception as e:
@@ -370,6 +400,23 @@ async def check_loan_eligibility(
         if demo_mode:
             demo_data = generate_demo_data(scenario, ltv, dti)
 
+        # Run Fix Finder Agent if enabled and there are violations (hardcoded fallback path)
+        fix_finder_result = None
+        if enable_fix_finder and settings.enable_fix_finder and all_violations:
+            try:
+                fix_finder = get_fix_finder_service()
+                fix_finder_result = await fix_finder.find_fixes(
+                    scenario=scenario,
+                    violations=all_violations,
+                    products=products,
+                    demo_mode=demo_mode,
+                )
+                logger.info(
+                    f"Fix Finder (fallback) completed: {len(fix_finder_result.enhanced_fixes)} fixes"
+                )
+            except Exception as fix_err:
+                logger.warning(f"Fix Finder failed in fallback path: {fix_err}")
+
         return EligibilityResult(
             scenario=scenario,
             calculated_ltv=ltv,
@@ -378,6 +425,7 @@ async def check_loan_eligibility(
             recommendation=recommendation,
             fix_suggestions=fix_suggestions,
             demo_data=demo_data,
+            fix_finder_result=fix_finder_result,
         )
 
     except Exception as e:

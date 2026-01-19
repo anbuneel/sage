@@ -4,8 +4,13 @@ Loan and Eligibility Models
 Models for loan scenarios and eligibility checking.
 """
 
-from typing import Literal
+from __future__ import annotations
+
+from typing import TYPE_CHECKING, Literal
 from pydantic import BaseModel, Field, field_validator
+
+if TYPE_CHECKING:
+    from .fix_finder import FixFinderResult
 
 
 class LoanScenario(BaseModel):
@@ -181,4 +186,7 @@ class EligibilityResult(BaseModel):
     )
     demo_data: DemoModeData | None = Field(
         None, description="Demo mode data (only present when demo_mode=true)"
+    )
+    fix_finder_result: "FixFinderResult | None" = Field(
+        None, description="Fix Finder Agent results (only present when enable_fix_finder=true and violations exist)"
     )

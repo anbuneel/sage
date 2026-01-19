@@ -11,7 +11,7 @@ SAGE (Smart Agentic Guide Engine) is a **loan structuring assistant** that helps
 - Side-by-side GSE comparison (AskPoli is Fannie-only)
 - Actionable fix suggestions when loans fail eligibility
 
-**Status:** Phase 3c Complete ✅ - Intelligent Reasoner with RAG-powered eligibility analysis. 4,866 pages indexed across both GSEs.
+**Status:** Phase 3d Complete ✅ - Fix Finder Agent with ReAct-based intelligent fix suggestions. 4,866 pages indexed across both GSEs.
 
 **Strategic Direction:** See [Competitive Analysis](./docs/COMPETITIVE_ANALYSIS.md) for positioning vs AskPoli.
 
@@ -71,6 +71,7 @@ sage/
 │       │   ├── embedding_service.py  # Text embeddings
 │       │   ├── rag_service.py        # RAG pipeline for chat
 │       │   ├── eligibility_reasoner.py  # RAG-powered loan eligibility analysis
+│       │   ├── fix_finder_service.py    # ReAct-based Fix Finder Agent
 │       │   └── scrapers/             # Policy update scrapers
 │       │       ├── base_scraper.py
 │       │       ├── fannie_mae_scraper.py
@@ -208,7 +209,12 @@ cp backend/.env.example backend/.env
    - Real citations from actual guide sections
    - See: [Phase 3c Implementation](./docs/PHASE3C_INTELLIGENT_REASONER.md)
 
-4. **Fix Finder Agent** — ReAct loop pattern for intelligent loan restructuring suggestions with trade-off analysis
+4. ✅ **Fix Finder Agent** — ReAct-based agent for intelligent loan restructuring suggestions with trade-off analysis
+   - `FixFinderService` with iterative OBSERVE → THINK → ACT loop (max 3 iterations)
+   - Three tools: `query_guides` (RAG search), `simulate_scenario` (what-if testing), `compare_products` (GSE comparison)
+   - Enhanced fixes with confidence scores, priority ordering, citations, and compensating factors
+   - Multi-step fix sequences with effort-vs-benefit scoring
+   - Enable via `enable_fix_finder=true` query parameter
 
 5. **Natural Language Input** — Accept loan scenarios in plain English, not just form fields
 

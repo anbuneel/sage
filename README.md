@@ -100,9 +100,9 @@ See [Phase 3 Plan](./docs/PHASE3_PLAN.md) for detailed roadmap.
 |-----------|--------|-------------|
 | **3a. Full Guide Coverage** | ✅ Done | 4,866 pages indexed (1,203 sections, 6,174 vectors) |
 | **3b. Dual-Mode UI** | ✅ Done | LO Mode + Demo Mode with RAG/reasoning transparency |
-| **3c. Intelligent Reasoner** | 🔜 Next | Replace hardcoded rules with AI-powered RAG reasoning |
-| **3d. Fix Finder Agent** | Planned | Intelligent loan restructuring with trade-off analysis |
-| **3e. Natural Language Input** | Planned | Describe loans in plain English |
+| **3c. Intelligent Reasoner** | ✅ Done | RAG-powered AI reasoning with guide citations |
+| **3d. Fix Finder Agent** | ✅ Done | ReAct-based intelligent fix suggestions with simulations |
+| **3e. Natural Language Input** | 🔜 Next | Describe loans in plain English |
 
 **Guide Coverage:**
 - Fannie Mae Selling Guide: 1,181 pages, 367 sections

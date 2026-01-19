@@ -9,6 +9,7 @@ from .pinecone_service import PineconeService, get_pinecone_service
 from .embedding_service import EmbeddingService, get_embedding_service
 from .rag_service import RAGService, get_rag_service
 from .eligibility_reasoner import EligibilityReasonerService, get_eligibility_reasoner
+from .fix_finder_service import FixFinderService, get_fix_finder_service
 from .scrapers import BaseScraper, FannieMaeScraper, FreddieMacScraper
 
 __all__ = [
@@ -21,6 +22,8 @@ __all__ = [
     "get_rag_service",
     "EligibilityReasonerService",
     "get_eligibility_reasoner",
+    "FixFinderService",
+    "get_fix_finder_service",
     "BaseScraper",
     "FannieMaeScraper",
     "FreddieMacScraper",

@@ -24,6 +24,19 @@ from .chat import (
     ChatResponse,
 )
 from .policy import PolicyUpdate, PolicyUpdatesResponse, CodeDiffResponse
+from .fix_finder import (
+    GuideCitation,
+    CompensatingFactor,
+    EnhancedFixSuggestion,
+    SimulationResult,
+    FixSequence,
+    ToolCall,
+    ReactStep,
+    FixFinderResult,
+)
+
+# Rebuild EligibilityResult to resolve forward reference to FixFinderResult
+EligibilityResult.model_rebuild()
 
 __all__ = [
     # Loan models
@@ -47,4 +60,13 @@ __all__ = [
     "PolicyUpdate",
     "PolicyUpdatesResponse",
     "CodeDiffResponse",
+    # Fix Finder models
+    "GuideCitation",
+    "CompensatingFactor",
+    "EnhancedFixSuggestion",
+    "SimulationResult",
+    "FixSequence",
+    "ToolCall",
+    "ReactStep",
+    "FixFinderResult",
 ]
