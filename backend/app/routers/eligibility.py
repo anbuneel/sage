@@ -4,10 +4,12 @@ Eligibility Router
 Handles loan eligibility checking endpoints.
 """
 
+import logging
 import random
 import time
 from fastapi import APIRouter, HTTPException, Query, status
 
+from ..config import get_settings
 from ..models import (
     LoanScenario,
     EligibilityResult,
@@ -19,8 +21,10 @@ from ..models import (
     DemoModeData,
     IndexStats,
 )
+from ..services.eligibility_reasoner import get_eligibility_reasoner
 
 router = APIRouter(prefix="/check-loan", tags=["eligibility"])
+logger = logging.getLogger(__name__)
 
 
 def generate_demo_data(
@@ -185,15 +189,39 @@ async def check_loan_eligibility(
     and Home Possible (Freddie Mac) eligibility requirements.
 
     Returns eligibility status, any violations, and suggestions for fixes.
-    If demo_mode=true, also returns detailed RAG retrieval and reasoning data.
+    If demo_mode=true, uses RAG-powered AI reasoning with real guide retrieval.
     """
-    try:
-        # Calculate LTV and DTI
-        ltv = scenario.ltv
-        dti = scenario.calculate_dti()
+    # Calculate LTV and DTI
+    ltv = scenario.ltv
+    dti = scenario.calculate_dti()
 
-        # Mock eligibility results
-        # TODO: Replace with actual RulesEngine integration
+    settings = get_settings()
+
+    # Use RAG-powered reasoner when demo_mode is enabled
+    if demo_mode and settings.enable_rag_eligibility:
+        try:
+            reasoner = get_eligibility_reasoner()
+            products, recommendation, fix_suggestions, demo_data = await reasoner.check_eligibility(
+                scenario
+            )
+
+            return EligibilityResult(
+                scenario=scenario,
+                calculated_ltv=ltv,
+                calculated_dti=dti,
+                products=products,
+                recommendation=recommendation,
+                fix_suggestions=fix_suggestions,
+                demo_data=demo_data,
+            )
+
+        except Exception as e:
+            # Log error and fall back to hardcoded rules
+            logger.warning(f"RAG eligibility check failed, falling back to rules: {e}")
+            # Continue to hardcoded logic below
+
+    # Hardcoded rules fallback
+    try:
         homeready_violations = []
         home_possible_violations = []
 
@@ -337,7 +365,7 @@ async def check_loan_eligibility(
                 )
             )
 
-        # Generate demo data if requested
+        # Generate demo data if requested (fallback uses mocked data)
         demo_data = None
         if demo_mode:
             demo_data = generate_demo_data(scenario, ltv, dti)

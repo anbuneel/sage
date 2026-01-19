@@ -11,7 +11,7 @@ SAGE (Smart Agentic Guide Engine) is a **loan structuring assistant** that helps
 - Side-by-side GSE comparison (AskPoli is Fannie-only)
 - Actionable fix suggestions when loans fail eligibility
 
-**Status:** Phase 2 Complete ✅ + Full Guide Coverage ✅ - 4,866 pages indexed across both GSEs.
+**Status:** Phase 3c Complete ✅ - Intelligent Reasoner with RAG-powered eligibility analysis. 4,866 pages indexed across both GSEs.
 
 **Strategic Direction:** See [Competitive Analysis](./docs/COMPETITIVE_ANALYSIS.md) for positioning vs AskPoli.
 
@@ -69,7 +69,8 @@ sage/
 │       │   ├── rules_engine.py  # 880-line eligibility rules engine
 │       │   ├── pinecone_service.py   # Vector DB operations
 │       │   ├── embedding_service.py  # Text embeddings
-│       │   ├── rag_service.py        # RAG pipeline
+│       │   ├── rag_service.py        # RAG pipeline for chat
+│       │   ├── eligibility_reasoner.py  # RAG-powered loan eligibility analysis
 │       │   └── scrapers/             # Policy update scrapers
 │       │       ├── base_scraper.py
 │       │       ├── fannie_mae_scraper.py
@@ -94,7 +95,7 @@ sage/
 ### Frontend (from `frontend/`)
 ```bash
 npm install          # Install dependencies
-npm run dev          # Start development server
+npm run dev          # Start development server (port 6000)
 npm run build        # Production build
 npm run lint         # Run ESLint
 ```
@@ -201,7 +202,11 @@ cp backend/.env.example backend/.env
    - LO Mode: Clean eligibility results with fix suggestions for loan officers
    - Demo Mode: Full transparency showing RAG retrieval, reasoning chain, token usage, and index stats
 
-3. **Intelligent Reasoner** — Replace hardcoded rules with RAG-powered AI reasoning that retrieves relevant guide sections and analyzes loans dynamically
+3. ✅ **Intelligent Reasoner** — RAG-powered AI reasoning that retrieves relevant guide sections and analyzes loans dynamically
+   - `EligibilityReasonerService` with parallel RAG retrieval
+   - Claude analysis with JSON output schema for structured results
+   - Real citations from actual guide sections
+   - See: [Phase 3c Implementation](./docs/PHASE3C_INTELLIGENT_REASONER.md)
 
 4. **Fix Finder Agent** — ReAct loop pattern for intelligent loan restructuring suggestions with trade-off analysis
 

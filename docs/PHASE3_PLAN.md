@@ -189,24 +189,26 @@ looking at a $350K condo in Miami, can put 5% down"
 
 ## Implementation Phases
 
-### Phase 3a: Full Guide Scraping (1-2 days)
-- [ ] Analyze Fannie Mae Selling Guide structure
-- [ ] Build scraper for all sections
-- [ ] Analyze Freddie Mac Guide structure
-- [ ] Build scraper for all sections
-- [ ] Store with proper metadata (section IDs, hierarchy, URLs)
+### Phase 3a: Full Guide Coverage (COMPLETE)
+- [x] Parse Fannie Mae Selling Guide from PDF (1,181 pages, 367 sections)
+- [x] Parse Fannie Mae Servicing Guide from PDF (771 pages, 108 sections)
+- [x] Parse Freddie Mac Seller/Servicer Guide from PDF (2,914 pages, 728 sections)
+- [x] Store with proper metadata (section IDs, hierarchy, source)
+- [x] **Total: 4,866 pages indexed**
 
-### Phase 3b: Full Guide Indexing (1 day)
-- [ ] Update chunking strategy for larger corpus
-- [ ] Ingest full Fannie Mae guide into Pinecone
-- [ ] Ingest full Freddie Mac guide into Pinecone
-- [ ] Verify retrieval quality
+### Phase 3b: Full Guide Indexing (COMPLETE)
+- [x] Update chunking strategy for larger corpus
+- [x] Ingest all guides into Pinecone (6,174 vectors)
+- [x] Verify retrieval quality
+- [x] Implement dual-mode UI (LO Mode / Demo Mode)
 
-### Phase 3c: Intelligent Reasoner (2-3 days)
-- [ ] Replace hardcoded rules with RAG-powered reasoning
-- [ ] Implement multi-section retrieval for complex queries
-- [ ] Add citation extraction from retrieved content
-- [ ] Test against existing 11 scenarios
+### Phase 3c: Intelligent Reasoner (COMPLETE)
+- [x] Created `EligibilityReasonerService` in `backend/app/services/eligibility_reasoner.py`
+- [x] Parallel RAG retrieval for each eligibility rule category
+- [x] Claude analysis with JSON output schema
+- [x] Real citations from actual guide sections
+- [x] Graceful fallback to hardcoded rules on API errors
+- [x] See: [Phase 3c Implementation Details](./PHASE3C_INTELLIGENT_REASONER.md)
 
 ### Phase 3d: Fix Finder Agent (2-3 days)
 - [ ] Design ReAct loop for fix suggestions

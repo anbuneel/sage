@@ -29,8 +29,8 @@ class Settings(BaseSettings):
 
     # CORS
     cors_origins: list[str] = [
-        "http://localhost:3000",
-        "http://127.0.0.1:3000",
+        "http://localhost:6000",
+        "http://127.0.0.1:6000",
     ]
 
     # Database (Supabase)
@@ -55,9 +55,13 @@ class Settings(BaseSettings):
     # Feature Flags
     enable_rag_chat: bool = True
     enable_change_detection: bool = True
+    enable_rag_eligibility: bool = True  # Use RAG-powered eligibility reasoner
 
     # Scraping settings
     scrape_interval_hours: int = 24  # How often to check for updates
+
+    # RAG Eligibility settings
+    rag_eligibility_timeout: int = 30  # Max seconds for RAG eligibility analysis
 
 
 @lru_cache

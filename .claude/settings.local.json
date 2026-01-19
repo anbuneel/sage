@@ -6,7 +6,14 @@
       "Bash(playwright install:*)",
       "Bash(python:*)",
       "Bash(findstr:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(if [ -f .env ])",
+      "Bash(then echo \"exists\")",
+      "Bash(else cp .env.example .env)",
+      "Bash(fi)",
+      "Bash(pip uninstall:*)",
+      "Bash(wc:*)",
+      "Bash(find:*)"
     ]
   }
 }
