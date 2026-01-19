@@ -112,15 +112,78 @@ A toggle between LO Mode and Demo Mode:
 
 ---
 
-## What's Next (Phase 3c-e)
+## Phase 3c: Intelligent Reasoner ✅ (January 2026)
+
+### The Challenge
+
+The hardcoded rules engine was generating fake "demo data" that didn't reflect actual guide content. We needed real RAG-powered reasoning with actual citations.
+
+### The Solution
+
+Created `EligibilityReasonerService` that:
+1. Runs parallel RAG queries for each eligibility rule category
+2. Builds a structured prompt with loan data and retrieved context
+3. Uses Claude with JSON output schema for structured results
+4. Returns real citations from actual guide sections
+5. Falls back gracefully to hardcoded rules on API errors
+
+### Key Features
+- **Parallel retrieval:** Queries for credit score, LTV, DTI, occupancy, property type, income limits - all in parallel
+- **Real citations:** Section IDs like "B5-6-02" directly from retrieved guide content
+- **Structured output:** JSON schema forces Claude to return typed, parseable results
+- **Graceful fallback:** API failures don't break the app - we fall back to hardcoded rules
+
+---
+
+## Phase 3d: Fix Finder Agent ✅ (January 2026)
+
+### The Challenge
+
+Basic fix suggestions were single-pass, generic, and lacked prioritization. We needed intelligent, iterative analysis with confidence scores and what-if testing.
+
+### The Solution
+
+Created `FixFinderService` using the ReAct pattern (Reason + Act):
+
+```
+OBSERVE → THINK → ACT → OBSERVE → THINK → ACT → ... (max 3 iterations)
+```
+
+### Tools Available to the Agent
+
+| Tool | Purpose |
+|------|---------|
+| `query_guides` | Search for compensating factors, exceptions, alternatives |
+| `simulate_scenario` | Test what-if changes (e.g., "pay down $200/mo debt") |
+| `compare_products` | Compare HomeReady vs Home Possible requirements |
+
+### Key Features
+
+- **Confidence scores (0-1):** How likely each fix will work
+- **Priority ordering:** Which fixes to try first
+- **Estimated timelines:** "Immediate", "1-2 weeks", "3-6 months"
+- **Citations:** Guide sections supporting each recommendation
+- **Multi-step sequences:** Ordered fix paths with effort-vs-benefit scoring
+- **What-if simulations:** See exactly how changes would affect eligibility
+- **Full transparency:** ReAct trace shows agent's thinking in demo mode
+
+### Usage
+
+```bash
+POST /api/check-loan?demo_mode=true&enable_fix_finder=true
+```
+
+---
+
+## Progress Summary
 
 | Milestone | Status | Description |
 |-----------|--------|-------------|
 | 3a. Full Guide Coverage | ✅ Done | 4,866 pages indexed |
 | 3b. Dual-Mode UI | ✅ Done | LO Mode + Demo Mode with AI transparency |
-| 3c. Intelligent Reasoner | 🔜 Next | Replace hardcoded rules with RAG-powered reasoning |
-| 3d. Fix Finder Agent | Planned | ReAct loop for loan restructuring suggestions |
-| 3e. Natural Language Input | Planned | Describe loans in plain English |
+| 3c. Intelligent Reasoner | ✅ Done | RAG-powered reasoning with real citations |
+| 3d. Fix Finder Agent | ✅ Done | ReAct-based intelligent fix suggestions |
+| 3e. Natural Language Input | 🔜 Next | Describe loans in plain English |
 
 ---
 
