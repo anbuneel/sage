@@ -88,6 +88,47 @@ SAGE should **not** compete with AskPoli on policy Q&A. Instead, SAGE should foc
 
 ---
 
+## FAQ: Is SAGE's "Ask" Feature Equivalent to AskPoli?
+
+**Short Answer:** Partially yes, but with key differences.
+
+The "Ask the Guide" feature in SAGE is **functionally similar** to AskPoli (both are RAG-powered Q&A systems over policy documents), but there are important differences:
+
+### Similarities
+
+| Aspect | AskPoli | SAGE "Ask" |
+|--------|---------|------------|
+| Core Function | Policy Q&A with citations | Policy Q&A with citations |
+| Technology | AI-powered search + LLM | RAG pipeline + Claude |
+| User Experience | Ask questions, get answers with sources | Ask questions, get answers with sources |
+
+### Key Differences
+
+| Aspect | AskPoli | SAGE "Ask" |
+|--------|---------|------------|
+| **GSE Coverage** | Fannie Mae only | **Both Fannie Mae + Freddie Mac** (4,866 pages) |
+| **Access** | Requires Fannie Mae partner credentials | Open/public access |
+| **Human Curation** | Expert team continuously improves results | None (pure AI) |
+| **Additional Sources** | Includes FAQs, job aids, QC integration | Guide sections only |
+| **Maturity** | Production-grade, enterprise-supported | Portfolio/demo project |
+
+### The Strategic Distinction
+
+> **AskPoli answers:** "What does the guide say?"
+> **SAGE answers:** "Is this specific loan eligible, and how do I fix it?"
+
+The "Ask" tab alone is roughly equivalent to AskPoli's core function. But SAGE's **differentiated value** comes from the **"Check My Loan"** tab—which AskPoli cannot do at all:
+
+- Loan scenario analysis
+- Side-by-side HomeReady vs Home Possible comparison
+- Fix Finder Agent with restructuring suggestions
+
+### Takeaway
+
+Competing head-to-head on Q&A is a losing strategy—AskPoli has a dedicated team curating answers. SAGE's "Ask" feature is **table stakes** (necessary for credibility), but the real differentiator is the **scenario reasoning and fix suggestions** that AskPoli doesn't offer.
+
+---
+
 ## Strategic Recommendation
 
 ### Focus Areas (Differentiated Value)
