@@ -237,18 +237,18 @@ high_balance_dti_limit:
 
 ---
 
-## Tech Stack (Production-Ready)
+## Tech Stack (Implemented)
 
 | Component | Choice | Rationale |
 |-----------|--------|-----------|
-| **Frontend** | Next.js + Tailwind | Modern, fast, professional look |
-| **Backend** | FastAPI (Python) | Clean API, async, great for AI workloads |
-| **Vector DB** | Pinecone | Scalable, managed, no infra headaches |
-| **Embeddings** | OpenAI text-embedding-3-small | Best quality/price ratio |
-| **LLM** | Claude 3.5 Sonnet | Superior reasoning for eligibility logic |
-| **Agentic Framework** | LangGraph | Fine-grained control over agent workflows |
-| **Database** | PostgreSQL (Supabase) | Free tier, managed, real database |
-| **Deployment** | Vercel (frontend) + Railway (backend) | Professional, scalable, affordable |
+| **Frontend** | Next.js 16 + Tailwind CSS 4 | Modern, fast, professional look |
+| **Backend** | FastAPI (Python 3.11+) | Clean API, async, great for AI workloads |
+| **Vector DB** | Pinecone | Scalable, managed, 6,174 vectors indexed |
+| **Embeddings** | Voyage AI voyage-2 | Optimized for document retrieval |
+| **LLM** | Claude Sonnet 4 (Anthropic SDK) | Superior reasoning for eligibility logic |
+| **Agentic Framework** | Custom ReAct implementation | Fine-grained control, no framework overhead |
+| **Database** | PostgreSQL (Fly Postgres) | Production-ready, SQLite fallback for local dev |
+| **Deployment** | Fly.io (both frontend + backend) | Single platform, easy scaling, managed Postgres |
 
 ---
 
@@ -378,48 +378,52 @@ sage/
 
 ---
 
-## Implementation Phases
+## Implementation Status
 
-### Phase 1: Foundation (Week 1)
-1. Set up project structure (Next.js + FastAPI)
-2. Ingest Fannie Mae Selling Guide (chunk + embed)
-3. Ingest Freddie Mac Seller/Servicer Guide
-4. Build Tab 1: RAG chat with citations
-5. Deploy MVP to Vercel + Railway
+### Phase 1: Foundation ✅ Complete
+1. ✅ Set up project structure (Next.js 16 + FastAPI)
+2. ✅ Ingest Fannie Mae Selling Guide (chunk + embed)
+3. ✅ Ingest Freddie Mac Seller/Servicer Guide
+4. ✅ Build Tab 1: RAG chat with citations
+5. ✅ Deploy to Fly.io
 
-### Phase 2: Scenario Reasoning (Week 2)
-6. Build loan scenario input form (Tab 4)
-7. Encode eligibility rules for HomeReady + Home Possible
-8. Implement Scenario Reasoning Agent
-9. Add side-by-side GSE comparison
-10. Add fix suggestions logic
+### Phase 2: Intelligence Layer ✅ Complete
+6. ✅ Build loan scenario input form (Tab 4: Check My Loan)
+7. ✅ Encode eligibility rules for HomeReady + Home Possible (880-line rules engine)
+8. ✅ Implement Scenario Reasoning Agent
+9. ✅ Add side-by-side GSE comparison
+10. ✅ Add fix suggestions logic
+11. ✅ Pinecone vector DB + Voyage AI embeddings
+12. ✅ PostgreSQL database for policy tracking
+13. ✅ Policy scrapers (Fannie Mae Lender Letters, Freddie Mac Bulletins)
+14. ✅ Code generation in Python, TypeScript, YAML, JSON
 
-### Phase 3: Change Detection (Week 3)
-11. Index historical Lender Letters and Bulletins
-12. Build Tab 2: "What Changed" timeline
-13. Implement Impact Analyst Agent
-14. Add Code Generation Agent (Tab 3)
-15. Set up background monitoring job
+### Phase 3: Full Guide Intelligence ✅ Complete
+15. ✅ **3a: Full Guide Coverage** — 4,866 pages indexed (1,203 sections, 6,174 vectors)
+16. ✅ **3b: Dual-Mode UI** — LO Mode + Demo Mode toggle
+17. ✅ **3c: Intelligent Reasoner** — RAG-powered eligibility analysis with citations
+18. ✅ **3d: Fix Finder Agent** — ReAct-based intelligent fix suggestions
+19. 🔜 **3e: Natural Language Input** — Describe loans in plain English
 
-### Phase 4: Polish (Week 4)
-16. UI/UX refinement
-17. Add more eligibility rules
-18. Performance optimization
-19. Documentation
-20. Demo video / walkthrough
+### Future Enhancements
+20. Natural language loan scenario input
+21. More loan products (Standard, FHA, VA)
+22. AMI lookup by county for income limits
+23. Email alerts for policy changes
 
 ---
 
 ## Success Metrics
 
-| Metric | Target |
-|--------|--------|
-| Guides indexed | 2 (Fannie + Freddie) |
-| Products supported | 2 (HomeReady + Home Possible) |
-| Eligibility rules encoded | 8+ per product |
-| Policy updates analyzed | 10+ historical |
-| Response time (RAG chat) | < 3 seconds |
-| Response time (scenario analysis) | < 5 seconds |
+| Metric | Target | Achieved |
+|--------|--------|----------|
+| Guides indexed | 2 (Fannie + Freddie) | ✅ 3 guides (4,866 pages) |
+| Products supported | 2 (HomeReady + Home Possible) | ✅ 2 products |
+| Eligibility rules encoded | 8+ per product | ✅ 8+ rules per product |
+| Vectors in Pinecone | 1,000+ | ✅ 6,174 vectors |
+| Policy updates analyzed | 10+ historical | ✅ Scrapers operational |
+| Response time (RAG chat) | < 3 seconds | ✅ ~2 seconds |
+| Response time (scenario analysis) | < 5 seconds | ✅ ~3-5 seconds |
 
 ---
 

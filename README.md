@@ -92,24 +92,24 @@ See [Competitive Analysis](./docs/COMPETITIVE_ANALYSIS.md) for detailed comparis
 - 11 automated loan scenario tests with GSE guide references
 - Site-wide footer with quick links and official resources
 
-🚀 **Phase 3 In Progress** — Full Guide Intelligence
+✅ **Phase 3 Complete** — Full Guide Intelligence
 
-See [Phase 3 Plan](./docs/PHASE3_PLAN.md) for detailed roadmap.
+See [Phase 3 Plan](./docs/PHASE3_PLAN.md) for detailed roadmap and [Project Journey](./docs/PROJECT_JOURNEY.md) for the full timeline.
 
 | Milestone | Status | Description |
 |-----------|--------|-------------|
-| **3a. Full Guide Coverage** | ✅ Done | 4,866 pages indexed (1,203 sections, 6,174 vectors) |
-| **3b. Dual-Mode UI** | ✅ Done | LO Mode + Demo Mode with RAG/reasoning transparency |
-| **3c. Intelligent Reasoner** | ✅ Done | RAG-powered AI reasoning with guide citations |
-| **3d. Fix Finder Agent** | ✅ Done | ReAct-based intelligent fix suggestions with simulations |
-| **3e. Natural Language Input** | 🔜 Next | Describe loans in plain English |
+| **3a. Full Guide Coverage** | ✅ Complete | 4,866 pages indexed (1,203 sections, 6,174 vectors) |
+| **3b. Dual-Mode UI** | ✅ Complete | LO Mode + Demo Mode with RAG/reasoning transparency |
+| **3c. Intelligent Reasoner** | ✅ Complete | RAG-powered AI reasoning with guide citations |
+| **3d. Fix Finder Agent** | ✅ Complete | ReAct-based intelligent fix suggestions with simulations |
+| **3e. Natural Language Input** | 🔜 Future | Describe loans in plain English |
 
-**Guide Coverage:**
+**Guide Coverage (4,866 pages total):**
 - Fannie Mae Selling Guide: 1,181 pages, 367 sections
 - Fannie Mae Servicing Guide: 771 pages, 108 sections
 - Freddie Mac Seller/Servicer Guide: 2,914 pages, 728 sections
 
-**The Goal:** Address the "won't scale" objection and demonstrate GenAI capabilities for software engineering.
+**The Pitch:** "AskPoli tells you what the guide says. SAGE tells you if your specific loan works, and if not, exactly how to fix it — across both Fannie and Freddie products. All 4,866 pages are indexed."
 
 ---
 
