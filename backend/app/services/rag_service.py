@@ -6,6 +6,7 @@ Combines Pinecone retrieval with Claude generation for chat responses.
 
 import asyncio
 import logging
+import time
 from typing import Any
 from functools import lru_cache
 
@@ -15,6 +16,7 @@ from ..config import get_settings
 from ..models import Citation
 from .pinecone_service import get_pinecone_service
 from .embedding_service import get_embedding_service
+from .llm_usage_service import record_usage
 
 logger = logging.getLogger(__name__)
 
@@ -148,6 +150,8 @@ Please provide a clear, accurate answer with citations to the relevant source se
 
         messages.append({"role": "user", "content": user_message})
 
+        start_time = time.time()
+
         # Generate response (run blocking call in thread pool)
         response = await asyncio.to_thread(
             client.messages.create,
@@ -157,7 +161,20 @@ Please provide a clear, accurate answer with citations to the relevant source se
             messages=messages,
         )
 
+        duration_ms = int((time.time() - start_time) * 1000)
         response_text = response.content[0].text
+
+        # Record LLM usage for tracking
+        await record_usage(
+            service_name="rag_service",
+            model_name=self._model,
+            model_provider="anthropic",
+            request_type="chat",
+            tokens_input=response.usage.input_tokens,
+            tokens_output=response.usage.output_tokens,
+            duration_ms=duration_ms,
+            success=True,
+        )
 
         # Extract citations from response
         citations = self._extract_citations(response_text, source_map, context_chunks)

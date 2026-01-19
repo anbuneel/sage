@@ -40,6 +40,7 @@ See [Competitive Analysis](./docs/COMPETITIVE_ANALYSIS.md) for detailed comparis
 3. **Ask the Guide** — RAG-powered Q&A with citations (for policy lookup)
 4. **What Changed** — Timeline of detected policy updates
 5. **Generated Updates** — Code diffs for rule engine updates (enterprise feature)
+6. **LLM Usage Dashboard** — Track token usage and costs across all AI services (`/usage`)
 
 ## Tech Stack
 
@@ -85,7 +86,7 @@ See [Competitive Analysis](./docs/COMPETITIVE_ANALYSIS.md) for detailed comparis
 - Pinecone vector DB service for semantic search
 - Voyage AI voyage-2 embeddings for guide content vectorization
 - Claude Sonnet 4 integration for RAG chat responses with citations
-- PostgreSQL database models (PolicyUpdate, EligibilityRule, Conversation)
+- PostgreSQL database models (PolicyUpdate, EligibilityRule, Conversation, LLMUsage)
 - Fannie Mae Lender Letters scraper
 - Freddie Mac Bulletins scraper
 - Code generation in Python, TypeScript, YAML, and JSON formats

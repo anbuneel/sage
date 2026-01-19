@@ -27,6 +27,7 @@ from ..models import (
 )
 from .pinecone_service import get_pinecone_service
 from .embedding_service import get_embedding_service
+from .llm_usage_service import record_usage
 
 logger = logging.getLogger(__name__)
 
@@ -434,6 +435,18 @@ Analyze this loan scenario against the provided guide excerpts and determine eli
             tokens_input=tokens_in,
             tokens_output=tokens_out,
             index_stats=IndexStats(),
+        )
+
+        # Record LLM usage for tracking
+        await record_usage(
+            service_name="eligibility_reasoner",
+            model_name=self._model,
+            model_provider="anthropic",
+            request_type="reasoning",
+            tokens_input=tokens_in,
+            tokens_output=tokens_out,
+            duration_ms=retrieval_time_ms + reasoning_time_ms,
+            success=True,
         )
 
         return products, recommendation, fix_suggestions, demo_data

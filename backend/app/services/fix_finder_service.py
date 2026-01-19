@@ -28,6 +28,7 @@ from ..models.fix_finder import (
 )
 from .pinecone_service import get_pinecone_service
 from .embedding_service import get_embedding_service
+from .llm_usage_service import record_usage
 
 logger = logging.getLogger(__name__)
 
@@ -144,6 +145,29 @@ class FixFinderService:
                 raise ValueError("ANTHROPIC_API_KEY not configured")
             self._client = anthropic.Anthropic(api_key=self._api_key)
         return self._client
+
+    def _format_product_status(self, products: list[ProductResult]) -> str:
+        """Format product eligibility status safely."""
+        lines = []
+        for product in products:
+            status = "Eligible" if product.eligible else "Ineligible"
+            lines.append(f"- {product.product_name}: {status}")
+        return "\n".join(lines) if lines else "- No products evaluated"
+
+    def _flatten_to_string_dict(self, data: dict[str, Any]) -> dict[str, str]:
+        """Flatten a dict with potentially nested values to dict[str, str]."""
+        result = {}
+        for key, value in data.items():
+            if isinstance(value, str):
+                result[key] = value
+            elif isinstance(value, dict):
+                # Flatten nested dict to string
+                result[key] = json.dumps(value)
+            elif isinstance(value, list):
+                result[key] = ", ".join(str(v) for v in value)
+            else:
+                result[key] = str(value)
+        return result
 
     async def _execute_query_guides(
         self,
@@ -447,8 +471,7 @@ CURRENT VIOLATIONS:
 {violation_list}
 
 PRODUCT STATUS:
-- HomeReady: {"Eligible" if products[0].eligible else "Ineligible"}
-- Home Possible: {"Eligible" if products[1].eligible else "Ineligible"}
+{self._format_product_status(products)}
 
 Please analyze these violations and find the best fixes. Use the tools to:
 1. Search for compensating factors or exceptions that could help
@@ -461,20 +484,26 @@ Proceed with your analysis."""
         react_trace = []
         all_citations = []
         all_simulations = []
-        total_tokens = 0
+        tokens_in = 0
+        tokens_out = 0
 
         for iteration in range(self._max_iterations):
             try:
-                response = await asyncio.to_thread(
-                    client.messages.create,
-                    model=self._model,
-                    max_tokens=2048,
-                    system=SYSTEM_PROMPT,
-                    tools=TOOLS,
-                    messages=messages,
+                # Add timeout to prevent hanging
+                response = await asyncio.wait_for(
+                    asyncio.to_thread(
+                        client.messages.create,
+                        model=self._model,
+                        max_tokens=2048,
+                        system=SYSTEM_PROMPT,
+                        tools=TOOLS,
+                        messages=messages,
+                    ),
+                    timeout=30  # 30 second timeout per iteration
                 )
 
-                total_tokens += response.usage.input_tokens + response.usage.output_tokens
+                tokens_in += response.usage.input_tokens
+                tokens_out += response.usage.output_tokens
 
                 # Check if Claude wants to use tools
                 tool_calls = []
@@ -521,10 +550,23 @@ Proceed with your analysis."""
                 if not tool_calls or response.stop_reason == "end_turn":
                     # Parse final response
                     final_analysis = self._parse_final_response(text_content)
-                    return final_analysis, react_trace, all_citations, all_simulations, total_tokens
+                    return final_analysis, react_trace, all_citations, all_simulations, tokens_in, tokens_out
 
+            except asyncio.TimeoutError:
+                logger.warning(f"ReAct iteration {iteration + 1} timed out after 30s")
+                react_trace.append(
+                    ReactStep(
+                        step_number=iteration + 1,
+                        observation="Iteration timed out",
+                        reasoning="Claude API call exceeded 30 second timeout",
+                        action="timeout",
+                        tool_calls=[],
+                        findings=[],
+                    )
+                )
+                break
             except Exception as e:
-                logger.error(f"ReAct iteration {iteration + 1} failed: {e}")
+                logger.error(f"ReAct iteration {iteration + 1} failed: {e}", exc_info=True)
                 react_trace.append(
                     ReactStep(
                         step_number=iteration + 1,
@@ -544,22 +586,38 @@ Proceed with your analysis."""
                 "content": "Please provide your final analysis now with enhanced_fixes, fix_sequences, and recommended_path. Respond with JSON only.",
             })
 
-            response = await asyncio.to_thread(
-                client.messages.create,
-                model=self._model,
-                max_tokens=2048,
-                system=SYSTEM_PROMPT,
-                messages=messages,
+            # Add timeout to final analysis call
+            response = await asyncio.wait_for(
+                asyncio.to_thread(
+                    client.messages.create,
+                    model=self._model,
+                    max_tokens=2048,
+                    system=SYSTEM_PROMPT,
+                    messages=messages,
+                ),
+                timeout=45  # 45 second timeout for final analysis
             )
 
-            total_tokens += response.usage.input_tokens + response.usage.output_tokens
-            text_content = response.content[0].text if response.content else "{}"
-            final_analysis = self._parse_final_response(text_content)
-            return final_analysis, react_trace, all_citations, all_simulations, total_tokens
+            tokens_in += response.usage.input_tokens
+            tokens_out += response.usage.output_tokens
 
+            # Safely extract text content
+            text_content = "{}"
+            if response.content:
+                for block in response.content:
+                    if hasattr(block, 'text'):
+                        text_content = block.text
+                        break
+
+            final_analysis = self._parse_final_response(text_content)
+            return final_analysis, react_trace, all_citations, all_simulations, tokens_in, tokens_out
+
+        except asyncio.TimeoutError:
+            logger.warning("Final analysis timed out after 45s")
+            return {}, react_trace, all_citations, all_simulations, tokens_in, tokens_out
         except Exception as e:
-            logger.error(f"Final analysis failed: {e}")
-            return {}, react_trace, all_citations, all_simulations, total_tokens
+            logger.error(f"Final analysis failed: {e}", exc_info=True)
+            return {}, react_trace, all_citations, all_simulations, tokens_in, tokens_out
 
     def _parse_final_response(self, text: str) -> dict[str, Any]:
         """Parse Claude's final response into structured data."""
@@ -618,22 +676,42 @@ Proceed with your analysis."""
                 ):
                     fix_citations.append(citation)
 
-            # Map unlocks_products
-            unlocks = fix.get("unlocks_products", [])
+            # Map unlocks_products - Claude uses "products_unlocked" or "unlocks_products"
+            unlocks = fix.get("unlocks_products", []) or fix.get("products_unlocked", [])
+            if isinstance(unlocks, str):
+                unlocks = [unlocks] if unlocks else []
+            elif not isinstance(unlocks, list):
+                unlocks = []
             valid_products = [p for p in unlocks if p in ["HomeReady", "Home Possible"]]
+
+            # Handle trade_offs - Claude sometimes returns string instead of list
+            trade_offs = fix.get("trade_offs", [])
+            if isinstance(trade_offs, str):
+                trade_offs = [trade_offs] if trade_offs else []
+            elif not isinstance(trade_offs, list):
+                trade_offs = []
+
+            # Get description - Claude uses "description" or "fix" field
+            description = fix.get("description", "") or fix.get("fix", "") or "No description provided"
+
+            # Get impact - Claude sometimes uses "quantified_impact"
+            impact = fix.get("impact", "") or fix.get("quantified_impact", "") or "Impact not specified"
+
+            # Get priority - Claude uses "priority" not "priority_order"
+            priority = fix.get("priority_order", fix.get("priority", i + 1))
 
             enhanced_fixes.append(
                 EnhancedFixSuggestion(
-                    description=fix.get("description", ""),
-                    impact=fix.get("impact", ""),
+                    description=description,
+                    impact=impact,
                     difficulty=difficulty,
-                    confidence=min(max(fix.get("confidence", 0.7), 0), 1),
-                    priority_order=fix.get("priority_order", i + 1),
-                    estimated_timeline=fix.get("estimated_timeline", "Varies"),
+                    confidence=min(max(float(fix.get("confidence", 0.7)), 0), 1),
+                    priority_order=int(priority),
+                    estimated_timeline=fix.get("estimated_timeline", "Varies") or "Varies",
                     unlocks_products=valid_products,
                     citations=fix_citations[:3],  # Limit citations per fix
                     compensating_factors=[],  # Could be enhanced later
-                    trade_offs=fix.get("trade_offs", []),
+                    trade_offs=trade_offs,
                 )
             )
 
@@ -726,9 +804,10 @@ Proceed with your analysis."""
 
         try:
             # Run the ReAct loop
-            analysis, react_trace, all_citations, all_simulations, tokens_used = await self._run_react_loop(
+            analysis, react_trace, all_citations, all_simulations, tokens_in, tokens_out = await self._run_react_loop(
                 scenario, violations, products, demo_mode
             )
+            tokens_used = tokens_in + tokens_out
 
             # Build enhanced fixes
             enhanced_fixes = self._build_enhanced_fixes(analysis, all_citations, violations)
@@ -736,11 +815,33 @@ Proceed with your analysis."""
             # Build fix sequences
             fix_sequences = self._build_fix_sequences(analysis, enhanced_fixes)
 
-            # Get product comparison and recommendation
-            product_comparison = analysis.get("product_comparison", {})
-            recommended_path = analysis.get("recommended_path", "")
+            # Get product comparison - flatten nested dicts to strings
+            raw_comparison = analysis.get("product_comparison", {})
+            product_comparison = self._flatten_to_string_dict(raw_comparison)
+
+            # Get recommended path - convert dict to string if needed
+            raw_path = analysis.get("recommended_path", "")
+            if isinstance(raw_path, dict):
+                # Extract main recommendation from nested dict
+                recommended_path = raw_path.get("primary_recommendation", "")
+                if not recommended_path:
+                    recommended_path = json.dumps(raw_path)[:500]
+            else:
+                recommended_path = str(raw_path) if raw_path else ""
 
             total_time_ms = int((time.time() - start_time) * 1000)
+
+            # Record LLM usage for tracking
+            await record_usage(
+                service_name="fix_finder",
+                model_name=self._model,
+                model_provider="anthropic",
+                request_type="fix_finding",
+                tokens_input=tokens_in,
+                tokens_output=tokens_out,
+                duration_ms=total_time_ms,
+                success=True,
+            )
 
             return FixFinderResult(
                 enhanced_fixes=enhanced_fixes,
@@ -757,6 +858,19 @@ Proceed with your analysis."""
         except Exception as e:
             logger.error(f"Fix Finder failed: {e}")
             total_time_ms = int((time.time() - start_time) * 1000)
+
+            # Record failed LLM usage
+            await record_usage(
+                service_name="fix_finder",
+                model_name=self._model,
+                model_provider="anthropic",
+                request_type="fix_finding",
+                tokens_input=0,
+                tokens_output=0,
+                duration_ms=total_time_ms,
+                success=False,
+                error_message=str(e),
+            )
 
             # Return empty result on failure
             return FixFinderResult(

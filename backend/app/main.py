@@ -13,6 +13,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from .config import get_settings
 from .routers import eligibility_router, chat_router, changes_router
+from .routers.usage import router as usage_router
 from .db import init_db, close_db
 
 # Configure logging
@@ -100,6 +101,7 @@ def create_app() -> FastAPI:
     app.include_router(eligibility_router, prefix="/api")
     app.include_router(chat_router, prefix="/api")
     app.include_router(changes_router, prefix="/api")
+    app.include_router(usage_router, prefix="/api")
 
     # Health check endpoint
     @app.get(

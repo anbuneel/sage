@@ -41,7 +41,8 @@ sage/
 │   │   ├── ask/page.tsx         # RAG chat interface
 │   │   ├── changes/page.tsx     # Policy updates timeline
 │   │   ├── code/page.tsx        # Code diffs view
-│   │   └── check/page.tsx       # Loan eligibility checker
+│   │   ├── check/page.tsx       # Loan eligibility checker
+│   │   └── usage/page.tsx       # LLM usage dashboard
 │   ├── components/              # React components
 │   │   ├── TabNav.tsx           # Navigation tabs
 │   │   ├── LoanForm.tsx         # Loan scenario input form
@@ -60,7 +61,8 @@ sage/
 │       ├── routers/             # API endpoints
 │       │   ├── eligibility.py   # POST /api/check-loan
 │       │   ├── chat.py          # POST /api/chat (RAG-enabled)
-│       │   └── changes.py       # GET /api/changes (DB-enabled)
+│       │   ├── changes.py       # GET /api/changes (DB-enabled)
+│       │   └── usage.py         # GET /api/usage/summary (LLM tracking)
 │       ├── models/              # Pydantic models
 │       │   ├── loan.py          # LoanScenario, EligibilityResult
 │       │   ├── chat.py          # ChatMessage, ChatResponse
@@ -72,6 +74,7 @@ sage/
 │       │   ├── rag_service.py        # RAG pipeline for chat
 │       │   ├── eligibility_reasoner.py  # RAG-powered loan eligibility analysis
 │       │   ├── fix_finder_service.py    # ReAct-based Fix Finder Agent
+│       │   ├── llm_usage_service.py     # LLM usage tracking and cost calculation
 │       │   └── scrapers/             # Policy update scrapers
 │       │       ├── base_scraper.py
 │       │       ├── fannie_mae_scraper.py

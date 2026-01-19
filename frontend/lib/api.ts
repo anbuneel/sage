@@ -128,6 +128,50 @@ export async function checkHealth(): Promise<HealthResponse> {
 }
 
 // ============================================
+// LLM Usage Tracking
+// ============================================
+
+export interface UsageSummary {
+  period_days: number;
+  totals: {
+    tokens_input: number;
+    tokens_output: number;
+    tokens_total: number;
+    cost_usd: number;
+    requests: number;
+    avg_duration_ms: number;
+  };
+  by_service: Array<{
+    service: string;
+    tokens: number;
+    cost: number;
+    requests: number;
+  }>;
+  by_request_type: Array<{
+    request_type: string;
+    tokens: number;
+    cost: number;
+    requests: number;
+  }>;
+  recent_requests: Array<{
+    id: string;
+    service: string;
+    request_type: string;
+    model: string;
+    tokens_input: number;
+    tokens_output: number;
+    cost: number;
+    duration_ms: number;
+    success: boolean;
+    created_at: string;
+  }>;
+}
+
+export async function getUsageSummary(days: number = 7): Promise<UsageSummary> {
+  return fetchApi<UsageSummary>(`/usage/summary?days=${days}`);
+}
+
+// ============================================
 // Mock Data (for development when API is not ready)
 // ============================================
 

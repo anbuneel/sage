@@ -13,6 +13,7 @@ from sqlalchemy import (
     Date,
     DateTime,
     Enum,
+    Float,
     ForeignKey,
     Integer,
     JSON,
@@ -138,3 +139,44 @@ class ScraperRun(Base):
     items_found: Mapped[int] = mapped_column(Integer, default=0)
     items_new: Mapped[int] = mapped_column(Integer, default=0)
     error_message: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+
+
+class LLMUsage(Base):
+    """Tracks LLM API usage for cost monitoring and analytics."""
+
+    __tablename__ = "llm_usage"
+
+    id: Mapped[str] = mapped_column(UUID(as_uuid=False), primary_key=True, default=lambda: str(uuid4()))
+
+    # What service made the call
+    service_name: Mapped[str] = mapped_column(String(100), nullable=False, index=True)
+    # e.g., "rag_service", "eligibility_reasoner", "fix_finder"
+
+    # Model information
+    model_name: Mapped[str] = mapped_column(String(100), nullable=False, index=True)
+    # e.g., "claude-sonnet-4-20250514", "voyage-2"
+
+    model_provider: Mapped[str] = mapped_column(String(50), nullable=False)
+    # e.g., "anthropic", "voyage"
+
+    # Request type for categorization
+    request_type: Mapped[str] = mapped_column(String(100), nullable=False, index=True)
+    # e.g., "chat", "reasoning", "fix_finding", "embedding"
+
+    # Token usage
+    tokens_input: Mapped[int] = mapped_column(Integer, default=0)
+    tokens_output: Mapped[int] = mapped_column(Integer, default=0)
+    tokens_total: Mapped[int] = mapped_column(Integer, default=0)
+
+    # Cost in USD (calculated based on model pricing)
+    cost_usd: Mapped[float] = mapped_column(Float, default=0.0)
+
+    # Performance metrics
+    duration_ms: Mapped[int] = mapped_column(Integer, default=0)
+
+    # Success/failure tracking
+    success: Mapped[bool] = mapped_column(Boolean, default=True)
+    error_message: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+
+    # Timestamps
+    created_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now(), index=True)
