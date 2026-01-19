@@ -50,20 +50,45 @@ def find_sections(text: str) -> list[tuple[str, str, int]]:
     Find section headers in the text.
     Returns list of (section_id, title, position)
 
-    Fannie Mae format: A1-1-01, Title (date) or B5-6-01: Title
+    Fannie Mae format: A1-1-01, Title (MM/DD/YYYY)
+
+    IMPORTANT: Real section headers have a date in parentheses.
+    Cross-references (like "See B3-4.3-04, Personal Gifts") do NOT have dates
+    and should be excluded to prevent content misalignment.
     """
     sections = []
 
-    # Pattern for Fannie Mae sections: A1-1-01, B5-6-02, etc.
-    # Format: Letter + digit + hyphen + digit(s) + hyphen + digit(s), followed by comma or colon and title
-    pattern = re.compile(r'\n([A-E]\d+-\d+(?:\.\d+)?-\d+)[,:\s]+\s*([^\n\(]+)', re.MULTILINE)
+    # Pattern for Fannie Mae sections WITH DATE - this distinguishes real headers from cross-references
+    # Format: Section ID, Title (MM/DD/YYYY)
+    # The date is REQUIRED to match - this prevents matching cross-references
+    pattern = re.compile(
+        r'\n([A-E]\d+-\d+(?:\.\d+)?-\d+)[,:\s]+\s*'  # Section ID (e.g., B3-4.3-04)
+        r'([^(\n]+?)'                                  # Title (non-greedy, stops before parenthesis)
+        r'\s*\((\d{2}/\d{2}/\d{4})\)',                # Date in parentheses (REQUIRED)
+        re.MULTILINE
+    )
 
     for match in pattern.finditer(text):
         section_id = match.group(1)
         title = match.group(2).strip()
-        # Clean up title
-        title = re.sub(r'\s*\(\d{2}/\d{2}/\d{4}\)\s*$', '', title)  # Remove date at end
+        date = match.group(3)
         position = match.start()
+
+        # Additional validation: reject titles that look like sentence fragments
+        # These indicate we matched a cross-reference, not a real header
+        fragment_indicators = [
+            '; and', '; or', 'are met', 'is required', 'must be',
+            'for additional information', 'for more information',
+            'provided that', 'in accordance'
+        ]
+
+        is_fragment = any(indicator in title.lower() for indicator in fragment_indicators)
+
+        if is_fragment:
+            # Log warning but skip this match
+            print(f"  WARNING: Skipping suspected cross-reference: {section_id}: {title[:50]}...")
+            continue
+
         sections.append((section_id, title, position))
 
     return sections
