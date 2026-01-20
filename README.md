@@ -112,6 +112,16 @@ See [Phase 3 Plan](./docs/PHASE3_PLAN.md) for detailed roadmap and [Project Jour
 
 **The Pitch:** "AskPoli tells you what the guide says. SAGE tells you if your specific loan works, and if not, exactly how to fix it — across both Fannie and Freddie products. All 4,866 pages are indexed."
 
+## Live Demo
+
+| Service | URL |
+|---------|-----|
+| **Frontend** | https://sage-web.fly.dev |
+| **Backend API** | https://sage-api.fly.dev/api |
+| **API Docs** | https://sage-api.fly.dev/api/docs |
+
+Deployed on Fly.io with auto-scaling (scales to zero when idle).
+
 ---
 
 Built to showcase AI/GenAI/Agentic capabilities for mortgage industry applications.

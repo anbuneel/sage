@@ -26,9 +26,15 @@ SAGE (Smart Agentic Guide Engine) is a **loan structuring assistant** that helps
 
 ## Hosting (Fly.io)
 
-- **Frontend:** Fly.io machine
-- **Backend:** Fly.io machine
-- **Database:** Fly Postgres
+**Live URLs:**
+- **Frontend:** https://sage-web.fly.dev
+- **Backend API:** https://sage-api.fly.dev/api
+- **API Docs:** https://sage-api.fly.dev/api/docs
+
+**Infrastructure:**
+- Frontend: Fly.io machine (auto-scales to zero)
+- Backend: Fly.io machine (auto-scales to zero)
+- Database: SQLite (embedded, no external DB needed for demo)
 
 ## Project Structure
 

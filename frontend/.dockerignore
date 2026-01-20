@@ -1,0 +1,36 @@
+# Git
+.git
+.gitignore
+
+# Dependencies (reinstalled in container)
+node_modules
+
+# Build output (rebuilt in container)
+.next
+out
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Testing
+coverage
+.nyc_output
+
+# Misc
+*.log
+*.md
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db

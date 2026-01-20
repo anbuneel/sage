@@ -19,3 +19,9 @@ primary_region = 'iad'
 [env]
   APP_NAME = "SAGE API"
   DEBUG = "false"
+  # Feature flags
+  ENABLE_RAG_CHAT = "true"
+  ENABLE_RAG_ELIGIBILITY = "true"
+  ENABLE_FIX_FINDER = "true"
+  # Pinecone
+  PINECONE_INDEX_NAME = "sage-guides"

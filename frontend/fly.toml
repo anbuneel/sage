@@ -1,4 +1,4 @@
-app = 'sage-app'
+app = 'sage-web'
 primary_region = 'iad'
 
 [build]

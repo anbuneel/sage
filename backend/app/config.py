@@ -27,10 +27,11 @@ class Settings(BaseSettings):
     host: str = "0.0.0.0"
     port: int = 8000
 
-    # CORS
+    # CORS - includes both local dev and production URLs
     cors_origins: list[str] = [
         "http://localhost:4000",
         "http://127.0.0.1:4000",
+        "https://sage-web.fly.dev",
     ]
 
     # Database (Supabase)
@@ -46,7 +47,7 @@ class Settings(BaseSettings):
 
     # AI (Anthropic)
     anthropic_api_key: str = ""
-    anthropic_model: str = "claude-3-5-sonnet-20241022"
+    anthropic_model: str = "claude-sonnet-4-20250514"
 
     # Embeddings (Voyage AI)
     voyage_api_key: str = ""
