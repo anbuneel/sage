@@ -156,15 +156,7 @@ export default function ChangesPage() {
                   )}
                 </div>
 
-                <div className="mt-6 pt-6 border-t border-border">
-                  <a
-                    href={`/code?update=${selectedUpdate.id}`}
-                    className="btn btn-primary w-full inline-flex items-center justify-center gap-2"
-                  >
-                    <Code size={18} weight="bold" />
-                    View Generated Code
-                  </a>
-                </div>
+{/* View Generated Code button hidden - not needed for demo */}
               </div>
             ) : (
               <div className="sticky top-24 bg-surface border-2 border-border border-dashed p-10 text-center">

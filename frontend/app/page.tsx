@@ -104,23 +104,7 @@ export default function Home() {
             </div>
           </Link>
 
-          {/* Code Updates */}
-          <Link href="/code" className="card group p-6 md:p-8">
-            <div className="flex items-start gap-5">
-              <div className="p-3 bg-indigo/10 text-indigo transition-transform duration-200 group-hover:scale-110">
-                <Code size={24} weight="thin" />
-              </div>
-              <div className="flex-1">
-                <h2 className="font-display text-lg font-semibold mb-2 group-hover:text-sage-600 transition-colors">
-                  Code Updates
-                </h2>
-                <p className="text-ink-500 text-sm leading-relaxed">
-                  Auto-generated rule changes in Python, TypeScript, YAML, or JSON.
-                </p>
-              </div>
-              <ArrowRight size={20} weight="thin" className="text-ink-400 group-hover:text-sage-600 transition-colors" />
-            </div>
-          </Link>
+          {/* Code Updates hidden - not needed for demo */}
         </div>
 
         {/* Program Comparison */}

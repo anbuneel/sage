@@ -6,7 +6,6 @@ import { usePathname } from 'next/navigation';
 import {
   ChatText,
   ClockCounterClockwise,
-  Code,
   CheckCircle,
   List,
 } from '@phosphor-icons/react';
@@ -33,11 +32,12 @@ const tabs: Tab[] = [
     href: '/changes',
     icon: <ClockCounterClockwise size={20} weight="thin" />,
   },
-  {
-    name: 'Code Updates',
-    href: '/code',
-    icon: <Code size={20} weight="thin" />,
-  },
+  // Code Updates tab hidden - not needed for demo
+  // {
+  //   name: 'Code Updates',
+  //   href: '/code',
+  //   icon: <Code size={20} weight="thin" />,
+  // },
 ];
 
 export default function TabNav() {
