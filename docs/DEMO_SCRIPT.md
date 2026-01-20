@@ -25,7 +25,7 @@ curl -s https://sage-api.fly.dev/api/health
 |-------|-------|
 | Credit Score | `680` |
 | Annual Income | `72000` |
-| Monthly Debt | `1850` |
+| Monthly Debt | `1050` |
 | Purchase Price | `350000` |
 | Down Payment % | `3` |
 | Property Type | Single Family |
@@ -38,6 +38,7 @@ curl -s https://sage-api.fly.dev/api/health
 - Loan Amount: **$339,500** ($350k - 3% down)
 - LTV: **97%** (at program max)
 - Monthly Income: **$6,000**
+- **DTI: 51.4%** (just over 50% limit)
 
 ### Recording Steps
 1. Open https://sage-web.fly.dev
@@ -48,7 +49,7 @@ curl -s https://sage-api.fly.dev/api/health
 6. (Optional) Click **"Ask the Guide"** → ask: `What compensating factors offset high DTI?`
 7. Stop recording
 
-**Expected Result:** DTI 52.8% fails → Fix Finder suggests reducing debt by ~$170/month
+**Expected Result:** DTI 51.4% fails both programs → Fix Finder suggests reducing debt by ~$100/month
 
 ---
 
@@ -92,21 +93,23 @@ curl -s https://sage-api.fly.dev/api/health
 |-------|-------|-------|
 | Credit Score | 680 | Good, not great |
 | Annual Income | $72,000 | $6,000/month |
-| Monthly Debt | $1,850 | Car + student loans + cards |
+| Monthly Debt | $1,050 | Car payment + credit card |
 | Purchase Price | $350,000 | Modest home |
 | Down Payment | 3% | Minimum for these programs |
 | Property Type | Single Family | Standard |
 | Occupancy | Primary Residence | Required |
 | First-Time Buyer | Yes | ✓ Check this |
+| State | Texas | - |
+| County | Harris | Houston metro |
 
 **Step 3: Click "Check Eligibility"**
 
 **Expected Result:**
-- ❌ **HomeReady: INELIGIBLE** — DTI 52.8% exceeds 50% max
-- ❌ **Home Possible: INELIGIBLE** — DTI 52.8% exceeds 45% max
+- ❌ **HomeReady: INELIGIBLE** — DTI 51.4% exceeds 50% max
+- ❌ **Home Possible: INELIGIBLE** — DTI 51.4% exceeds 45% max
 
 **Talking Point:**
-> "Maria has good credit and stable income, but her DTI of 52.8% is just over the limit. A traditional system would just say 'denied.' Let's see what SAGE suggests."
+> "Maria has good credit and stable income, but her DTI of 51.4% is just over the limit. A traditional system would just say 'denied.' Let's see what SAGE suggests."
 
 ---
 
@@ -119,15 +122,13 @@ curl -s https://sage-api.fly.dev/api/health
 **Step 5: Review AI-Powered Fix Suggestions**
 
 **Expected Fixes:**
-1. **Reduce monthly debt by ~$170/month** → Brings DTI to 49.9%
-   - "Pay off a credit card with $170 minimum payment"
+1. **Reduce monthly debt by ~$100/month** → Brings DTI to 48.4%
+   - "Pay off a credit card with $100 minimum payment"
 
-2. **Increase down payment to 5%** → Lowers loan amount, reduces DTI
-
-3. **Add co-borrower income** → If spouse/partner has income
+2. **Consider a smaller loan amount** → 5% smaller loan reduces DTI
 
 **Talking Point:**
-> "The Fix Finder Agent used RAG to search 4,866 pages of GSE guidelines, then simulated different scenarios to find the smallest change that makes Maria eligible. It found she just needs to pay off $170/month in debt — maybe one credit card."
+> "The Fix Finder Agent used RAG to search 4,866 pages of GSE guidelines, then simulated different scenarios to find the smallest change that makes Maria eligible. She just needs to pay off about $100/month in debt — one credit card minimum payment."
 
 ---
 
@@ -176,7 +177,7 @@ Type: `What compensating factors can offset high DTI for HomeReady?`
 | Question | AskPoli | SAGE |
 |----------|---------|------|
 | "What's the DTI limit?" | ✅ Answers | Use AskPoli |
-| "Is Maria's 52.8% DTI eligible?" | ❌ Can't do | ✅ **SAGE** |
+| "Is Maria's 51.4% DTI eligible?" | ❌ Can't do | ✅ **SAGE** |
 | "How much debt should she pay off?" | ❌ Can't do | ✅ **SAGE** |
 
 ### Technical Highlights
@@ -227,7 +228,7 @@ Type: `What compensating factors can offset high DTI for HomeReady?`
 ```
 Credit Score:    680
 Annual Income:   $72,000
-Monthly Debt:    $1,850
+Monthly Debt:    $1,050
 Purchase Price:  $350,000
 Down Payment:    3% ($10,500)
 Loan Amount:     $339,500
@@ -239,5 +240,5 @@ State:           Texas
 County:          Harris (Houston)
 ```
 
-**Result:** DTI = 52.8% (fails both programs)
-**Fix:** Reduce debt by ~$170/month
+**Result:** DTI = 51.4% (fails both programs — just over 50% limit)
+**Fix:** Reduce debt by ~$100/month → DTI drops to 48.4% (eligible!)
