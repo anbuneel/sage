@@ -133,6 +133,22 @@ cp backend/.env.example backend/.env
 # - DATABASE_URL: PostgreSQL connection (optional, uses SQLite by default)
 ```
 
+### What's Hardcoded vs Database
+
+**Database is OPTIONAL for core features.** The main AI capabilities work without PostgreSQL:
+
+| Component | Storage | Notes |
+|-----------|---------|-------|
+| **Eligibility Rules** | Hardcoded in `rules_engine.py` | 880 lines of Python, not in DB |
+| **Guide Content** | Pinecone vectors | 6,174 vectors, not in DB |
+| **RAG Chat** | Pinecone + Claude | No DB needed |
+| **Fix Finder** | Claude + Pinecone | No DB needed |
+| Policy Updates | DB (PolicyUpdate) | Optional - for "What Changed" tab |
+| Chat History | DB (Conversation) | Optional - sessions don't persist without it |
+| LLM Usage Tracking | DB (LLMUsage) | Optional - for `/usage` dashboard |
+
+**To run without a database:** Just don't set `DATABASE_URL`. The app falls back to SQLite (`./sage.db`) which auto-creates. For a pure demo, even SQLite is optional if you skip the DB-dependent features.
+
 ## Architecture
 
 ### Four Agentic Layers
