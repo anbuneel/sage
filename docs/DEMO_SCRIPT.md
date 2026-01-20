@@ -31,6 +31,13 @@ curl -s https://sage-api.fly.dev/api/health
 | Property Type | Single Family |
 | Occupancy | Primary Residence |
 | First-Time Buyer | ✓ (checked) |
+| State | Texas |
+| County | Harris (Houston) |
+
+**Calculated Values:**
+- Loan Amount: **$339,500** ($350k - 3% down)
+- LTV: **97%** (at program max)
+- Monthly Income: **$6,000**
 
 ### Recording Steps
 1. Open https://sage-web.fly.dev
@@ -57,8 +64,15 @@ curl -s https://sage-api.fly.dev/api/health
 
 **Borrower Profile:**
 - **Name:** Maria (first-time homebuyer)
+- **Location:** Houston, TX (Harris County)
 - **Situation:** Good credit, stable job, but carrying some debt
 - **Goal:** Buy a $350,000 home with 3% down
+
+**Loan Details:**
+- **Purchase Price:** $350,000
+- **Down Payment:** $10,500 (3%)
+- **Loan Amount:** $339,500
+- **LTV:** 97%
 
 **The Challenge:** Her debt-to-income ratio is slightly too high for standard approval.
 
@@ -215,10 +229,14 @@ Credit Score:    680
 Annual Income:   $72,000
 Monthly Debt:    $1,850
 Purchase Price:  $350,000
-Down Payment:    3%
+Down Payment:    3% ($10,500)
+Loan Amount:     $339,500
+LTV:             97%
 Property Type:   Single Family
 Occupancy:       Primary Residence
 First-Time:      Yes
+State:           Texas
+County:          Harris (Houston)
 ```
 
 **Result:** DTI = 52.8% (fails both programs)
