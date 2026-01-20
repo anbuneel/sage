@@ -149,6 +149,23 @@ cp backend/.env.example backend/.env
 
 **To run without a database:** Just don't set `DATABASE_URL`. The app falls back to SQLite (`./sage.db`) which auto-creates. For a pure demo, even SQLite is optional if you skip the DB-dependent features.
 
+### Eligibility Rules Architecture
+
+**Current:** Rules are hardcoded as Python logic in `rules_engine.py`:
+```python
+if scenario.credit_score < 620:  # Literal threshold in code
+    violations.append(RuleViolation(...))
+```
+
+**Why hardcoded?** Fast MVP development. Changing rules requires code changes + redeploy.
+
+**Future alternatives:**
+1. **Database-driven** - Store thresholds in `EligibilityRule` table, query at runtime. Change rules without redeploying.
+2. **Config files** - YAML/JSON with rule definitions. Easier to edit than Python but still needs redeploy.
+3. **Pure RAG** - Let Claude derive rules from retrieved guide content (what `eligibility_reasoner.py` does). Rules auto-update when guides change, but less predictable.
+
+**Current hybrid approach:** `rules_engine.py` runs first (fast, deterministic), then `eligibility_reasoner.py` validates with RAG (slower, more nuanced). Fix Finder uses pure RAG.
+
 ## Architecture
 
 ### Four Agentic Layers
