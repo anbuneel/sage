@@ -2,6 +2,8 @@ app = 'sage-web'
 primary_region = 'iad'
 
 [build]
+  [build.args]
+    NEXT_PUBLIC_API_URL = "https://sage-api.fly.dev/api"
 
 [http_service]
   internal_port = 3000
