@@ -86,24 +86,7 @@ export default function Home() {
             </div>
           </Link>
 
-          {/* What Changed */}
-          <Link href="/changes" className="card group p-6 md:p-8">
-            <div className="flex items-start gap-5">
-              <div className="p-3 bg-gold-500/10 text-gold-600 transition-transform duration-200 group-hover:scale-110">
-                <ClockCounterClockwise size={24} weight="thin" />
-              </div>
-              <div className="flex-1">
-                <h2 className="font-display text-lg font-semibold mb-2 group-hover:text-sage-600 transition-colors">
-                  What Changed
-                </h2>
-                <p className="text-ink-500 text-sm leading-relaxed">
-                  Track policy updates, Lender Letters, and Bulletins.
-                </p>
-              </div>
-              <ArrowRight size={20} weight="thin" className="text-ink-400 group-hover:text-sage-600 transition-colors" />
-            </div>
-          </Link>
-
+          {/* What Changed hidden - mock data, not needed for demo */}
           {/* Code Updates hidden - not needed for demo */}
         </div>
 

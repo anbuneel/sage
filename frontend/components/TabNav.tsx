@@ -27,11 +27,12 @@ const tabs: Tab[] = [
     href: '/ask',
     icon: <ChatText size={20} weight="thin" />,
   },
-  {
-    name: 'What Changed',
-    href: '/changes',
-    icon: <ClockCounterClockwise size={20} weight="thin" />,
-  },
+  // What Changed tab hidden - mock data, not impressive for demo
+  // {
+  //   name: 'What Changed',
+  //   href: '/changes',
+  //   icon: <ClockCounterClockwise size={20} weight="thin" />,
+  // },
   // Code Updates tab hidden - not needed for demo
   // {
   //   name: 'Code Updates',

@@ -41,11 +41,7 @@ export default function Footer() {
                   Ask the Guide
                 </Link>
               </li>
-              <li>
-                <Link href="/changes" className="text-paper/80 hover:text-sage-400 transition-colors">
-                  What Changed
-                </Link>
-              </li>
+{/* What Changed hidden - mock data, not needed for demo */}
 {/* Code Updates hidden - not needed for demo */}
             </ul>
           </div>
