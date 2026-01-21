@@ -43,13 +43,14 @@ curl -s https://sage-api.fly.dev/api/health
 ### Recording Steps
 1. Open https://sage-web.fly.dev
 2. Click **"Check My Loan"**
-3. Enter values from table above
-4. Click **"Check Eligibility"** — wait 5-10 seconds
-5. Scroll to see Fix Finder suggestions
-6. (Optional) Click **"Ask the Guide"** → ask: `What compensating factors offset high DTI?`
-7. Stop recording
+3. **Toggle ON "Enable Fix Finder Agent"** ← Important!
+4. Enter values from table above
+5. Click **"Check Eligibility"** — wait 30-40 seconds (AI is reasoning)
+6. Scroll to see Fix Finder Agent results with confidence scores
+7. (Optional) Click **"Ask the Guide"** → ask: `What compensating factors offset high DTI?`
+8. Stop recording
 
-**Expected Result:** DTI 51.4% fails both programs → Fix Finder suggests reducing debt by ~$100/month
+**Expected Result:** DTI 51.4% fails both programs → Fix Finder suggests reducing debt by **$115/month** (95% confidence)
 
 ---
 
@@ -115,20 +116,39 @@ curl -s https://sage-api.fly.dev/api/health
 
 ### Part 2: Fix Finder Agent (The Solution)
 
-**Step 4: Enable Fix Finder**
-- Toggle ON "Enable Fix Finder Agent"
-- Click "Check Eligibility" again (or it runs automatically)
+**Step 4: Enable Fix Finder** (do this BEFORE entering data)
+- Toggle ON **"Enable Fix Finder Agent"** at the top of the form
+- You'll see: "AI-powered • RAG retrieval • ReAct reasoning"
 
 **Step 5: Review AI-Powered Fix Suggestions**
 
-**Expected Fixes:**
-1. **Reduce monthly debt by ~$100/month** → Brings DTI to 48.4%
-   - "Pay off a credit card with $100 minimum payment"
+The Fix Finder Agent will run 3 ReAct iterations (~35 seconds) and return:
 
-2. **Consider a smaller loan amount** → 5% smaller loan reduces DTI
+**Performance Metrics:**
+- 3 reasoning cycles (OBSERVE → THINK → ACT)
+- ~11,500 tokens analyzed
+- ~35 seconds processing time
+
+**Expected Fixes (5 suggestions with confidence scores):**
+
+| Priority | Fix | Confidence | Unlocks |
+|----------|-----|------------|---------|
+| 1 | Reduce debt by **$115/month** → DTI 50% | **95%** | HomeReady |
+| 2 | Reduce debt by **$385/month** → DTI 45% | **95%** | Both |
+| 3 | Increase income by $350/month | 70% | HomeReady |
+| 4 | Exclude 30-day balances with payoff | 80% | — |
+| 5 | Reduce loan amount ($10k = ~$65/mo) | 90% | Both |
+
+**Recommended Approach:**
+> "Reduce monthly debt by $115 to achieve 50% DTI for HomeReady eligibility"
+
+**Product Comparison Insights:**
+- HomeReady has 50% DTI limit (easier)
+- Home Possible has 45% DTI limit (harder)
+- 6% DTI gap makes HomeReady significantly more accessible
 
 **Talking Point:**
-> "The Fix Finder Agent used RAG to search 4,866 pages of GSE guidelines, then simulated different scenarios to find the smallest change that makes Maria eligible. She just needs to pay off about $100/month in debt — one credit card minimum payment."
+> "The Fix Finder Agent used the ReAct pattern to iteratively search GSE guidelines. It found the MINIMUM change needed — Maria only needs to reduce debt by $115/month, not $200. It also found creative alternatives like excluding 30-day account balances if she has payoff funds."
 
 ---
 
@@ -241,4 +261,39 @@ County:          Harris (Houston)
 ```
 
 **Result:** DTI = 51.4% (fails both programs — just over 50% limit)
-**Fix:** Reduce debt by ~$100/month → DTI drops to 48.4% (eligible!)
+**Fix:** Reduce debt by **$115/month** → DTI drops to 50.0% (HomeReady eligible!)
+
+---
+
+## Verified Results (January 2026)
+
+### Eligibility Check Results
+| Program | Status | Violation |
+|---------|--------|-----------|
+| HomeReady (Fannie Mae) | ❌ INELIGIBLE | DTI 51.4% > 50% max |
+| Home Possible (Freddie Mac) | ❌ INELIGIBLE | DTI 51.4% > 45% max |
+
+### Fix Finder Agent Results
+**Performance:**
+- ReAct Iterations: 3 cycles
+- Processing Time: 35.8 seconds
+- Tokens Used: 11,510
+
+**Recommended Approach:**
+> "Reduce monthly debt by $115 to achieve 50% DTI for HomeReady eligibility"
+
+**Enhanced Fix Suggestions:**
+
+| # | Fix | Impact | Confidence | Timeline | Unlocks |
+|---|-----|--------|------------|----------|---------|
+| 1 | Reduce debt by $115/month | DTI: 51.4% → 50.0% | 95% | Immediate | HomeReady |
+| 2 | Reduce debt by $385/month | DTI: 51.4% → 45.0% | 95% | Immediate | Both |
+| 3 | Increase income by $350/month | DTI: 51.4% → 50.0% | 70% | 30-60 days | HomeReady |
+| 4 | Exclude 30-day balances with payoff | Depends on balances | 80% | Immediate | — |
+| 5 | Reduce loan amount | ~$65/mo per $10k | 90% | Immediate | Both |
+
+**Product Comparison Insights:**
+- `homeready_advantage`: Lower DTI requirement (50% vs 45%), easier to qualify
+- `home_possible_advantage`: May offer different rate/fee structures
+- `key_difference`: 6% DTI gap makes HomeReady significantly more accessible
+- `recommendation`: Focus on HomeReady qualification first

@@ -53,6 +53,7 @@ sage/
 │   │   ├── TabNav.tsx           # Navigation tabs
 │   │   ├── LoanForm.tsx         # Loan scenario input form
 │   │   ├── EligibilityResult.tsx # Eligibility results display
+│   │   ├── FixFinderPanel.tsx   # Fix Finder Agent results display
 │   │   ├── ChatInterface.tsx    # RAG chat component
 │   │   ├── ChangeTimeline.tsx   # Policy updates timeline
 │   │   ├── CodeDiff.tsx         # Code diff viewer
@@ -256,7 +257,9 @@ if scenario.credit_score < 620:  # Literal threshold in code
    - Three tools: `query_guides` (RAG search), `simulate_scenario` (what-if testing), `compare_products` (GSE comparison)
    - Enhanced fixes with confidence scores, priority ordering, citations, and compensating factors
    - Multi-step fix sequences with effort-vs-benefit scoring
-   - Enable via `enable_fix_finder=true` query parameter
+   - **Frontend toggle:** "Enable Fix Finder Agent" checkbox on Check My Loan page
+   - `FixFinderPanel.tsx` component displays results with expandable fix details
+   - See: [Demo Script](./docs/DEMO_SCRIPT.md) for expected results
 
 5. **Natural Language Input** — Accept loan scenarios in plain English, not just form fields
 

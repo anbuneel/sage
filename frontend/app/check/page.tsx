@@ -6,23 +6,29 @@ import LoanForm from '@/components/LoanForm';
 import EligibilityResult from '@/components/EligibilityResult';
 import ModeToggle from '@/components/ModeToggle';
 import DemoModePanel from '@/components/DemoModePanel';
+import FixFinderPanel from '@/components/FixFinderPanel';
 import type { LoanScenario, EligibilityResult as EligibilityResultType, ViewMode } from '@/lib/types';
 import { checkLoanEligibility } from '@/lib/api';
-import { Warning } from '@phosphor-icons/react';
+import { Warning, Robot } from '@phosphor-icons/react';
 
 export default function CheckMyLoanPage() {
   const [result, setResult] = useState<EligibilityResultType | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [viewMode, setViewMode] = useState<ViewMode>('lo');
+  const [enableFixFinder, setEnableFixFinder] = useState(false);
 
   const handleSubmit = async (scenario: LoanScenario) => {
     setIsLoading(true);
     setError(null);
 
     try {
-      // Pass demo_mode flag to get detailed reasoning data
-      const eligibilityResult = await checkLoanEligibility(scenario, viewMode === 'demo');
+      // Pass demo_mode and enable_fix_finder flags
+      const eligibilityResult = await checkLoanEligibility(
+        scenario,
+        viewMode === 'demo',
+        enableFixFinder
+      );
       setResult(eligibilityResult);
     } catch (err) {
       console.error('Error checking eligibility:', err);
@@ -78,10 +84,45 @@ export default function CheckMyLoanPage() {
           </div>
         )}
 
+        {/* Fix Finder Toggle */}
+        <div className="mb-8 animate-fade-up" style={{ animationDelay: '100ms' }}>
+          <label className="flex items-center gap-3 cursor-pointer group">
+            <div className="relative">
+              <input
+                type="checkbox"
+                checked={enableFixFinder}
+                onChange={(e) => setEnableFixFinder(e.target.checked)}
+                className="sr-only peer"
+              />
+              <div className="w-11 h-6 bg-ink-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-sage/50 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-ink-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-sage"></div>
+            </div>
+            <div className="flex items-center gap-2">
+              <Robot size={20} weight="thin" className={enableFixFinder ? 'text-sage' : 'text-ink-400'} />
+              <span className={`font-medium ${enableFixFinder ? 'text-sage' : 'text-ink-600'}`}>
+                Enable Fix Finder Agent
+              </span>
+            </div>
+            {enableFixFinder && (
+              <span className="text-xs text-ink-500 bg-sage/10 px-2 py-1 rounded">
+                AI-powered • RAG retrieval • ReAct reasoning
+              </span>
+            )}
+          </label>
+          <p className="text-sm text-ink-500 mt-2 ml-14">
+            {enableFixFinder
+              ? 'The Fix Finder Agent will analyze 4,866 pages of GSE guidelines to find intelligent fixes with citations.'
+              : 'Enable to get AI-powered fix suggestions with confidence scores and guide citations.'}
+          </p>
+        </div>
+
         {/* Conditional Rendering: Form or Results */}
         {result ? (
           <>
             <EligibilityResult result={result} onReset={handleReset} />
+            {/* Fix Finder Panel - shows enhanced AI suggestions */}
+            {result.fix_finder_result && (
+              <FixFinderPanel data={result.fix_finder_result} showReactTrace={viewMode === 'demo'} />
+            )}
             {/* Demo Mode Panel - shows AI reasoning details */}
             {viewMode === 'demo' && result.demo_data && (
               <DemoModePanel data={result.demo_data} />

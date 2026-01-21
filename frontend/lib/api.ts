@@ -110,9 +110,16 @@ export async function getChangeCode(
 
 export async function checkLoanEligibility(
   scenario: LoanScenario,
-  demoMode: boolean = false
+  demoMode: boolean = false,
+  enableFixFinder: boolean = false
 ): Promise<EligibilityResult> {
-  const endpoint = demoMode ? '/check-loan?demo_mode=true' : '/check-loan';
+  const params = new URLSearchParams();
+  if (demoMode) params.set('demo_mode', 'true');
+  if (enableFixFinder) params.set('enable_fix_finder', 'true');
+
+  const queryString = params.toString();
+  const endpoint = `/check-loan${queryString ? `?${queryString}` : ''}`;
+
   return fetchApi<EligibilityResult>(endpoint, {
     method: 'POST',
     body: JSON.stringify(scenario),

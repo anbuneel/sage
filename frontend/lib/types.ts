@@ -74,6 +74,8 @@ export interface EligibilityResult {
   fix_suggestions: FixSuggestion[];
   // Demo mode data (optional - only present when demo_mode=true)
   demo_data?: DemoModeData;
+  // Fix Finder Agent results (optional - only present when enable_fix_finder=true)
+  fix_finder_result?: FixFinderResult;
 }
 
 // ============================================
@@ -121,6 +123,87 @@ export interface DemoModeData {
     total_sections: number;
     total_vectors: number;
   };
+}
+
+// ============================================
+// Fix Finder Agent Types
+// ============================================
+
+export interface GuideCitation {
+  section_id: string;
+  gse: GSE;
+  snippet: string;
+  relevance_score: number;
+}
+
+export interface CompensatingFactor {
+  factor_type: string;
+  description: string;
+  requirement: string;
+  citations: GuideCitation[];
+}
+
+export interface EnhancedFixSuggestion {
+  description: string;
+  impact: string;
+  difficulty: Difficulty;
+  confidence: number;
+  priority_order: number;
+  estimated_timeline: string;
+  unlocks_products: ProductName[];
+  citations: GuideCitation[];
+  compensating_factors: CompensatingFactor[];
+  trade_offs: string[];
+}
+
+export type TotalEffort = 'low' | 'medium' | 'high' | 'very_high';
+export type Feasibility = 'easy' | 'moderate' | 'hard' | 'very_hard';
+
+export interface SimulationResult {
+  scenario_description: string;
+  parameter_changes: Record<string, string>;
+  homeready_eligible: boolean;
+  home_possible_eligible: boolean;
+  violations_resolved: string[];
+  remaining_violations: string[];
+  feasibility: Feasibility;
+}
+
+export interface FixSequence {
+  sequence_name: string;
+  description: string;
+  steps: EnhancedFixSuggestion[];
+  total_effort: TotalEffort;
+  effort_vs_benefit_score: number;
+  products_unlocked: ProductName[];
+  estimated_total_timeline: string;
+}
+
+export interface ToolCall {
+  tool_name: 'query_guides' | 'simulate_scenario' | 'compare_products';
+  arguments: Record<string, unknown>;
+  result_summary: string;
+}
+
+export interface ReactStep {
+  step_number: number;
+  observation: string;
+  reasoning: string;
+  action: string;
+  tool_calls: ToolCall[];
+  findings: string[];
+}
+
+export interface FixFinderResult {
+  enhanced_fixes: EnhancedFixSuggestion[];
+  fix_sequences: FixSequence[];
+  simulations: SimulationResult[];
+  recommended_path: string;
+  product_comparison: Record<string, string>;
+  react_trace: ReactStep[];
+  total_iterations: number;
+  total_time_ms: number;
+  tokens_used: number;
 }
 
 // ============================================
